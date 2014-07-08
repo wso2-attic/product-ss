@@ -59,49 +59,6 @@
                             </artifactItems>
                         </configuration>
                     </execution>
-                    <!--<execution>-->
-                        <!--<id>2-unpack-kernel-patch</id>-->
-                        <!--<phase>test</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>unpack</goal>-->
-                        <!--</goals>-->
-                        <!--<configuration>-->
-                            <!--<artifactItems>-->
-                                <!--<artifactItem>-->
-                                    <!--<groupId>org.wso2.carbon</groupId>-->
-                                    <!--<artifactId>WSO2-CARBON-PATCH-4.2.0</artifactId>-->
-                                    <!--<version>0001</version>-->
-                                    <!--<type>zip</type>-->
-                                    <!--<overWrite>true</overWrite>-->
-                                    <!--<outputDirectory>target</outputDirectory>-->
-                                <!--</artifactItem>-->
-                                <!--<artifactItem>-->
-                                    <!--<groupId>org.wso2.carbon</groupId>-->
-                                    <!--<artifactId>WSO2-CARBON-PATCH-4.2.0</artifactId>-->
-                                    <!--<version>0002</version>-->
-                                    <!--<type>zip</type>-->
-                                    <!--<overWrite>true</overWrite>-->
-                                    <!--<outputDirectory>target</outputDirectory>-->
-                                <!--</artifactItem>-->
-				<!--<artifactItem>-->
-                                    <!--<groupId>org.wso2.carbon</groupId>-->
-                                    <!--<artifactId>WSO2-CARBON-PATCH-4.2.0</artifactId>-->
-                                    <!--<version>0003</version>-->
-                                    <!--<type>zip</type>-->
-                                    <!--<overWrite>true</overWrite>-->
-                                    <!--<outputDirectory>target</outputDirectory>-->
-                                <!--</artifactItem>-->
-				<!--<artifactItem>-->
-                                    <!--<groupId>org.wso2.carbon</groupId>-->
-                                    <!--<artifactId>WSO2-CARBON-PATCH-4.2.0</artifactId>-->
-                                    <!--<version>0004</version>-->
-                                    <!--<type>zip</type>-->
-                                    <!--<overWrite>true</overWrite>-->
-                                    <!--<outputDirectory>target</outputDirectory>-->
-                                <!--</artifactItem>-->
-                            <!--</artifactItems>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
                 </executions>
             </plugin>
             <plugin>
@@ -122,7 +79,7 @@
                             <publishArtifacts>true</publishArtifacts>
                             <publishArtifactRepository>true</publishArtifactRepository>
                             <featureArtifacts>
-				<featureArtifactDef>
+                                <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.core.feature:${carbon.kernel.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
@@ -134,14 +91,14 @@
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.cassandra.monitor.feature:${carbon.platform.version}
-                                </featureArtifactDef>       
-				<featureArtifactDef>
+                                </featureArtifactDef>
+                                <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.cassandra.common.feature:${carbon.platform.version}
                                 </featureArtifactDef>
-				<featureArtifactDef>
+                                <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.cassandra.explorer.feature:${carbon.platform.version}
-                                </featureArtifactDef>                   
-								<!--End Cassandra features-->
+                                </featureArtifactDef>
+                                <!--End Cassandra features-->
                                 <!--Start RSS features-->
                                 <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.rssmanager.feature:${carbon.platform.version}
@@ -154,32 +111,32 @@
                                 </featureArtifactDef>
                                 <!--End RSS features-->
                                 <!--Start HDFS features-->
-                                <!--featureArtifactDef>
-					org.wso2.carbon:org.wso2.carbon.hdfs.dataaccess.feature:${carbon.platform.version}
-     				</featureArtifactDef>
                                 <featureArtifactDef>
-					org.wso2.carbon:org.wso2.carbon.hdfs.mgt.feature:${carbon.platform.version}
+                                    org.wso2.carbon:org.wso2.carbon.hdfs.dataaccess.feature:${carbon.platform.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
+                                    org.wso2.carbon:org.wso2.carbon.hdfs.mgt.feature:${carbon.platform.version}
+                                </featureArtifactDef>
+                                <!--<featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.hdfs.mgt.ui.feature:${carbon.platform.version}
+                                </featureArtifactDef>-->
+                                <featureArtifactDef>
+                                    org.wso2.carbon:org.wso2.carbon.hdfs.namenode.feature:${carbon.platform.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-					org.wso2.carbon:org.wso2.carbon.hdfs.namenode.feature:${carbon.platform.version}
-                                </featureArtifactDef-->
-                                <!--<featureArtifactDef>-->
-                                <!--org.wso2.carbon:org.wso2.carbon.hdfs.datanode.feature:${carbon.platform.version}-->
-                                <!--</featureArtifactDef>-->
+                                    org.wso2.carbon:org.wso2.carbon.hdfs.datanode.feature:${carbon.platform.version}
+                                </featureArtifactDef>
                                 <!--End HDFS features-->
                                 <!--Start Secure Hadoop features-->
-                                <!--featureArtifactDef>
-					org.wso2.carbon:org.wso2.carbon.hadoop.security.feature:${carbon.platform.version}
-				</featureArtifactDef>
                                 <featureArtifactDef>
-					org.wso2.carbon:org.wso2.carbon.identity.authenticator.krb5.feature:${carbon.platform.version}
-				</featureArtifactDef-->
-                                <!--<featureArtifactDef>-->
-                                    <!--org.wso2.carbon:org.wso2.carbon.identity.authenticator.krb5.ui.feature:${carbon.platform.version}-->
-                                <!--</featureArtifactDef>-->
+                                    org.wso2.carbon:org.wso2.carbon.hadoop.security.feature:${carbon.platform.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon:org.wso2.carbon.identity.authenticator.krb5.feature:${carbon.platform.version}
+                                </featureArtifactDef>
+                                <!--featureArtifactDef>
+                                    org.wso2.carbon:org.wso2.carbon.identity.authenticator.krb5.ui.feature:${carbon.platform.version}
+                                </featureArtifactDef-->
                                 <!--End Secure Hadoop features-->
                                 <!--Start LDAP features-->
                                 <featureArtifactDef>
@@ -217,7 +174,7 @@
                                 </featureArtifactDef-->
 
                                 <featureArtifactDef>
-				    org.wso2.ss:org.wso2.ss.styles.feature:${project.version}
+                                    org.wso2.ss:org.wso2.ss.styles.feature:${project.version}
                                 </featureArtifactDef>
                                 <!--<featureArtifactDef>org.wso2.ss:org.wso2.ss.utils.feature:${project.version}-->
                                 <!--</featureArtifactDef>-->
@@ -227,7 +184,7 @@
                                     org.wso2.carbon:org.wso2.carbon.tenant.common.feature:${carbon.platform.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon:org.wso2.carbon.tenant.common.feature:${carbon.platform.version}
+                                    org.wso2.carbon:org.wso2.carbon.tenant.usage.agent.feature:${carbon.platform.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.tenant.throttling.agent.feature:${carbon.platform.version}
@@ -256,12 +213,12 @@
                                 <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.identity.authenticator.saml2.sso.ui.feature:${carbon.platform.version}
                                 </featureArtifactDef>
-				<featureArtifactDef>
-				    org.wso2.carbon:org.wso2.carbon.claim.mgt.feature:${carbon.platform.version}
-				</featureArtifactDef>
-				<featureArtifactDef>
-				    org.wso2.carbon:org.wso2.carbon.user.mgt.feature:${carbon.platform.version}
-				</featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon:org.wso2.carbon.claim.mgt.feature:${carbon.platform.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon:org.wso2.carbon.user.mgt.feature:${carbon.platform.version}
+                                </featureArtifactDef>
                             </featureArtifacts>
                         </configuration>
                     </execution>
@@ -319,7 +276,7 @@
                                 </feature>
                                 <!--End RSS featrues-->
                                 <!--Start HDFS featrues-->
-                                <!--feature>
+                                <feature>
                                     <id>org.wso2.carbon.hdfs.dataaccess.feature.group</id>
                                     <version>${carbon.platform.version}</version>
                                 </feature>
@@ -327,32 +284,32 @@
                                     <id>org.wso2.carbon.hdfs.mgt.feature.group</id>
                                     <version>${carbon.platform.version}</version>
                                 </feature>
-                                <feature>
+                                <!--<feature>
                                     <id>org.wso2.carbon.hdfs.mgt.ui.feature.group</id>
                                     <version>${carbon.platform.version}</version>
-                                </feature>
+                                </feature>-->
                                 <feature>
                                     <id>org.wso2.carbon.hdfs.namenode.feature.group</id>
                                     <version>${carbon.platform.version}</version>
-                                </feature-->
-                                <!--feature>
-                                <id>org.wso2.carbon.hdfs.datanode.feature.group</id>
-                                <version>${carbon.platform.version}</version>
-                                </feature-->
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.hdfs.datanode.feature.group</id>
+                                    <version>${carbon.platform.version}</version>
+                                </feature>
                                 <!--End HDFS featrues-->
                                 <!--Start Secure Hadoop featrues-->
-                                <!--feature>
+                                <feature>
                                     <id>org.wso2.carbon.hadoop.security.feature.group</id>
                                     <version>${carbon.platform.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.identity.authenticator.krb5.feature.group</id>
                                     <version>${carbon.platform.version}</version>
+                                </feature>
+                                <!--feature>
+                                    <id>org.wso2.carbon.identity.authenticator.krb5.ui.feature.group</id>
+                                    <version>${carbon.platform.version}</version>
                                 </feature-->
-                                <!--<feature>-->
-                                    <!--<id>org.wso2.carbon.identity.authenticator.krb5.ui.feature.group</id>-->
-                                    <!--<version>${carbon.platform.version}</version>-->
-                                <!--</feature>-->
                                 <!--End Secure Hadoop featrues-->
                                 <!--Start LDAP features-->
                                 <feature>
@@ -425,10 +382,10 @@
                                                                 <version>${carbon.version}</version>
                                                                 </feature-->
                                 <!--Start Stratos features-->
-                                <!--feature>
+                                <feature>
                                     <id>org.wso2.carbon.tenant.usage.agent.feature.group</id>
                                     <version>${carbon.platform.version}</version>
-                                </feature-->
+                                </feature>
                                 <feature>
                                     <id>org.wso2.carbon.tenant.throttling.agent.feature.group</id>
                                     <version>${carbon.platform.version}</version>
@@ -465,13 +422,13 @@
                                     <id>org.wso2.carbon.identity.authenticator.saml2.sso.ui.feature.group</id>
                                     <version>${carbon.platform.version}</version>
                                 </feature>
-				<feature>
-                                   <id>org.wso2.carbon.claim.mgt.feature.group</id>
-                                   <version>${carbon.platform.version}</version>
+                                <feature>
+                                    <id>org.wso2.carbon.claim.mgt.feature.group</id>
+                                    <version>${carbon.platform.version}</version>
                                 </feature>
-				<feature>
-                                   <id>org.wso2.carbon.user.mgt.feature.group</id>
-                                   <version>${carbon.platform.version}</version>
+                                <feature>
+                                    <id>org.wso2.carbon.user.mgt.feature.group</id>
+                                    <version>${carbon.platform.version}</version>
                                 </feature>
 
                             </features>
@@ -488,10 +445,10 @@
                         <phase>package</phase>
                         <configuration>
                             <tasks>
-				<replace token="false" value="true"
-                                        dir="target/wso2carbon-core-${carbon.kernel.version}/repository/components">
-                                   <include name="**/bundles.info"/>
-                               </replace>
+                                <replace token="false" value="true"
+                                         dir="target/wso2carbon-core-${carbon.kernel.version}/repository/components">
+                                    <include name="**/bundles.info"/>
+                                </replace>
                             </tasks>
                         </configuration>
                         <goals>
