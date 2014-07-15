@@ -46,7 +46,7 @@
 
 	<datasource>
             <name>MetadataRepo</name>
-            <description>The datasource used for registry and user manager</description>
+            <description>The datasource used for RSS metadata repository</description>
             <jndiConfig>
                 <name>MetadataRepoDS</name>
             </jndiConfig>
