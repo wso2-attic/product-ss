@@ -117,7 +117,7 @@
                                 <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.hdfs.mgt.feature:${carbon.platform.version}
                                 </featureArtifactDef>
-                                <<featureArtifactDef>
+                                <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.hdfs.mgt.ui.feature:${carbon.platform.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
