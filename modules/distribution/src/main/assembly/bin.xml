@@ -286,6 +286,10 @@
                 <include>**/patch0003/*.*</include>
             </includes>
         </fileSet>
+        <fileSet>
+            <directory>src/main/resources/pylib</directory>
+            <outputDirectory>wso2ss-${pom.version}/repository/lib/pylib</outputDirectory>
+        </fileSet>
     </fileSets>
     <!--DataNode-->
     <dependencySets>
@@ -530,6 +534,27 @@
         <file>
             <source>src/main/resources/security/cipher-tool.properties</source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/security/</outputDirectory>
+        </file>
+        <file>
+            <source>src/main/bin/cqlsh</source>
+            <outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>
+            <destName>cqlsh</destName>
+            <fileMode>755</fileMode>
+            <filtered>true</filtered>
+        </file>
+        <file>
+            <source>src/main/resources/cql-internal-only-1.4.1.zip</source>
+            <outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>
+            <destName>cql-internal-only-1.4.1.zip</destName>
+            <fileMode>644</fileMode>
+            <filtered>true</filtered>
+        </file>
+        <file>
+            <source>src/main/resources/thrift-python-internal-only-0.7.0.zip</source>
+            <outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>
+            <destName>thrift-python-internal-only-0.7.0.zip</destName>
+            <fileMode>644</fileMode>
+            <filtered>true</filtered>
         </file>
     </files>
 </assembly>
