@@ -201,12 +201,11 @@
         <fileSet>
             <directory>src/main/resources/hadoop</directory>
             <outputDirectory>wso2ss-${pom.version}/repository/data/hadoop</outputDirectory>
-            <filtered>true</filtered>
+            <fileMode>755</fileMode>
         </fileSet>
         <fileSet>
             <directory>src/main/resources/hadoop-cli</directory>
             <outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>
-            <filtered>true</filtered>
             <fileMode>755</fileMode>
         </fileSet>
         <!--hadoop-->
