@@ -24,12 +24,12 @@
     <parent>
         <groupId>org.wso2.ss</groupId>
         <artifactId>ss-parent</artifactId>
-        <version>${ss.version}</version>
+        <version>1.5.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>ss-integration-tests</artifactId>
+    <artifactId>integration</artifactId>
     <packaging>pom</packaging>
     <name>WSO2 Storage Server - Integration Parent</name>
 
@@ -41,7 +41,8 @@
     </licenses>
 
     <modules>
-        <module>tests</module>
+        <module>tests-common</module>
+        <module>tests-integration</module>
     </modules>
 
     <build>
