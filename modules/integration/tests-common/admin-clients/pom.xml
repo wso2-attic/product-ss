@@ -9,7 +9,6 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.wso2.ss</groupId>
   <artifactId>org.wso2.ss.integration.common.clients</artifactId>
   <packaging>jar</packaging>
   <name>admin-clents</name>
