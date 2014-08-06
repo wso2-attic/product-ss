@@ -52,7 +52,7 @@ public class RSSMgtTestCase extends SSIntegrationTest{
     }
 
     @Test(groups = "wso2.ss", description = "create database")
-    public void testCreateDB() throws AxisFault {
+    public void createDB() throws AxisFault {
     	DatabaseInfo database = new DatabaseInfo();
     	database.setName("db1");
     	database.setType("SYSTEM");
@@ -63,7 +63,7 @@ public class RSSMgtTestCase extends SSIntegrationTest{
     
 
     
-    @Test(groups = "wso2.ss", description = " get database list ",dependsOnMethods={"testCreateDB"})
+    @Test(groups = "wso2.ss", description = " get database list ",dependsOnMethods={"createDB"})
     public void getDatabasesList() throws AxisFault {
         assertTrue(client.getDatabaseList("DEFAULT").length > 0);
     }
@@ -90,13 +90,48 @@ public class RSSMgtTestCase extends SSIntegrationTest{
     	client.createDatabasePrivilegesTemplate("DEFAULT", template);
     }
     
-    @Test(groups = "wso2.ss", description = "assign user to database",dependsOnMethods={"testCreateDB","createDbUser","createPrivilegeTemplate"})
+    @Test(groups = "wso2.ss", description = "assign user to database",dependsOnMethods={"createDB","createDbUser","createPrivilegeTemplate"})
     public void attachUserToDB() throws AxisFault{
-    	
-    	
     	client.attachUserToDatabase("DEFAULT", "WSO2RSS1", "db1", "user1", "temp1", "SYSTEM");
     }
-   
+    
+    @Test(groups = "wso2.ss", description = "detach user from database",dependsOnMethods={"attachUserToDB"})
+    public void detachUserFromDB() throws AxisFault{
+    	client.detachUserFromDatabase("DEFAULT", "WSO2RSS1", "db1", "user1", "SYSTEM");
+    	client.attachUserToDatabase("DEFAULT", "WSO2RSS1", "db1", "user1", "temp1", "SYSTEM");
+    }
+    
+    @Test(groups = "wso2.ss", description = "delete databae priviledge template")
+    public void deletePrivilegeTemplate() throws AxisFault{
+    	DatabasePrivilegeTemplateInfo template = new DatabasePrivilegeTemplateInfo();
+    	template.setName("temp2");
+    	MySQLPrivilegeSetInfo privileges = new MySQLPrivilegeSetInfo();
+    	privileges.setAlterPriv("Y");
+    	template.setPrivileges(privileges);
+    	client.createDatabasePrivilegesTemplate("DEFAULT", template);
+    	
+    	client.dropDatabasePrivilegesTemplate("DEFAULT", "temp2");
+    }
+    
+    @Test(groups = "wso2.ss", description = "edit databae priviledge template")
+    public void editPrivilegeTemplate() throws AxisFault{
+    	DatabasePrivilegeTemplateInfo template = new DatabasePrivilegeTemplateInfo();
+    	template.setName("temp3");
+    	MySQLPrivilegeSetInfo privileges = new MySQLPrivilegeSetInfo();
+    	privileges.setAlterPriv("Y");
+    	template.setPrivileges(privileges);
+    	client.createDatabasePrivilegesTemplate("DEFAULT", template);
+    	
+    	template = new DatabasePrivilegeTemplateInfo();
+    	template.setName("temp3");
+    	privileges = new MySQLPrivilegeSetInfo();
+    	privileges.setAlterPriv("N");
+    	template.setPrivileges(privileges);
+    	
+    	client.editDatabasePrivilegesTemplate("DEFAULT",template );
+    	DatabasePrivilegeTemplateInfo tempInfo = client.getDatabasePrivilegesTemplate("DEFAULT", "temp3");
+    	Assert.assertEquals(tempInfo.getPrivileges().getAlterPriv(), "N");
+    }
 
     @AfterClass(alwaysRun = true)
     public void cleanUp() throws Exception {
