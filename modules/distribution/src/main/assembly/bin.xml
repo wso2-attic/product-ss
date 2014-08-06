@@ -36,6 +36,7 @@
                 <exclude>**/INSTALL.txt</exclude>
                 <!--exclude>**/release-notes.html</exclude-->
                 <exclude>**/user-mgt.xml</exclude>
+		<exclude>**/master-datasources.xml</exclude>
                 <exclude>**/carbon.xml</exclude>
                 <exclude>**/cache.xml</exclude>
 
@@ -126,6 +127,7 @@
                 <exclude>**/catalina-server.xml</exclude>
                 <exclude>**/log4j.properties</exclude>
                 <exclude>**/user-mgt.xml</exclude>
+		<exclude>**/master-datasources.xml</exclude>
                 <exclude>**/embedded-ldap.xml</exclude>
                 <exclude>**/krb5.conf</exclude>
                 <!-- Changes related to Carbon kernel 4.2.0 patches -->
