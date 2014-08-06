@@ -271,8 +271,9 @@
 
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.rssmanager.stub</artifactId>
-        </dependency>
+          <groupId>org.wso2.carbon</groupId>
+          <artifactId>org.wso2.carbon.rssmanager.stub</artifactId>
+          <scope>compile</scope>
+      </dependency>
     </dependencies>
 </project>
