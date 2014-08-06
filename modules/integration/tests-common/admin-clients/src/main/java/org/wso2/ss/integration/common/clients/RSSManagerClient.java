@@ -18,12 +18,15 @@
 package org.wso2.ss.integration.common.clients;
 
 import org.apache.axis2.AxisFault;
+import org.apache.axis2.Constants;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.apache.axis2.context.ConfigurationContext;
 import org.apache.axis2.transport.http.HTTPConstants;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.wso2.carbon.cassandra.mgt.stub.ks.CassandraKeyspaceAdminStub;
+import org.wso2.carbon.integration.common.admin.client.utils.AuthenticateStubUtil;
 import org.wso2.carbon.rssmanager.core.dto.xsd.*;
 import org.wso2.carbon.rssmanager.ui.stub.RSSAdminRSSManagerExceptionException;
 import org.wso2.carbon.rssmanager.ui.stub.RSSAdminStub;
@@ -38,19 +41,22 @@ public class RSSManagerClient {
 
 	private static final Log log = LogFactory.getLog(RSSManagerClient.class);
 
-	public RSSManagerClient(String cookie, String backendServerUrl, ConfigurationContext configurationContext,
-                            Locale locale) {
-		String serviceEndpoint = backendServerUrl + "RSSAdmin";
-		try {
-			stub = new RSSAdminStub(configurationContext, serviceEndpoint);
-			ServiceClient serviceClient = stub._getServiceClient();
-			Options options = serviceClient.getOptions();
-			options.setManageSession(true);
-			options.setProperty(HTTPConstants.COOKIE_STRING, cookie);
-		} catch (AxisFault axisFault) {
-			log.error(axisFault);
-		}
+//https://10.100.0.118:9443/services/RSSAdmin
+    private String serviceName="RSSAdmin";
+
+    public RSSManagerClient(String backEndUrl, String sessionCookie) throws AxisFault {
+        String endPoint = backEndUrl + serviceName;
+        stub = new RSSAdminStub(endPoint);
+        AuthenticateStubUtil.authenticateStub(sessionCookie, stub);
+    }
+    
+    
+
+
+	public RSSAdminStub getStub() {
+		return stub;
 	}
+
 
 	public void dropDatabasePrivilegesTemplate(String environmentName, String templateName) throws AxisFault {
 		try {
@@ -107,6 +113,9 @@ public class RSSManagerClient {
 
 	public void createDatabase(String environmentName, DatabaseInfo database) throws AxisFault {
 		try {
+			if(stub == null){
+				throw new AxisFault("stub is null");
+			}
 			stub.addDatabase(environmentName, database);
 		} catch (RemoteException e) {
 			handleException("Fail to create database" + " '" + database.getName() + "' : " + e.getMessage(),
