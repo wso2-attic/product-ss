@@ -32,8 +32,6 @@ import org.wso2.carbon.cassandra.mgt.stub.ks.xsd.KeyspaceInformation;
 import org.wso2.carbon.cassandra.mgt.stub.ks.xsd.TokenRangeInformation;
 import org.wso2.carbon.integration.common.admin.client.utils.AuthenticateStubUtil;
 
-import javax.servlet.http.HttpSession;
-
 /**
  * The WS dataaccess to access the Cassandra Admin Service
  */
@@ -212,7 +210,7 @@ public class CassandraKeyspaceAdminClient {
      * @param keyspaceInformation keyspace information
      * @throws AxisFault For errors during adding a keyspace
      */
-    public void addKeyspace(KeyspaceInformation keyspaceInformation, HttpSession session)
+    public void addKeyspace(KeyspaceInformation keyspaceInformation)
             throws AxisFault {
         validateKeyspaceInformation(keyspaceInformation);
         try {
@@ -228,7 +226,7 @@ public class CassandraKeyspaceAdminClient {
      * @param keyspaceInformation keyspace information
      * @throws AxisFault For errors during adding a keyspace
      */
-    public void updateKeyspace(KeyspaceInformation keyspaceInformation, HttpSession session)
+    public void updateKeyspace(KeyspaceInformation keyspaceInformation)
             throws AxisFault {
         validateKeyspaceInformation(keyspaceInformation);
         try {
@@ -294,7 +292,7 @@ public class CassandraKeyspaceAdminClient {
      * @param columnFamilyInformation information about a CF
      * @throws AxisFault for errors during adding a CF
      */
-    public void addColumnFamily(ColumnFamilyInformation columnFamilyInformation, HttpSession session)
+    public void addColumnFamily(ColumnFamilyInformation columnFamilyInformation)
             throws AxisFault {
         validateColumnFamilyInformation(columnFamilyInformation);
         try {
@@ -310,7 +308,7 @@ public class CassandraKeyspaceAdminClient {
      * @param columnFamilyInformation CF information
      * @throws AxisFault for errors during adding a CF
      */
-    public void updateColumnFamily(ColumnFamilyInformation columnFamilyInformation, HttpSession session)
+    public void updateColumnFamily(ColumnFamilyInformation columnFamilyInformation)
             throws AxisFault {
         validateColumnFamilyInformation(columnFamilyInformation);
         try {

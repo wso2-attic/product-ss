@@ -15,7 +15,7 @@
 *specific language governing permissions and limitations
 *under the License.
 */
-package org.wso2.carbon.ss.integration.test.cassandra;
+package org.wso2.ss.integration.common.utils;
 
 public class CassandraUtils {
     public final static String SIMPLE_CLASS = "org.apache.cassandra.locator.SimpleStrategy";
