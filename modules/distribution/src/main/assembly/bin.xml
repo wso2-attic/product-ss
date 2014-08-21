@@ -39,6 +39,7 @@
 		<exclude>**/master-datasources.xml</exclude>
                 <exclude>**/carbon.xml</exclude>
                 <exclude>**/cache.xml</exclude>
+                <exclude>**/master-datasources.xml</exclude>
 
                 <!-- Following will be added by patch0001; Excluded here -->
                 <exclude>**/dbscripts/mysql.sql</exclude>
@@ -95,6 +96,7 @@
             <outputDirectory>${pom.artifactId}-${pom.version}</outputDirectory>
             <excludes>
                 <exclude>**/wso2server.bat</exclude>
+                <exclude>**/wso2server.sh</exclude>
             </excludes>
             <includes>
                 <include>**/*.sh</include>
