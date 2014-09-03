@@ -55,7 +55,7 @@
                         <property>
                             <name>server.list</name>
                             <value>
-                                SS
+                                artifacts.SS
                             </value>
                         </property>
                         <property>
@@ -116,7 +116,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/src/test/resources/artifacts/SS/jar
+                            <outputDirectory>${basedir}/src/test/resources/artifacts/artifacts.SS/jar
                             </outputDirectory>
                             <includeTypes>jar</includeTypes>
                             <includeArtifactIds>mysql-connector-java
@@ -271,9 +271,9 @@
 
         </dependency>
         <dependency>
-          <groupId>org.wso2.carbon</groupId>
-          <artifactId>org.wso2.carbon.rssmanager.stub</artifactId>
-          <scope>compile</scope>
-      </dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.rssmanager.stub</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

@@ -37,7 +37,7 @@ public class SSLoginTestCase extends SSIntegrationUITest {
     public void setUp() throws Exception {
         super.init();
         driver = BrowserManager.getWebDriver();
-        driver.get(getLoginURL("SS"));
+        driver.get(getLoginURL("artifacts.SS"));
     }
 
     @Test(groups = "wso2.am", description = "verify login to Storage Server")

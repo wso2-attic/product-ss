@@ -279,7 +279,6 @@ public class ServiceAdminClient {
     }
 
     /**
-     *
      * @param serviceName
      * @return
      * @throws ServiceAdminException

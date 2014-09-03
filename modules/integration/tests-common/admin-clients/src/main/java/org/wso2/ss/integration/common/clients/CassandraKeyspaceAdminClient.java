@@ -42,7 +42,7 @@ public class CassandraKeyspaceAdminClient {
 
     private CassandraKeyspaceAdminStub cassandraAdminStub;
 
-    private String serviceName="CassandraKeyspaceAdmin";
+    private String serviceName = "CassandraKeyspaceAdmin";
     /*public CassandraKeyspaceAdminClient(ConfigurationContext ctx, String serverURL, String cookie)
             throws AxisFault {
         init(ctx, serverURL, cookie);
@@ -73,9 +73,11 @@ public class CassandraKeyspaceAdminClient {
         cassandraAdminStub = new CassandraKeyspaceAdminStub(endPoint);
         AuthenticateStubUtil.authenticateStub(userName, password, cassandraAdminStub);
     }*/
+
     /**
-     *    Returns Cluster Name
-     * @return    cluster name
+     * Returns Cluster Name
+     *
+     * @return cluster name
      * @throws AxisFault
      */
 
@@ -338,20 +340,22 @@ public class CassandraKeyspaceAdminClient {
 
     /**
      * Get permission information of all roles for a given resource (Root/Keyspace/Column Family)
+     *
      * @param path
      * @return
      */
-    public AuthorizedRolesInformation[] getResourcePermissionsOfRoles(String path){
-        try{
+    public AuthorizedRolesInformation[] getResourcePermissionsOfRoles(String path) {
+        try {
             return cassandraAdminStub.getResourcePermissionsOfRoles(path);
-        } catch (Exception e){
-            log.error("Error retrieving role list" + path,e);
+        } catch (Exception e) {
+            log.error("Error retrieving role list" + path, e);
         }
         return new AuthorizedRolesInformation[0];
     }
 
     /**
      * validate Keyspace Name
+     *
      * @param keyspaceName
      * @throws AxisFault
      */

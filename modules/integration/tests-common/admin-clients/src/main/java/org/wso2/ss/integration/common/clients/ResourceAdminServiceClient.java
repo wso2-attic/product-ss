@@ -118,7 +118,7 @@ public class ResourceAdminServiceClient {
             throws ResourceAdminServiceExceptionException, RemoteException {
 
         resourceAdminServiceStub.importResource("/", resourceName, MEDIA_TYPE_WSDL,
-                                                description, fetchURL, null, null);
+                description, fetchURL, null, null);
     }
 
     public void addWADL(String resourceName, String description,
@@ -126,7 +126,7 @@ public class ResourceAdminServiceClient {
             throws ResourceAdminServiceExceptionException, RemoteException {
 
         resourceAdminServiceStub.importResource("/", resourceName, MEDIA_TYPE_WADL,
-                                                description, fetchURL, null, null);
+                description, fetchURL, null, null);
     }
 
     public void addSchema(String description, DataHandler dh)
@@ -134,15 +134,15 @@ public class ResourceAdminServiceClient {
         String fileName;
         fileName = dh.getName().substring(dh.getName().lastIndexOf('/') + 1);
         resourceAdminServiceStub.addResource("/" + fileName, MEDIA_TYPE_SCHEMA,
-                                             description, dh, null, null);
+                description, dh, null, null);
     }
 
     public void addSchema(String resourceName, String description,
                           String fetchURL) throws ResourceAdminServiceExceptionException,
-                                                  RemoteException {
+            RemoteException {
 
         resourceAdminServiceStub.importResource("/", resourceName, MEDIA_TYPE_SCHEMA,
-                                                description, fetchURL, null, null);
+                description, fetchURL, null, null);
 
     }
 
@@ -151,7 +151,7 @@ public class ResourceAdminServiceClient {
         String fileName;
         fileName = dh.getName().substring(dh.getName().lastIndexOf('/') + 1);
         resourceAdminServiceStub.addResource("/" + fileName, MEDIA_TYPE_POLICY,
-                                             description, dh, null, null);
+                description, dh, null, null);
     }
 
     public void addPolicy(String resourceName, String description,
@@ -159,7 +159,7 @@ public class ResourceAdminServiceClient {
             throws ResourceAdminServiceExceptionException, RemoteException {
 
         resourceAdminServiceStub.importResource("/", resourceName, MEDIA_TYPE_POLICY,
-                                                description, fetchURL, null, null);
+                description, fetchURL, null, null);
     }
 
     public void uploadArtifact(String description, DataHandler dh)
@@ -167,7 +167,7 @@ public class ResourceAdminServiceClient {
         String fileName;
         fileName = dh.getName().substring(dh.getName().lastIndexOf('/') + 1);
         resourceAdminServiceStub.addResource("/" + fileName, MEDIA_TYPE_GOVERNANCE_ARCHIVE,
-                                             description, dh, null, null);
+                description, dh, null, null);
     }
 
     public String addCollection(String parentPath, String collectionName,
@@ -189,7 +189,7 @@ public class ResourceAdminServiceClient {
             throws RemoteException, ResourceAdminServiceExceptionException {
 
         resourceAdminServiceStub.addTextResource(parentPath, fileName, mediaType,
-                                                 description, content);
+                description, content);
     }
 
     public void addResourcePermission(String pathToAuthorize,
@@ -198,7 +198,7 @@ public class ResourceAdminServiceClient {
             throws RemoteException, ResourceAdminServiceResourceServiceExceptionException {
 
         resourceAdminServiceStub.addRolePermission(pathToAuthorize, roleToAuthorize,
-                                                   actionToAuthorize, permissionType);
+                actionToAuthorize, permissionType);
 
     }
 

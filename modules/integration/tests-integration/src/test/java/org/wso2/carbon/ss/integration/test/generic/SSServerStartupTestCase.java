@@ -19,7 +19,7 @@
 package org.wso2.carbon.ss.integration.test.generic;
 
 /**
- * Ensures SS server starts up without any issue
+ * Ensures artifacts.SS server starts up without any issue
  */
 public class SSServerStartupTestCase {
 
