@@ -27,6 +27,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <skipTests>${skipUiTests}</skipTests>
                     <systemProperties>
                         <property>
                             <name>maven.test.haltafterfailure</name>
@@ -280,4 +281,7 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+    <properties>
+        <skipUiTests>true</skipUiTests>
+    </properties>
 </project>

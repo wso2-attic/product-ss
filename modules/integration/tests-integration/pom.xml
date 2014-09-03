@@ -10,7 +10,6 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.wso2.ss</groupId>
     <artifactId>org.wso2.ss.integration.test</artifactId>
     <packaging>jar</packaging>
     <name>org.wso2.ss.integration.test</name>
@@ -52,12 +51,7 @@
                                 ${basedir}/src/test/resources/
                             </value>
                         </property>
-                        <property>
-                            <name>server.list</name>
-                            <value>
-                                artifacts.SS
-                            </value>
-                        </property>
+
                         <property>
                             <name>usedefaultlisteners</name>
                             <value>false</value>
@@ -116,7 +110,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/src/test/resources/artifacts/artifacts.SS/jar
+                            <outputDirectory>${basedir}/src/test/resources/artifacts/SS/jar
                             </outputDirectory>
                             <includeTypes>jar</includeTypes>
                             <includeArtifactIds>mysql-connector-java

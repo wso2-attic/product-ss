@@ -184,7 +184,7 @@
         <!--
         cluster instance details to be used to platform cassandra execution
         -->
-        <productGroup name="artifacts.SS" clusteringEnabled="false" default="true">
+        <productGroup name="SS" clusteringEnabled="false" default="true">
 
             <instance name="lbw001" type="lb_worker_manager" nonBlockingTransportEnabled="true">
                 <hosts>

@@ -4,6 +4,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.wso2.carbon.automation.engine.configurations.UrlGenerationUtil;
 import org.wso2.carbon.automation.engine.context.AutomationContext;
 import org.wso2.carbon.automation.engine.context.TestUserMode;
 import org.wso2.carbon.automation.extensions.selenium.BrowserManager;
@@ -19,7 +20,7 @@ public class SSIntegrationUiBaseTest {
     protected WebDriver driver;
 
     protected void init() throws Exception {
-        ssServer = new AutomationContext("artifacts.SS", TestUserMode.SUPER_TENANT_ADMIN);
+        ssServer = new AutomationContext("SS", TestUserMode.SUPER_TENANT_ADMIN);
         loginLogoutClient = new LoginLogoutClient(ssServer);
         sessionCookie = loginLogoutClient.login();
         backendURL = ssServer.getContextUrls().getBackEndUrl();
@@ -27,7 +28,7 @@ public class SSIntegrationUiBaseTest {
     }
 
     protected void init(TestUserMode testUserMode) throws Exception {
-        ssServer = new AutomationContext("artifacts.SS", testUserMode);
+        ssServer = new AutomationContext("SS", testUserMode);
         loginLogoutClient = new LoginLogoutClient(ssServer);
         sessionCookie = loginLogoutClient.login();
         backendURL = ssServer.getContextUrls().getBackEndUrl();
@@ -35,7 +36,7 @@ public class SSIntegrationUiBaseTest {
     }
 
     protected String getLoginURL() throws Exception{
-        return "https://localhost:9443/carbon/";
+        return UrlGenerationUtil.getLoginURL(ssServer.getInstance());
     }
 
     protected LoginPage logout() throws Exception {
