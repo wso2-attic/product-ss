@@ -426,6 +426,13 @@
         </file>
         <file>
             <source>
+                ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/cassandra-environments.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
+            <fileMode>644</fileMode>
+        </file>
+        <file>
+            <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/cassandra-topology.properties
             </source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
