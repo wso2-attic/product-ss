@@ -32,7 +32,7 @@ import java.io.File;
 
 public abstract class SSIntegrationTest {
     //    protected Log log = LogFactory.getLog(getClass());
-    protected final static String PRODUCT_NAME = "artifacts.SS";
+    protected final static String PRODUCT_NAME = "SS";
     protected AutomationContext ssContext = null;
     protected Tenant tenantInfo;
     protected User userInfo;
@@ -98,7 +98,7 @@ public abstract class SSIntegrationTest {
         }
 
         return new File(TestConfigurationProvider.getResourceLocation() + "artifacts"
-                + File.separator + "DSS" + File.separator + "sql" + File.separator
+                + File.separator + "SS" + File.separator + "sql" + File.separator
                 + type + File.separator + fileName);
     }
 

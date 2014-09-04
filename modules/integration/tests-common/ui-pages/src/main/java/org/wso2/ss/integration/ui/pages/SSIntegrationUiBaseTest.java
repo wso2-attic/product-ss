@@ -2,6 +2,7 @@ package org.wso2.ss.integration.ui.pages;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.bouncycastle.jce.provider.JDKPSSSigner;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.wso2.carbon.automation.engine.configurations.UrlGenerationUtil;
@@ -18,9 +19,10 @@ public class SSIntegrationUiBaseTest {
     protected String backendURL;
     protected LoginLogoutClient loginLogoutClient;
     protected WebDriver driver;
+    private static final String PRODUCT_GROUP_NAME = "SS";
 
     protected void init() throws Exception {
-        ssServer = new AutomationContext("SS", TestUserMode.SUPER_TENANT_ADMIN);
+        ssServer = new AutomationContext(PRODUCT_GROUP_NAME, TestUserMode.SUPER_TENANT_ADMIN);
         loginLogoutClient = new LoginLogoutClient(ssServer);
         sessionCookie = loginLogoutClient.login();
         backendURL = ssServer.getContextUrls().getBackEndUrl();
@@ -28,7 +30,7 @@ public class SSIntegrationUiBaseTest {
     }
 
     protected void init(TestUserMode testUserMode) throws Exception {
-        ssServer = new AutomationContext("SS", testUserMode);
+        ssServer = new AutomationContext(PRODUCT_GROUP_NAME, testUserMode);
         loginLogoutClient = new LoginLogoutClient(ssServer);
         sessionCookie = loginLogoutClient.login();
         backendURL = ssServer.getContextUrls().getBackEndUrl();
