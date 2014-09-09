@@ -43,8 +43,8 @@
         <module>modules/features</module>
         <module>modules/p2-profile</module>
         <module>modules/distribution</module>
-        <!--module>modules/org.wso2.stratos.ss.login.ui</module>
-        <module>modules/integration</module-->
+        <!--<module>modules/org.wso2.stratos.ss.login.ui</module>-->
+        <module>modules/integration</module>
     </modules>
 
     <scm>
