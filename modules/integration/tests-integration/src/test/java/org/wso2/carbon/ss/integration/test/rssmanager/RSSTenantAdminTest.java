@@ -38,7 +38,7 @@ public class RSSTenantAdminTest {
         rssTestHelper = new RSSTestHelper();
         rssTestHelper.initialize(1);
 
-        String rssConigSrc = ProductConstant.getResourceLocations("artifacts.SS") + File.separator +
+        String rssConigSrc = ProductConstant.getResourceLocations("SS") + File.separator +
                 RSSTestConstants.EnvironmentConfigurations.RSS_CONFIG_PATH;
         File clarityRssConfig = new File(rssConigSrc);
         File clarityRssDist = new File(RSSTestUtil.getRSSConfigAbsolutePath());

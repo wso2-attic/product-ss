@@ -31,9 +31,9 @@ public abstract class RSSBaseTestCase {
         try {
             this.environment = builder.ss(0).build().getSs();
         } catch (LoginAuthenticationExceptionException e) {
-            throw new Exception("Error occurred while building artifacts.SS server environment", e);
+            throw new Exception("Error occurred while building SS server environment", e);
         } catch (RemoteException e) {
-            throw new Exception("Error occurred while building artifacts.SS server environment", e);
+            throw new Exception("Error occurred while building SS server environment", e);
         }
 
         String srcConfigPath = RSSTestUtil.getRSSSrcConfigPath();

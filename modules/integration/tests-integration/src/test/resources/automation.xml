@@ -239,6 +239,7 @@
 
     <listenerExtensions>
 
+        <!--<className>org.wso2.carbon.automation.extensions.servers.carbonserver.CarbonServerExtension</className>-->
         <platformExecutionManager>
             <extentionClasses>
             <class>

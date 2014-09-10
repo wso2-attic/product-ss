@@ -10,6 +10,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
+    <groupId>org.wso2.ss</groupId>
     <artifactId>org.wso2.ss.integration.test</artifactId>
     <packaging>jar</packaging>
     <name>org.wso2.ss.integration.test</name>
@@ -51,7 +52,12 @@
                                 ${basedir}/src/test/resources/
                             </value>
                         </property>
-
+                        <property>
+                            <name>server.list</name>
+                            <value>
+                                SS
+                            </value>
+                        </property>
                         <property>
                             <name>usedefaultlisteners</name>
                             <value>false</value>
@@ -265,9 +271,9 @@
 
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.rssmanager.stub</artifactId>
-            <scope>compile</scope>
-        </dependency>
+          <groupId>org.wso2.carbon</groupId>
+          <artifactId>org.wso2.carbon.rssmanager.stub</artifactId>
+          <scope>compile</scope>
+      </dependency>
     </dependencies>
 </project>
