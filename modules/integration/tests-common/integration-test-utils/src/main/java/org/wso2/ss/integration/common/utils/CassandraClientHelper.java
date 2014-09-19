@@ -48,8 +48,8 @@ public class CassandraClientHelper {
     private static final Log log = LogFactory.getLog(CassandraClientHelper.class);
 
     private static final String CASSANDRA_ENDPOINT_CONF = "repository" + File.separator + "conf"
-                                                          + File.separator + "etc" + File.separator
-                                                          + "cassandra-endpoint.xml";
+            + File.separator + "etc" + File.separator
+            + "cassandra-endpoint.xml";
 
     /**
      * Gets the alias for the class name of the RF
@@ -355,7 +355,7 @@ public class CassandraClientHelper {
             log.error(CASSANDRA_ENDPOINT_CONF + "cannot be found in the path : " + path, e);
         } catch (XMLStreamException e) {
             log.error("Invalid XML for " + CASSANDRA_ENDPOINT_CONF + " located in " +
-                      "the path : " + path, e);
+                    "the path : " + path, e);
         } finally {
             try {
                 if (inputStream != null) {

@@ -9,34 +9,29 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.ss.integration.common.clients</artifactId>
+    <artifactId>org.wso2.ss.integration.ui.pages</artifactId>
     <packaging>jar</packaging>
-    <name>admin-clients</name>
+    <name>ui-pages</name>
 
     <dependencies>
         <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.integration.common.admin.client</artifactId>
+            <groupId>org.wso2.carbon.automation</groupId>
+            <artifactId>org.wso2.carbon.automation.engine</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.service.mgt.stub</artifactId>
+            <artifactId>org.wso2.carbon.integration.common.utils</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.registry.resource.stub</artifactId>
+            <artifactId>org.wso2.carbon.authenticator.stub</artifactId>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.cassandra.mgt.stub</artifactId>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.rssmanager.stub</artifactId>
+            <groupId>org.wso2.carbon.automation</groupId>
+            <artifactId>org.wso2.carbon.automation.extensions</artifactId>
             <scope>compile</scope>
         </dependency>
     </dependencies>

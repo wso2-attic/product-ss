@@ -77,7 +77,7 @@ public class CassandraClusterAdminClient {
      * @param cf       name of the column family
      * @return <code>ColumnFamilyStats</code> instance
      */
-    public ColumnFamilyStats getColumnFamilyStats(String keyspace, String cf) throws AxisFault{
+    public ColumnFamilyStats getColumnFamilyStats(String keyspace, String cf) throws AxisFault {
         validateKeyspace(keyspace);
         validateCF(cf);
         try {
