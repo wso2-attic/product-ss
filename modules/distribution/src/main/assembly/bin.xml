@@ -36,7 +36,6 @@
                 <exclude>**/INSTALL.txt</exclude>
                 <!--exclude>**/release-notes.html</exclude-->
                 <exclude>**/user-mgt.xml</exclude>
-		<exclude>**/master-datasources.xml</exclude>
                 <exclude>**/carbon.xml</exclude>
                 <exclude>**/cache.xml</exclude>
                 <exclude>**/master-datasources.xml</exclude>
@@ -395,6 +394,20 @@
             <fileMode>644</fileMode>
         </file>
 
+        <file>
+            <source>
+                ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/logging-config.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
+            <fileMode>644</fileMode>
+        </file>
+		<file>
+            <source>
+                ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/multitenancy/tenant-mgt.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf</outputDirectory>
+        </file>
+
         <!-- Copying Cassandra configuration files -->
         <file>
             <source>
@@ -456,14 +469,14 @@
         </file>
 
 	<!-- Copying persistence.xml -->
-	<file>
+		<file>
             <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/persistence.xml
             </source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
             <fileMode>644</fileMode>
         </file>
-	<file>
+		<file>
             <source>
                 src/main/conf/master-datasources.xml
             </source>
@@ -471,7 +484,7 @@
             <fileMode>644</fileMode>
         </file>
 
-	<file>
+		<file>
             <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/rss-monitor-config.xml
             </source>
