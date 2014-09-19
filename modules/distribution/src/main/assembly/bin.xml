@@ -36,7 +36,6 @@
                 <exclude>**/INSTALL.txt</exclude>
                 <!--exclude>**/release-notes.html</exclude-->
                 <exclude>**/user-mgt.xml</exclude>
-		<exclude>**/master-datasources.xml</exclude>
                 <exclude>**/carbon.xml</exclude>
                 <exclude>**/cache.xml</exclude>
                 <exclude>**/master-datasources.xml</exclude>
@@ -51,7 +50,7 @@
                 <exclude>**/repository/conf/security/cipher-text.properties</exclude>
                 <exclude>**/repository/conf/security/cipher-tool.properties</exclude>
 
-		<!-- Following will be added by patch0003; Excluded here -->
+                <!-- Following will be added by patch0003; Excluded here -->
                 <!--<exclude>**/axis2/axis2.xml</exclude>
                 <exclude>**/axis2/axis2_client.xml</exclude>
                 <exclude>**/axis2/tenant-axis2.xml</exclude>-->
@@ -129,7 +128,7 @@
                 <exclude>**/catalina-server.xml</exclude>
                 <exclude>**/log4j.properties</exclude>
                 <exclude>**/user-mgt.xml</exclude>
-		<exclude>**/master-datasources.xml</exclude>
+                <exclude>**/master-datasources.xml</exclude>
                 <exclude>**/embedded-ldap.xml</exclude>
                 <exclude>**/krb5.conf</exclude>
                 <!-- Changes related to Carbon kernel 4.2.0 patches -->
@@ -245,7 +244,7 @@
         </fileSet>
         <!-- RSS SQL scripts -->
 
-	<!-- BAM toolboxes - start-->
+        <!-- BAM toolboxes - start-->
         <fileSet>
             <directory>src/main/resources/bam-toolboxes
             </directory>
@@ -254,7 +253,7 @@
                 <include>**/*.*</include>
             </includes>
         </fileSet>
-	<!-- BAM toolboxes - end -->
+        <!-- BAM toolboxes - end -->
 
         <!--fileSet>
             <directory>../../modules/samples/css</directory>
@@ -395,6 +394,20 @@
             <fileMode>644</fileMode>
         </file>
 
+        <file>
+            <source>
+                ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/logging-config.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
+            <fileMode>644</fileMode>
+        </file>
+        <file>
+            <source>
+                ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/multitenancy/tenant-mgt.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf</outputDirectory>
+        </file>
+
         <!-- Copying Cassandra configuration files -->
         <file>
             <source>
@@ -455,15 +468,15 @@
             <fileMode>644</fileMode>
         </file>
 
-	<!-- Copying persistence.xml -->
-	<file>
+        <!-- Copying persistence.xml -->
+        <file>
             <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/persistence.xml
             </source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
             <fileMode>644</fileMode>
         </file>
-	<file>
+        <file>
             <source>
                 src/main/conf/master-datasources.xml
             </source>
@@ -471,7 +484,7 @@
             <fileMode>644</fileMode>
         </file>
 
-	<file>
+        <file>
             <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/rss-monitor-config.xml
             </source>
@@ -499,7 +512,7 @@
             </source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf</outputDirectory>
         </file-->
-	    <file>
+        <file>
             <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/claim-config.xml
             </source>
