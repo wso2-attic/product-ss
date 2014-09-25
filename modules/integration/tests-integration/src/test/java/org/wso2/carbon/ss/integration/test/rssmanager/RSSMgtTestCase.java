@@ -167,7 +167,7 @@ public class RSSMgtTestCase extends SSIntegrationTest{
         Assert.fail(" Can't drop already attached user");
     }
     
-	@Test(groups = "wso2.ss", description = "create datasourcce from existing database", dependsOnMethods = { "attachUserToDB" }, priority = 2, dataProvider = "databases")
+	@Test(groups = "wso2.ss", description = "create datasource from existing database", dependsOnMethods = { "attachUserToDB" }, priority = 2, dataProvider = "databases")
 	public void createDatasource(String dbName) throws AxisFault {
 		DatabaseUserInfo dBInfo[] = client.getUsersAttachedToDatabase(
 				"DEFAULT", "WSO2RSS1", dbName, "SYSTEM");
