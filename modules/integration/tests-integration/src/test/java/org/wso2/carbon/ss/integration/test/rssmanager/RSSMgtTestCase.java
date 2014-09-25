@@ -20,9 +20,12 @@ package org.wso2.carbon.ss.integration.test.rssmanager;
 
 import static org.testng.Assert.assertTrue;
 
+import java.util.Date;
+
 import org.apache.axis2.AxisFault;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.h2.jaqu.Db;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -32,6 +35,7 @@ import org.wso2.carbon.rssmanager.core.dto.xsd.DatabaseInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.DatabasePrivilegeTemplateInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.DatabaseUserInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.MySQLPrivilegeSetInfo;
+import org.wso2.carbon.rssmanager.core.dto.xsd.UserDatabaseEntryInfo;
 import org.wso2.carbon.ss.SSIntegrationTest;
 import org.wso2.ss.integration.common.clients.RSSManagerClient;
 
@@ -162,6 +166,29 @@ public class RSSMgtTestCase extends SSIntegrationTest{
     	}
         Assert.fail(" Can't drop already attached user");
     }
+    
+	@Test(groups = "wso2.ss", description = "create datasourcce from existing database", dependsOnMethods = { "attachUserToDB" }, priority = 2, dataProvider = "databases")
+	public void createDatasource(String dbName) throws AxisFault {
+		DatabaseUserInfo dBInfo[] = client.getUsersAttachedToDatabase(
+				"DEFAULT", "WSO2RSS1", dbName, "SYSTEM");
+		if (dBInfo != null) {
+			if (dBInfo.length > 0) {
+				UserDatabaseEntryInfo entry = new UserDatabaseEntryInfo();
+				entry.setRssInstanceName("WSO2RSS1");
+				entry.setDatabaseName(dbName);
+				log.info("\n db = " + dbName + "\n");
+				entry.setUsername(dBInfo[0].getUsername());
+				entry.setType("SYSTEM");
+				java.text.DateFormat dateFormat = new java.text.SimpleDateFormat(
+						"yyyy/MM/dd HH:mm:ss");
+				Date date = new Date();
+				client.createCarbonDataSource("DEFAULT",
+						"ds_" + System.currentTimeMillis(), entry);
+				assertTrue(true);
+			}
+		}
+	}
+    
     
 
     @AfterClass(alwaysRun = true)
