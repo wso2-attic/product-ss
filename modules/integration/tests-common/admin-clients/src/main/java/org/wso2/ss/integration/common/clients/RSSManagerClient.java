@@ -28,7 +28,7 @@ import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.cassandra.mgt.stub.ks.CassandraKeyspaceAdminStub;
 import org.wso2.carbon.integration.common.admin.client.utils.AuthenticateStubUtil;
 import org.wso2.carbon.rssmanager.core.dto.xsd.*;
-import org.wso2.carbon.rssmanager.ui.stub.RSSAdminRSSManagerExceptionException;
+import org.wso2.carbon.rssmanager.ui.stub.RSSManagerExceptionException;
 import org.wso2.carbon.rssmanager.ui.stub.RSSAdminStub;
 
 import java.rmi.RemoteException;
@@ -118,7 +118,7 @@ public class RSSManagerClient {
         } catch (RemoteException e) {
             handleException("Fail to create database" + " '" + database.getName() + "' : " + e.getMessage(),
                     e);
-        } catch (RSSAdminRSSManagerExceptionException e) {
+        } catch (RSSManagerExceptionException e) {
             handleException("Fail to create database" + " '" + database.getName() + "' : " + e.getFaultMessage()
                     .getRSSManagerException().getErrorMessage(), e);
         }
@@ -219,9 +219,9 @@ public class RSSManagerClient {
         }
     }
 
-    public void createCarbonDataSource(String environmentName, UserDatabaseEntryInfo entry) throws AxisFault {
+    public void createCarbonDataSource(String environmentName,String dataSourceName, UserDatabaseEntryInfo entry) throws AxisFault {
         try {
-            stub.addCarbonDataSource(environmentName, entry);
+            stub.addCarbonDataSource(environmentName,dataSourceName, entry);
         } catch (Exception e) {
             handleException("Fail to create datasource" + " : " + e.getMessage(),
                     e);
@@ -234,7 +234,7 @@ public class RSSManagerClient {
             stub.addDatabaseUser(environmentName, user);
         } catch (RemoteException e) {
             handleException("Fail to create database user" + " : " + e.getMessage(), e);
-        } catch (RSSAdminRSSManagerExceptionException e) {
+        } catch (RSSManagerExceptionException e) {
             handleException("Fail to create database user" + " : " + e.getFaultMessage()
                             .getRSSManagerException()
                             .getErrorMessage(),
