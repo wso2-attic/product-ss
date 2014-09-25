@@ -39,22 +39,6 @@
                 <exclude>**/carbon.xml</exclude>
                 <exclude>**/cache.xml</exclude>
                 <exclude>**/master-datasources.xml</exclude>
-
-                <!-- Following will be added by patch0001; Excluded here -->
-                <exclude>**/dbscripts/mysql.sql</exclude>
-                <exclude>**/dbscripts/db2.sql</exclude>
-                <exclude>**/dbscripts/mysql_cluster.sql</exclude>
-                <exclude>**/lib/org.wso2.carbon.server-4.2.0.jar</exclude>
-
-                <!-- Following will be added by patch0002; Excluded here -->
-                <exclude>**/repository/conf/security/cipher-text.properties</exclude>
-                <exclude>**/repository/conf/security/cipher-tool.properties</exclude>
-
-                <!-- Following will be added by patch0003; Excluded here -->
-                <!--<exclude>**/axis2/axis2.xml</exclude>
-                <exclude>**/axis2/axis2_client.xml</exclude>
-                <exclude>**/axis2/tenant-axis2.xml</exclude>-->
-
             </excludes>
         </fileSet>
         <!--<fileSet>-->
@@ -131,9 +115,6 @@
                 <exclude>**/master-datasources.xml</exclude>
                 <exclude>**/embedded-ldap.xml</exclude>
                 <exclude>**/krb5.conf</exclude>
-                <!-- Changes related to Carbon kernel 4.2.0 patches -->
-                <exclude>**/axis2/*</exclude>
-                <!-- End - Changes related to Carbon kernel 4.2.0 patches -->
             </excludes>
         </fileSet>
 
@@ -267,28 +248,6 @@
             <directory>../../modules/samples/hdfs</directory>
             <outputDirectory>wso2ss-${pom.version}/samples/hdfs</outputDirectory>
         </fileSet-->
-        <!-- Kernal patches -->
-        <fileSet>
-            <directory>../p2-profile-gen/target/WSO2-CARBON-PATCH-4.2.0-0001</directory>
-            <outputDirectory>wso2as-${pom.version}/repository/components/patches/</outputDirectory>
-            <includes>
-                <include>**/patch0001/*.*</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>../p2-profile-gen/target/WSO2-CARBON-PATCH-4.2.0-0002</directory>
-            <outputDirectory>wso2as-${pom.version}/repository/components/patches/</outputDirectory>
-            <includes>
-                <include>**/patch0002/*.*</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>../p2-profile-gen/target/WSO2-CARBON-PATCH-4.2.0-0003</directory>
-            <outputDirectory>wso2as-${pom.version}/repository/components/patches/</outputDirectory>
-            <includes>
-                <include>**/patch0003/*.*</include>
-            </includes>
-        </fileSet>
         <fileSet>
             <directory>src/main/resources/pylib</directory>
             <outputDirectory>wso2ss-${pom.version}/repository/lib/pylib</outputDirectory>
