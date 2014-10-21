@@ -92,7 +92,6 @@ public class CassandraKeyspaceAdminClient {
     /**
      * Gets all keyspaces in a cluster
      *
-     *
      * @param clusterName The name of the cluster
      * @param username    The name of the current user
      * @param password    The password of the current user

@@ -24,14 +24,7 @@ import org.wso2.carbon.integration.common.admin.client.utils.AuthenticateStubUti
 import org.wso2.carbon.registry.resource.stub.ResourceAdminServiceExceptionException;
 import org.wso2.carbon.registry.resource.stub.ResourceAdminServiceResourceServiceExceptionException;
 import org.wso2.carbon.registry.resource.stub.ResourceAdminServiceStub;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.CollectionContentBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.ContentBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.ContentDownloadBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.MetadataBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.PermissionBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.ResourceTreeEntryBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.VersionPath;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.VersionsBean;
+import org.wso2.carbon.registry.resource.stub.beans.xsd.*;
 import org.wso2.carbon.registry.resource.stub.common.xsd.ResourceData;
 
 import javax.activation.DataHandler;
