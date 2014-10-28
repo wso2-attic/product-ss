@@ -40,7 +40,7 @@ public abstract class SSIntegrationTest {
     protected TestUserMode userMode;
 
     protected void init() throws Exception {
-        userMode =  TestUserMode.SUPER_TENANT_ADMIN;
+        userMode = TestUserMode.SUPER_TENANT_ADMIN;
         init(userMode);
 
     }
@@ -79,7 +79,7 @@ public abstract class SSIntegrationTest {
     }
 
     protected boolean isTenant() throws Exception {
-        if(userMode == null){
+        if (userMode == null) {
             throw new Exception("UserMode Not Initialized. Can not identify user type");
         }
         return (userMode == TestUserMode.TENANT_ADMIN || userMode == TestUserMode.TENANT_USER);
@@ -98,8 +98,8 @@ public abstract class SSIntegrationTest {
         }
 
         return new File(TestConfigurationProvider.getResourceLocation() + "artifacts"
-                        + File.separator + "DSS" + File.separator + "sql" + File.separator
-                        + type + File.separator + fileName);
+                + File.separator + "DSS" + File.separator + "sql" + File.separator
+                + type + File.separator + fileName);
     }
 
     private void validateServiceUrl(String serviceUrl, Tenant tenant) {

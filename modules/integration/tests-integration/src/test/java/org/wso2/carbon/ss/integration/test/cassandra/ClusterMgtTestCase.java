@@ -1,8 +1,6 @@
 package org.wso2.carbon.ss.integration.test.cassandra;
 
 
-import static org.testng.Assert.assertTrue;
-
 public class ClusterMgtTestCase {
     /*private EnvironmentVariables ssServer;
     private UserInfo userInfo;
