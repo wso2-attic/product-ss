@@ -229,7 +229,7 @@
         <fileSet>
             <directory>src/main/resources/bam-toolboxes
             </directory>
-            <outputDirectory>wso2ss-${pom.version}/bam-toolboxes</outputDirectory>
+            <outputDirectory>wso2ss-${pom.version}/resources/bam-toolboxes</outputDirectory>
             <includes>
                 <include>**/*.*</include>
             </includes>
