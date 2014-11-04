@@ -23,8 +23,6 @@ import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.integration.common.admin.client.utils.AuthenticateStubUtil;
 import org.wso2.carbon.rssmanager.core.dto.xsd.*;
 import org.wso2.carbon.rssmanager.ui.stub.RSSAdminStub;
-import org.wso2.carbon.rssmanager.ui.stub.RSSManagerExceptionException;
-
 import java.rmi.RemoteException;
 
 public class RSSManagerClient {
@@ -32,8 +30,6 @@ public class RSSManagerClient {
     private RSSAdminStub stub;
 
     private static final Log log = LogFactory.getLog(RSSManagerClient.class);
-
-    //https://10.100.0.118:9443/services/RSSAdmin
     private String serviceName = "RSSAdmin";
 
     public RSSManagerClient(String backEndUrl, String sessionCookie) throws AxisFault {
@@ -107,14 +103,10 @@ public class RSSManagerClient {
                 throw new AxisFault("stub is null");
             }
             stub.addDatabase(environmentName, database);
-        } catch (RemoteException e) {
+        } catch (Exception e) {
             handleException("Fail to create database" + " '" + database.getName() + "' : " + e.getMessage(),
                     e);
-        } catch (RSSManagerExceptionException e) {
-            handleException("Fail to create database" + " '" + database.getName() + "' : " + e.getFaultMessage()
-                    .getRSSManagerException().getErrorMessage(), e);
         }
-
     }
 
     public DatabaseInfo[] getDatabaseList(String environmentName) throws AxisFault {
@@ -227,12 +219,8 @@ public class RSSManagerClient {
             stub.addDatabaseUser(environmentName, user);
         } catch (RemoteException e) {
             handleException("Fail to create database user" + " : " + e.getMessage(), e);
-        } catch (RSSManagerExceptionException e) {
-            handleException("Fail to create database user" + " : " + e.getFaultMessage()
-                            .getRSSManagerException()
-                            .getErrorMessage(),
-                    e
-            );
+        } catch (Exception e) {
+            handleException("Fail to create database user" + " : " + e.getMessage(), e);
         }
 
     }

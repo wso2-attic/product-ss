@@ -37,6 +37,7 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
 
     private CassandraKeyspaceAdminClient client;
     private final String ENVIRONMENT_NAME = "DEFAULT";
+    private final String DEFAULT_CLUSTER_NAME = "Test Cluster";
     private final String KEYSPACE_NAME = "TestKeyspace123";
     private final String COLUMN_FAMILY_NAME = "TestColumnFamily123";
     private final String COLUMN_NAME = "TestColumn123";
@@ -66,14 +67,15 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
         keyspaceInformation.setName(KEYSPACE_NAME);
         keyspaceInformation.setReplicationFactor(REPLICATION_FACTOR);
         keyspaceInformation.setStrategyClass(CassandraUtils.SIMPLE_CLASS);
-        client.addKeyspace(ENVIRONMENT_NAME, keyspaceInformation);
-        for (String keyspace : client.listKeyspacesOfCurrentUSer(ENVIRONMENT_NAME)) {
-            if (KEYSPACE_NAME.equals(keyspace)) {
+        keyspaceInformation.setEnvironmentName(ENVIRONMENT_NAME);
+        client.addKeyspace(keyspaceInformation);
+        for (KeyspaceInformation keyspace : client.listKeyspacesOfCurrentUSer(ENVIRONMENT_NAME)) {
+            if (KEYSPACE_NAME.equals(keyspace.getName())) {
                 isKeyspaceContains = true;
             }
         }
         assertTrue(isKeyspaceContains);
-        keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME);
+        keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME);
         assertNotNull(keyspaceInformation);
         assertEquals(keyspaceInformation.getName(), KEYSPACE_NAME);
         assertEquals(keyspaceInformation.getReplicationFactor(), REPLICATION_FACTOR);
@@ -88,14 +90,15 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
         keyspaceInformation.setName(KEYSPACE_NAME);
         keyspaceInformation.setReplicationFactor(REPLICATION_FACTOR);
         keyspaceInformation.setStrategyClass(CassandraUtils.OLD_NETWORK_CLASS);
-        client.updateKeyspace(ENVIRONMENT_NAME, keyspaceInformation);
-        for (String keyspace : client.listKeyspacesOfCurrentUSer(ENVIRONMENT_NAME)) {
-            if (KEYSPACE_NAME.equals(keyspace)) {
+        keyspaceInformation.setEnvironmentName(ENVIRONMENT_NAME);
+        client.updateKeyspace(keyspaceInformation);
+        for (KeyspaceInformation keyspace : client.listKeyspacesOfCurrentUSer(ENVIRONMENT_NAME)) {
+            if (KEYSPACE_NAME.equals(keyspace.getName())) {
                 isKeyspaceContains = true;
             }
         }
         assertTrue(isKeyspaceContains);
-        keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME);
+        keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME,KEYSPACE_NAME);
         assertNotNull(keyspaceInformation);
         assertEquals(keyspaceInformation.getName(), KEYSPACE_NAME);
         assertEquals(keyspaceInformation.getReplicationFactor(), REPLICATION_FACTOR);
@@ -106,7 +109,7 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
             "updateColumnBySuperTenant", "deleteColumnBySuperTenant", "deleteColumnFamily"}, description = "delete keyspace by super tenant")
     public void deleteKeyspaceBySuperTenant()
             throws Exception {
-        assertTrue(client.deleteKeyspace(ENVIRONMENT_NAME, KEYSPACE_NAME));
+        assertTrue(client.deleteKeyspace(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME));
     }
 
     @Test(dependsOnMethods = {"addKeyspace", "updateKeyspace"}, description = "Add column family by super tenant")
@@ -128,14 +131,14 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
         columnFamilyInformation.setDefaultValidationClass(CassandraUtils.BYTESTYPE);
         columnFamilyInformation.setSubComparatorType(CassandraUtils.ASCIITYPE);
         columnFamilyInformation.setComment("Test column family");
-        client.addColumnFamily(ENVIRONMENT_NAME, columnFamilyInformation);
-        for (String columnFamily : client.listColumnFamiliesOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME)) {
+        client.addColumnFamily(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, columnFamilyInformation);
+        for (String columnFamily : client.listColumnFamiliesOfCurrentUser(ENVIRONMENT_NAME, null, KEYSPACE_NAME)) {
             if (COLUMN_FAMILY_NAME.equals(columnFamily)) {
                 isCFContains = true;
             }
         }
         assertTrue(isCFContains);
-        columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
+        columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
         assertEquals(columnFamilyInformation.getName(), COLUMN_FAMILY_NAME);
         assertEquals(columnFamilyInformation.getKeyspace(), KEYSPACE_NAME);
         //assertEquals(columnFamilyInformation.getId(),2,"CF id mismatch");
@@ -156,18 +159,18 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
     public void updateColumnFamily()
             throws Exception {
         boolean isCFContains = false;
-        KeyspaceInformation keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME);
+        KeyspaceInformation keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME);
         ColumnFamilyInformation columnFamilyInformation = CassandraClientHelper.getColumnFamilyInformationOfCurrentUser(
                 keyspaceInformation, COLUMN_FAMILY_NAME);
         columnFamilyInformation.setDefaultValidationClass(CassandraUtils.ASCIITYPE);
-        client.updateColumnFamily(ENVIRONMENT_NAME, columnFamilyInformation);
-        for (String columnFamily : client.listColumnFamiliesOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME)) {
+        client.updateColumnFamily(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, columnFamilyInformation);
+        for (String columnFamily : client.listColumnFamiliesOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME)) {
             if (COLUMN_FAMILY_NAME.equals(columnFamily)) {
                 isCFContains = true;
             }
         }
         assertTrue(isCFContains);
-        columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
+        columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
         assertEquals(columnFamilyInformation.getName(), COLUMN_FAMILY_NAME);
         assertEquals(columnFamilyInformation.getKeyspace(), KEYSPACE_NAME);
         //assertEquals(columnFamilyInformation.getId(),2);
@@ -188,13 +191,13 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
             "updateColumnBySuperTenant", "deleteColumnBySuperTenant"}, description = "Add column family by super tenant")
     public void deleteColumnFamily()
             throws Exception {
-        assertTrue(client.deleteColumnFamily(ENVIRONMENT_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME));
+        assertTrue(client.deleteColumnFamily(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME));
     }
 
     @Test(dependsOnMethods = {"addKeyspace", "updateKeyspace", "updateColumnFamily", "addColumnFamily"}, description = "Add column family by super tenant")
     public void addColumn()
             throws Exception {
-        KeyspaceInformation keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME);
+        KeyspaceInformation keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME);
         ColumnFamilyInformation columnFamilyInformation = CassandraClientHelper.getColumnFamilyInformationOfCurrentUser
                 (keyspaceInformation, COLUMN_FAMILY_NAME);
         ColumnInformation columnInformation = new ColumnInformation();
@@ -203,8 +206,8 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
         columnInformation.setIndexType(INDEX_TYPE);
         columnInformation.setValidationClass(CassandraUtils.BYTESTYPE);
         columnFamilyInformation.addColumns(columnInformation);
-        client.updateColumnFamily(ENVIRONMENT_NAME, columnFamilyInformation);
-        columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
+        client.updateColumnFamily(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, columnFamilyInformation);
+        columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
         columnInformation = CassandraClientHelper.getColumnInformation(columnFamilyInformation, COLUMN_NAME);
         assertNotNull(columnInformation);
         assertEquals(columnInformation.getName(), COLUMN_NAME);
@@ -217,13 +220,13 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
             "addColumn", "updateColumnBySuperTenant"}, description = "Add column family by super tenant")
     public void deleteColumnBySuperTenant()
             throws Exception {
-        KeyspaceInformation keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME);
+        KeyspaceInformation keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME);
         if (keyspaceInformation != null) {
             ColumnFamilyInformation columnFamilyInformation =
                     CassandraClientHelper.getColumnFamilyInformationOfCurrentUser(keyspaceInformation, COLUMN_FAMILY_NAME);
             CassandraClientHelper.removeColumnInformation(columnFamilyInformation, COLUMN_NAME);
-            client.updateColumnFamily(ENVIRONMENT_NAME, columnFamilyInformation);
-            columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
+            client.updateColumnFamily(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, columnFamilyInformation);
+            columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
             ColumnInformation columnInformation = CassandraClientHelper.getColumnInformation(columnFamilyInformation, COLUMN_NAME);
             assertNull(columnInformation);
         }
@@ -233,12 +236,12 @@ public class CassandraKeyspaceTestCase extends SSIntegrationTest {
             description = "Add column family by super tenant")
     public void updateColumnBySuperTenant()
             throws Exception {
-        KeyspaceInformation keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME);
+        KeyspaceInformation keyspaceInformation = client.getKeyspaceOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME);
         ColumnFamilyInformation columnFamilyInformation = CassandraClientHelper.getColumnFamilyInformationOfCurrentUser
                 (keyspaceInformation, COLUMN_FAMILY_NAME);
         ColumnInformation columnInformation = CassandraClientHelper.getColumnInformation(columnFamilyInformation, COLUMN_NAME);
-        client.updateColumnFamily(ENVIRONMENT_NAME, columnFamilyInformation);
-        columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
+        client.updateColumnFamily(ENVIRONMENT_NAME, null, columnFamilyInformation);
+        columnFamilyInformation = client.getColumnFamilyInformationOfCurrentUser(ENVIRONMENT_NAME, DEFAULT_CLUSTER_NAME, KEYSPACE_NAME, COLUMN_FAMILY_NAME);
         columnInformation = CassandraClientHelper.getColumnInformation(columnFamilyInformation, COLUMN_NAME);
         assertNotNull(columnInformation);
         assertEquals(columnInformation.getName(), COLUMN_NAME);
