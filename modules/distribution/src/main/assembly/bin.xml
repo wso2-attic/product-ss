@@ -533,6 +533,12 @@
             <filtered>true</filtered>
         </file>
         <file>
+            <source>src/main/resources/WSO2_RSS_DB.h2.db</source>
+            <outputDirectory>wso2ss-${pom.version}/repository/database</outputDirectory>
+            <destName>WSO2_RSS_DB.h2.db</destName>
+            <fileMode>644</fileMode>
+        </file>
+        <file>
             <source>src/main/resources/thrift-python-internal-only-0.7.0.zip</source>
             <outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>
             <destName>thrift-python-internal-only-0.7.0.zip</destName>
