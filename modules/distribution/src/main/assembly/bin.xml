@@ -229,7 +229,7 @@
         <fileSet>
             <directory>src/main/resources/bam-toolboxes
             </directory>
-            <outputDirectory>wso2ss-${pom.version}/bam-toolboxes</outputDirectory>
+            <outputDirectory>wso2ss-${pom.version}/resources/bam-toolboxes</outputDirectory>
             <includes>
                 <include>**/*.*</include>
             </includes>
@@ -531,6 +531,12 @@
             <destName>cql-internal-only-1.4.1.zip</destName>
             <fileMode>644</fileMode>
             <filtered>true</filtered>
+        </file>
+        <file>
+            <source>src/main/resources/WSO2_RSS_DB.h2.db</source>
+            <outputDirectory>wso2ss-${pom.version}/repository/database</outputDirectory>
+            <destName>WSO2_RSS_DB.h2.db</destName>
+            <fileMode>644</fileMode>
         </file>
         <file>
             <source>src/main/resources/thrift-python-internal-only-0.7.0.zip</source>
