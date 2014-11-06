@@ -18,7 +18,7 @@
 <product xmlns="http://products.wso2.org/carbon">
     <properties>
        <property name="userforum">http://stackoverflow.com/search?q=wso2</property>
-       <property name="userguide">http://docs.wso2.org/wiki/display/SS110/WSO2+Storage+Server+Documentation</property>
+       <property name="userguide">http://docs.wso2.org/wiki/display/SS150/WSO2+Storage+Server+Documentation</property>
        <property name="mailinglist">http://wso2.org/mail</property>
        <property name="issuetracker">https://wso2.org/jira/browse/SS</property>
     </properties>
