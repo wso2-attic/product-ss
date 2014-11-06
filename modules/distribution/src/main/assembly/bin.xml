@@ -38,22 +38,7 @@
                 <exclude>**/user-mgt.xml</exclude>
                 <exclude>**/carbon.xml</exclude>
                 <exclude>**/cache.xml</exclude>
-
-                <!-- Following will be added by patch0001; Excluded here -->
-                <exclude>**/dbscripts/mysql.sql</exclude>
-                <exclude>**/dbscripts/db2.sql</exclude>
-                <exclude>**/dbscripts/mysql_cluster.sql</exclude>
-                <exclude>**/lib/org.wso2.carbon.server-4.2.0.jar</exclude>
-
-                <!-- Following will be added by patch0002; Excluded here -->
-                <exclude>**/repository/conf/security/cipher-text.properties</exclude>
-                <exclude>**/repository/conf/security/cipher-tool.properties</exclude>
-
-		<!-- Following will be added by patch0003; Excluded here -->
-                <!--<exclude>**/axis2/axis2.xml</exclude>
-                <exclude>**/axis2/axis2_client.xml</exclude>
-                <exclude>**/axis2/tenant-axis2.xml</exclude>-->
-
+                <exclude>**/master-datasources.xml</exclude>
             </excludes>
         </fileSet>
         <!--<fileSet>-->
@@ -94,6 +79,7 @@
             <outputDirectory>${pom.artifactId}-${pom.version}</outputDirectory>
             <excludes>
                 <exclude>**/wso2server.bat</exclude>
+                <exclude>**/wso2server.sh</exclude>
             </excludes>
             <includes>
                 <include>**/*.sh</include>
@@ -126,11 +112,9 @@
                 <exclude>**/catalina-server.xml</exclude>
                 <exclude>**/log4j.properties</exclude>
                 <exclude>**/user-mgt.xml</exclude>
+                <exclude>**/master-datasources.xml</exclude>
                 <exclude>**/embedded-ldap.xml</exclude>
                 <exclude>**/krb5.conf</exclude>
-                <!-- Changes related to Carbon kernel 4.2.0 patches -->
-                <exclude>**/axis2/*</exclude>
-                <!-- End - Changes related to Carbon kernel 4.2.0 patches -->
             </excludes>
         </fileSet>
 
@@ -201,12 +185,11 @@
         <fileSet>
             <directory>src/main/resources/hadoop</directory>
             <outputDirectory>wso2ss-${pom.version}/repository/data/hadoop</outputDirectory>
-            <filtered>true</filtered>
+            <fileMode>755</fileMode>
         </fileSet>
         <fileSet>
             <directory>src/main/resources/hadoop-cli</directory>
             <outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>
-            <filtered>true</filtered>
             <fileMode>755</fileMode>
         </fileSet>
         <!--hadoop-->
@@ -242,7 +225,7 @@
         </fileSet>
         <!-- RSS SQL scripts -->
 
-	<!-- BAM toolboxes - start-->
+        <!-- BAM toolboxes - start-->
         <fileSet>
             <directory>src/main/resources/bam-toolboxes
             </directory>
@@ -251,7 +234,7 @@
                 <include>**/*.*</include>
             </includes>
         </fileSet>
-	<!-- BAM toolboxes - end -->
+        <!-- BAM toolboxes - end -->
 
         <!--fileSet>
             <directory>../../modules/samples/css</directory>
@@ -265,27 +248,9 @@
             <directory>../../modules/samples/hdfs</directory>
             <outputDirectory>wso2ss-${pom.version}/samples/hdfs</outputDirectory>
         </fileSet-->
-        <!-- Kernal patches -->
         <fileSet>
-            <directory>../p2-profile-gen/target/WSO2-CARBON-PATCH-4.2.0-0001</directory>
-            <outputDirectory>wso2as-${pom.version}/repository/components/patches/</outputDirectory>
-            <includes>
-                <include>**/patch0001/*.*</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>../p2-profile-gen/target/WSO2-CARBON-PATCH-4.2.0-0002</directory>
-            <outputDirectory>wso2as-${pom.version}/repository/components/patches/</outputDirectory>
-            <includes>
-                <include>**/patch0002/*.*</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>../p2-profile-gen/target/WSO2-CARBON-PATCH-4.2.0-0003</directory>
-            <outputDirectory>wso2as-${pom.version}/repository/components/patches/</outputDirectory>
-            <includes>
-                <include>**/patch0003/*.*</include>
-            </includes>
+            <directory>src/main/resources/pylib</directory>
+            <outputDirectory>wso2ss-${pom.version}/repository/lib/pylib</outputDirectory>
         </fileSet>
     </fileSets>
     <!--DataNode-->
@@ -388,6 +353,20 @@
             <fileMode>644</fileMode>
         </file>
 
+        <file>
+            <source>
+                ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/logging-config.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
+            <fileMode>644</fileMode>
+        </file>
+        <file>
+            <source>
+                ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/multitenancy/tenant-mgt.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf</outputDirectory>
+        </file>
+
         <!-- Copying Cassandra configuration files -->
         <file>
             <source>
@@ -419,6 +398,13 @@
         </file>
         <file>
             <source>
+                ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/cassandra-environments.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
+            <fileMode>644</fileMode>
+        </file>
+        <file>
+            <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/cassandra-topology.properties
             </source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
@@ -441,15 +427,23 @@
             <fileMode>644</fileMode>
         </file>
 
-	<!-- Copying persistence.xml -->
-	<file>
+        <!-- Copying persistence.xml -->
+        <file>
             <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/persistence.xml
             </source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
             <fileMode>644</fileMode>
         </file>
-	<file>
+        <file>
+            <source>
+                src/main/conf/master-datasources.xml
+            </source>
+            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/datasources/</outputDirectory>
+            <fileMode>644</fileMode>
+        </file>
+
+        <file>
             <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/rss-monitor-config.xml
             </source>
@@ -477,12 +471,12 @@
             </source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf</outputDirectory>
         </file-->
-	<!--file>
+        <file>
             <source>
                 ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/claim-config.xml
             </source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf</outputDirectory>
-        </file-->
+        </file>
         <file>
             <source>src/main/bin/cassandra-cli</source>
             <outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>
@@ -523,6 +517,27 @@
         <file>
             <source>src/main/resources/security/cipher-tool.properties</source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/security/</outputDirectory>
+        </file>
+        <file>
+            <source>src/main/bin/cqlsh</source>
+            <outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>
+            <destName>cqlsh</destName>
+            <fileMode>755</fileMode>
+            <filtered>true</filtered>
+        </file>
+        <file>
+            <source>src/main/resources/cql-internal-only-1.4.1.zip</source>
+            <outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>
+            <destName>cql-internal-only-1.4.1.zip</destName>
+            <fileMode>644</fileMode>
+            <filtered>true</filtered>
+        </file>
+        <file>
+            <source>src/main/resources/thrift-python-internal-only-0.7.0.zip</source>
+            <outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>
+            <destName>thrift-python-internal-only-0.7.0.zip</destName>
+            <fileMode>644</fileMode>
+            <filtered>true</filtered>
         </file>
     </files>
 </assembly>

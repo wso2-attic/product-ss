@@ -1,8 +1,8 @@
 ================================================================================
-                        WSO2 Storage Server 1.0.3
+                        WSO2 Storage Server 1.5.0
 ================================================================================
 
-Welcome to the WSO2 Storage Server 1.0.3 release
+Welcome to the WSO2 Storage Server 1.5.0 release
 
 WSO2 SS allows system administrators and developers to easily create and
 mange Relational databases, Column stores and data on a HDFS file system.
@@ -36,7 +36,7 @@ System Requirements
 Installation & Running
 ==================================
 
-1. Extract the wso2ss-1.0.3.zip and go to the extracted directory
+1. Extract the wso2ss-1.5.0.zip and go to the extracted directory
 2. Run the wso2server.sh or wso2server.bat as appropriate
 3. Point your favourite browser to
 
@@ -48,7 +48,7 @@ Installation & Running
     password : admin
 
 
-WSO2 Storage Server 1.0.3 distribution directory structure
+WSO2 Storage Server 1.5.0 distribution directory structure
 =============================================
 
 	CARBON_HOME
@@ -115,7 +115,7 @@ WSO2 Storage Server 1.0.3 distribution directory structure
       This document will contain information on installing WSO2 Storage Server
 
 	- release-notes.html
-	  Release information for WSO2 Storage Server 1.0.3
+	  Release information for WSO2 Storage Server 1.5.0
 
 Support
 ==================================
