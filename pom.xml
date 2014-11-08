@@ -43,8 +43,8 @@
         <module>modules/features</module>
         <module>modules/p2-profile</module>
         <module>modules/distribution</module>
-        <!--module>modules/org.wso2.stratos.ss.login.ui</module>
-        <module>modules/integration</module-->
+        <!--<module>modules/org.wso2.stratos.ss.login.ui</module>-->
+        <module>modules/integration</module>
     </modules>
 
     <scm>
@@ -273,6 +273,24 @@
                 <groupId>org.wso2.ss</groupId>
                 <artifactId>org.wso2.ss.integration.common.utils</artifactId>
                 <version>${project.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.ss</groupId>
+                <artifactId>org.wso2.ss.integration.common.clients</artifactId>
+                <version>${project.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.ss</groupId>
+                <artifactId>org.wso2.ss.integration.ui.pages</artifactId>
+                <version>${project.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.authenticator.stub</artifactId>
+                <version>${carbon.platform.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>

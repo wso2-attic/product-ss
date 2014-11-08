@@ -1,20 +1,20 @@
 /*
-*Copyright (c) 2005-2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
-*
-*WSO2 Inc. licenses this file to you under the Apache License,
-*Version 2.0 (the "License"); you may not use this file except
-*in compliance with the License.
-*You may obtain a copy of the License at
-*
-*http://www.apache.org/licenses/LICENSE-2.0
-*
-*Unless required by applicable law or agreed to in writing,
-*software distributed under the License is distributed on an
-*"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-*KIND, either express or implied.  See the License for the
-*specific language governing permissions and limitations
-*under the License.
-*/
+ * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.wso2.dss.integration.common.clients;
 
 import org.apache.axis2.AxisFault;
@@ -24,14 +24,7 @@ import org.wso2.carbon.integration.common.admin.client.utils.AuthenticateStubUti
 import org.wso2.carbon.registry.resource.stub.ResourceAdminServiceExceptionException;
 import org.wso2.carbon.registry.resource.stub.ResourceAdminServiceResourceServiceExceptionException;
 import org.wso2.carbon.registry.resource.stub.ResourceAdminServiceStub;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.CollectionContentBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.ContentBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.ContentDownloadBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.MetadataBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.PermissionBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.ResourceTreeEntryBean;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.VersionPath;
-import org.wso2.carbon.registry.resource.stub.beans.xsd.VersionsBean;
+import org.wso2.carbon.registry.resource.stub.beans.xsd.*;
 import org.wso2.carbon.registry.resource.stub.common.xsd.ResourceData;
 
 import javax.activation.DataHandler;
@@ -118,7 +111,7 @@ public class ResourceAdminServiceClient {
             throws ResourceAdminServiceExceptionException, RemoteException {
 
         resourceAdminServiceStub.importResource("/", resourceName, MEDIA_TYPE_WSDL,
-                                                description, fetchURL, null, null);
+                description, fetchURL, null, null);
     }
 
     public void addWADL(String resourceName, String description,
@@ -126,7 +119,7 @@ public class ResourceAdminServiceClient {
             throws ResourceAdminServiceExceptionException, RemoteException {
 
         resourceAdminServiceStub.importResource("/", resourceName, MEDIA_TYPE_WADL,
-                                                description, fetchURL, null, null);
+                description, fetchURL, null, null);
     }
 
     public void addSchema(String description, DataHandler dh)
@@ -134,15 +127,15 @@ public class ResourceAdminServiceClient {
         String fileName;
         fileName = dh.getName().substring(dh.getName().lastIndexOf('/') + 1);
         resourceAdminServiceStub.addResource("/" + fileName, MEDIA_TYPE_SCHEMA,
-                                             description, dh, null, null);
+                description, dh, null, null);
     }
 
     public void addSchema(String resourceName, String description,
                           String fetchURL) throws ResourceAdminServiceExceptionException,
-                                                  RemoteException {
+            RemoteException {
 
         resourceAdminServiceStub.importResource("/", resourceName, MEDIA_TYPE_SCHEMA,
-                                                description, fetchURL, null, null);
+                description, fetchURL, null, null);
 
     }
 
@@ -151,7 +144,7 @@ public class ResourceAdminServiceClient {
         String fileName;
         fileName = dh.getName().substring(dh.getName().lastIndexOf('/') + 1);
         resourceAdminServiceStub.addResource("/" + fileName, MEDIA_TYPE_POLICY,
-                                             description, dh, null, null);
+                description, dh, null, null);
     }
 
     public void addPolicy(String resourceName, String description,
@@ -159,7 +152,7 @@ public class ResourceAdminServiceClient {
             throws ResourceAdminServiceExceptionException, RemoteException {
 
         resourceAdminServiceStub.importResource("/", resourceName, MEDIA_TYPE_POLICY,
-                                                description, fetchURL, null, null);
+                description, fetchURL, null, null);
     }
 
     public void uploadArtifact(String description, DataHandler dh)
@@ -167,7 +160,7 @@ public class ResourceAdminServiceClient {
         String fileName;
         fileName = dh.getName().substring(dh.getName().lastIndexOf('/') + 1);
         resourceAdminServiceStub.addResource("/" + fileName, MEDIA_TYPE_GOVERNANCE_ARCHIVE,
-                                             description, dh, null, null);
+                description, dh, null, null);
     }
 
     public String addCollection(String parentPath, String collectionName,
@@ -189,7 +182,7 @@ public class ResourceAdminServiceClient {
             throws RemoteException, ResourceAdminServiceExceptionException {
 
         resourceAdminServiceStub.addTextResource(parentPath, fileName, mediaType,
-                                                 description, content);
+                description, content);
     }
 
     public void addResourcePermission(String pathToAuthorize,
@@ -198,7 +191,7 @@ public class ResourceAdminServiceClient {
             throws RemoteException, ResourceAdminServiceResourceServiceExceptionException {
 
         resourceAdminServiceStub.addRolePermission(pathToAuthorize, roleToAuthorize,
-                                                   actionToAuthorize, permissionType);
+                actionToAuthorize, permissionType);
 
     }
 
