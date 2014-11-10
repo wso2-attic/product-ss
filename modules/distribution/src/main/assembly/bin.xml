@@ -39,6 +39,7 @@
                 <exclude>**/carbon.xml</exclude>
                 <exclude>**/cache.xml</exclude>
                 <exclude>**/master-datasources.xml</exclude>
+                <exclude>**/launch.ini</exclude>
             </excludes>
         </fileSet>
         <!--<fileSet>-->
@@ -276,6 +277,12 @@
             <source>src/main/conf/log4j.properties</source>
             <outputDirectory>wso2ss-${pom.version}/repository/conf</outputDirectory>
             <destName>log4j.properties</destName>
+            <filtered>true</filtered>
+            <fileMode>644</fileMode>
+        </file>
+        <file>
+            <source>src/main/conf/launch.ini</source>
+            <outputDirectory>wso2ss-${pom.version}/repository/conf/etc</outputDirectory>
             <filtered>true</filtered>
             <fileMode>644</fileMode>
         </file>
