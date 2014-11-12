@@ -272,6 +272,7 @@ do
     -Xms256m -Xmx1024m -XX:MaxPermSize=256m \
     -XX:+HeapDumpOnOutOfMemoryError \
     -XX:HeapDumpPath="$CARBON_HOME/repository/logs/heap-dump.hprof" \
+    -javaagent:"$CARBON_HOME/repository/components/plugins/jamm_0.2.5.wso2v2.jar" \
     $JAVA_OPTS \
     -Dcom.sun.management.jmxremote \
     -classpath "$CARBON_CLASSPATH" \
