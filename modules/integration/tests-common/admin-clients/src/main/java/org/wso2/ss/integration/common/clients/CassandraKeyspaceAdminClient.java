@@ -1,20 +1,19 @@
 /*
- *  Licensed to the Apache Software Foundation (ASF) under one
- *  or more contributor license agreements.  See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership.  The ASF licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License.  You may obtain a copy of the License at
+ * Copyright (c) 2014, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *  Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *   * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied.  See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
  */
 package org.wso2.ss.integration.common.clients;
 
@@ -81,9 +80,9 @@ public class CassandraKeyspaceAdminClient {
      * @throws AxisFault
      */
 
-    public String getClusterName(String envName) throws AxisFault {
+    public String getClusterName(String envName, String clusterName) throws AxisFault {
         try {
-            return cassandraAdminStub.getClusterName(envName);
+            return cassandraAdminStub.getClusterName(envName, clusterName);
         } catch (Exception e) {
             throw new AxisFault("Error retrieving Cluster Name !", e);
         }
@@ -99,7 +98,7 @@ public class CassandraKeyspaceAdminClient {
      * @throws AxisFault For errors during locating   kepspaces
      */
 
-    public String[] lisKeyspaces(String envName, String clusterName, String username, String password)
+    public KeyspaceInformation[] lisKeyspaces(String envName, String clusterName, String username, String password)
             throws AxisFault {
         try {
             return cassandraAdminStub.listKeyspaces(envName, clusterName, username, password);
@@ -114,7 +113,7 @@ public class CassandraKeyspaceAdminClient {
      * @return A <code>String</code> array representing the names of keyspaces
      * @throws AxisFault For errors during locating  kepspaces
      */
-    public String[] listKeyspacesOfCurrentUSer(String envName) throws AxisFault {
+    public KeyspaceInformation[] listKeyspacesOfCurrentUSer(String envName) throws AxisFault {
         try {
             return cassandraAdminStub.listKeyspacesOfCurrentUser(envName);
         } catch (Exception e) {
@@ -129,11 +128,11 @@ public class CassandraKeyspaceAdminClient {
      * @return A <code>String</code> array representing the names of CFs
      * @throws AxisFault For errors during locating CFs
      */
-    public String[] listColumnFamiliesOfCurrentUser(String envName, String keyspaceName)
+    public String[] listColumnFamiliesOfCurrentUser(String envName, String clusterName, String keyspaceName)
             throws AxisFault {
         validateKeyspace(keyspaceName);
         try {
-            return cassandraAdminStub.listColumnFamiliesOfCurrentUser(envName, keyspaceName);
+            return cassandraAdminStub.listColumnFamiliesOfCurrentUser(envName, clusterName, keyspaceName);
         } catch (Exception e) {
             throw new AxisFault("Error retrieving CF names !", e);
         }
@@ -147,13 +146,14 @@ public class CassandraKeyspaceAdminClient {
      * @return An instance of <code>ColumnFamilyInformation </code>
      * @throws AxisFault For errors during locating the CF
      */
-    public ColumnFamilyInformation getColumnFamilyInformationOfCurrentUser(String envName, String keyspaceName,
+    public ColumnFamilyInformation getColumnFamilyInformationOfCurrentUser(String envName, String clusterName,
+                                                                           String keyspaceName,
                                                                            String cfName)
             throws AxisFault {
         validateKeyspace(keyspaceName);
         validateCF(cfName);
         try {
-            return cassandraAdminStub.getColumnFamilyOfCurrentUser(envName, keyspaceName, cfName);
+            return cassandraAdminStub.getColumnFamilyOfCurrentUser(envName, clusterName, keyspaceName, cfName);
         } catch (Exception e) {
             throw new AxisFault("Error retrieving the CF for the name " + cfName, e);
         }
@@ -196,11 +196,11 @@ public class CassandraKeyspaceAdminClient {
      * @return A <code>KeyspaceInformation</code> representing the meta-data of a keyspace
      * @throws AxisFault For errors during locating keyspace
      */
-    public KeyspaceInformation getKeyspaceOfCurrentUser(String envName, String keyspaceName)
+    public KeyspaceInformation getKeyspaceOfCurrentUser(String envName, String clusterName, String keyspaceName)
             throws AxisFault {
         validateKeyspace(keyspaceName);
         try {
-            return cassandraAdminStub.getKeyspaceofCurrentUser(envName, keyspaceName);
+            return cassandraAdminStub.getKeyspaceOfCurrentUser(envName, clusterName, keyspaceName);
         } catch (Exception e) {
             throw new AxisFault("Error retrieving keyspace !", e);
         }
@@ -212,11 +212,11 @@ public class CassandraKeyspaceAdminClient {
      * @param keyspaceInformation keyspace information
      * @throws AxisFault For errors during adding a keyspace
      */
-    public void addKeyspace(String envName, KeyspaceInformation keyspaceInformation)
+    public void addKeyspace(KeyspaceInformation keyspaceInformation)
             throws AxisFault {
         validateKeyspaceInformation(keyspaceInformation);
         try {
-            cassandraAdminStub.addKeyspace(envName, keyspaceInformation);
+            cassandraAdminStub.addKeyspace(keyspaceInformation);
         } catch (Exception e) {
             throw new AxisFault("Error adding the keyspace !", e);
         }
@@ -228,11 +228,11 @@ public class CassandraKeyspaceAdminClient {
      * @param keyspaceInformation keyspace information
      * @throws AxisFault For errors during adding a keyspace
      */
-    public void updateKeyspace(String envName, KeyspaceInformation keyspaceInformation)
+    public void updateKeyspace(KeyspaceInformation keyspaceInformation)
             throws AxisFault {
         validateKeyspaceInformation(keyspaceInformation);
         try {
-            cassandraAdminStub.updatedKeyspace(envName, keyspaceInformation);
+            cassandraAdminStub.updatedKeyspace(keyspaceInformation);
         } catch (Exception e) {
             throw new AxisFault("Error updating the keyspace !", e);
         }
@@ -259,10 +259,10 @@ public class CassandraKeyspaceAdminClient {
      * @return true for success
      * @throws AxisFault For errors during removing a keyspace
      */
-    public boolean deleteKeyspace(String envName, String keyspaceName) throws AxisFault {
+    public boolean deleteKeyspace(String envName, String clusterName, String keyspaceName) throws AxisFault {
         validateKeyspace(keyspaceName);
         try {
-            return cassandraAdminStub.deleteKeyspace(envName, keyspaceName);
+            return cassandraAdminStub.deleteKeyspace(envName, clusterName, keyspaceName);
         } catch (Exception e) {
             throw new AxisFault("Error removing the keyspace !", e);
         }
@@ -277,12 +277,12 @@ public class CassandraKeyspaceAdminClient {
      * @return true for success
      * @throws AxisFault for errors during removing a CF
      */
-    public boolean deleteColumnFamily(String envName, String keyspaceName, String columnFamilyName)
+    public boolean deleteColumnFamily(String envName, String clusterName, String keyspaceName, String columnFamilyName)
             throws AxisFault {
         validateKeyspace(keyspaceName);
         validateCF(columnFamilyName);
         try {
-            return cassandraAdminStub.deleteColumnFamily(envName, keyspaceName, columnFamilyName);
+            return cassandraAdminStub.deleteColumnFamily(envName, clusterName, keyspaceName, columnFamilyName);
         } catch (Exception e) {
             throw new AxisFault("Error removing the CF !", e);
         }
@@ -294,11 +294,11 @@ public class CassandraKeyspaceAdminClient {
      * @param columnFamilyInformation information about a CF
      * @throws AxisFault for errors during adding a CF
      */
-    public void addColumnFamily(String envName, ColumnFamilyInformation columnFamilyInformation)
+    public void addColumnFamily(String envName, String clusterName, ColumnFamilyInformation columnFamilyInformation)
             throws AxisFault {
         validateColumnFamilyInformation(columnFamilyInformation);
         try {
-            cassandraAdminStub.addColumnFamily(envName, columnFamilyInformation);
+            cassandraAdminStub.addColumnFamily(envName, clusterName, columnFamilyInformation);
         } catch (Exception e) {
             throw new AxisFault("Error adding the CF !", e);
         }
@@ -310,11 +310,11 @@ public class CassandraKeyspaceAdminClient {
      * @param columnFamilyInformation CF information
      * @throws AxisFault for errors during adding a CF
      */
-    public void updateColumnFamily(String envName, ColumnFamilyInformation columnFamilyInformation)
+    public void updateColumnFamily(String envName, String clusterName, ColumnFamilyInformation columnFamilyInformation)
             throws AxisFault {
         validateColumnFamilyInformation(columnFamilyInformation);
         try {
-            cassandraAdminStub.updateColumnFamily(envName, columnFamilyInformation);
+            cassandraAdminStub.updateColumnFamily(envName, clusterName, columnFamilyInformation);
         } catch (Exception e) {
             throw new AxisFault("Error updating the CF !", e);
         }
@@ -327,11 +327,11 @@ public class CassandraKeyspaceAdminClient {
      * @return Token range as a list
      * @throws AxisFault for errors during calling backend service
      */
-    public TokenRangeInformation[] getTokenRange(String envName, String keyspace)
+    public TokenRangeInformation[] getTokenRange(String envName, String clusterName, String keyspace)
             throws AxisFault {
         validateKeyspace(keyspace);
         try {
-            return cassandraAdminStub.getTokenRange(envName, keyspace);
+            return cassandraAdminStub.getTokenRange(envName, clusterName, keyspace);
         } catch (Exception e) {
             log.error("Error getting the token range of the keyspace : " + keyspace, e);
         }

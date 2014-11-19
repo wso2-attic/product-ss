@@ -18,30 +18,18 @@
 package org.wso2.ss.integration.common.clients;
 
 import org.apache.axis2.AxisFault;
-import org.apache.axis2.Constants;
-import org.apache.axis2.client.Options;
-import org.apache.axis2.client.ServiceClient;
-import org.apache.axis2.context.ConfigurationContext;
-import org.apache.axis2.transport.http.HTTPConstants;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.wso2.carbon.cassandra.mgt.stub.ks.CassandraKeyspaceAdminStub;
 import org.wso2.carbon.integration.common.admin.client.utils.AuthenticateStubUtil;
 import org.wso2.carbon.rssmanager.core.dto.xsd.*;
-import org.wso2.carbon.rssmanager.ui.stub.RSSAdminRSSManagerExceptionException;
 import org.wso2.carbon.rssmanager.ui.stub.RSSAdminStub;
-
 import java.rmi.RemoteException;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class RSSManagerClient {
 
     private RSSAdminStub stub;
 
     private static final Log log = LogFactory.getLog(RSSManagerClient.class);
-
-    //https://10.100.0.118:9443/services/RSSAdmin
     private String serviceName = "RSSAdmin";
 
     public RSSManagerClient(String backEndUrl, String sessionCookie) throws AxisFault {
@@ -115,14 +103,10 @@ public class RSSManagerClient {
                 throw new AxisFault("stub is null");
             }
             stub.addDatabase(environmentName, database);
-        } catch (RemoteException e) {
+        } catch (Exception e) {
             handleException("Fail to create database" + " '" + database.getName() + "' : " + e.getMessage(),
                     e);
-        } catch (RSSAdminRSSManagerExceptionException e) {
-            handleException("Fail to create database" + " '" + database.getName() + "' : " + e.getFaultMessage()
-                    .getRSSManagerException().getErrorMessage(), e);
         }
-
     }
 
     public DatabaseInfo[] getDatabaseList(String environmentName) throws AxisFault {
@@ -186,7 +170,8 @@ public class RSSManagerClient {
         try {
             stub.testConnection(driverClass, jdbcUrl, username, password);
         } catch (Exception e) {
-            handleException("Error occurred while connecting to '" + jdbcUrl + "' with the username '" + username + "' and the driver class '" + driverClass + "' : " + e.getMessage(),
+            handleException("Error occurred while connecting to '" + jdbcUrl + "' with the username '" + username + "' " +
+                            "and the driver class '" + driverClass + "' : " + e.getMessage(),
                     e);
         }
     }
@@ -219,9 +204,9 @@ public class RSSManagerClient {
         }
     }
 
-    public void createCarbonDataSource(String environmentName, UserDatabaseEntryInfo entry) throws AxisFault {
+    public void createCarbonDataSource(String environmentName, String dataSourceName, UserDatabaseEntryInfo entry) throws AxisFault {
         try {
-            stub.addCarbonDataSource(environmentName, entry);
+            stub.addCarbonDataSource(environmentName, dataSourceName, entry);
         } catch (Exception e) {
             handleException("Fail to create datasource" + " : " + e.getMessage(),
                     e);
@@ -234,11 +219,8 @@ public class RSSManagerClient {
             stub.addDatabaseUser(environmentName, user);
         } catch (RemoteException e) {
             handleException("Fail to create database user" + " : " + e.getMessage(), e);
-        } catch (RSSAdminRSSManagerExceptionException e) {
-            handleException("Fail to create database user" + " : " + e.getFaultMessage()
-                            .getRSSManagerException()
-                            .getErrorMessage(),
-                    e);
+        } catch (Exception e) {
+            handleException("Fail to create database user" + " : " + e.getMessage(), e);
         }
 
     }
@@ -364,7 +346,8 @@ public class RSSManagerClient {
         try {
             privileges = stub.getUserDatabasePrivileges(environmentName, rssInstanceName, databaseName, username, type);
         } catch (Exception e) {
-            String msg = "Failed to retrieve database permissions granted to the user" + " '" + username + "' on the database '" + databaseName + "' : " + e.getMessage();
+            String msg = "Failed to retrieve database permissions granted to the user" + " '" + username +
+                    "' on the database '" + databaseName + "' : " + e.getMessage();
             handleException(msg, e);
         }
         return privileges;
