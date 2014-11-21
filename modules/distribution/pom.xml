@@ -165,6 +165,29 @@
                                         <include name="**/images/*.*"/>
                                     </fileset>
                                 </copy>
+                                <copy
+                                        todir="target/wso2carbon-core-${carbon.platform.version}/dbscripts/identity"
+                                        overwrite="false">
+                                    <fileset
+                                            dir="${basedir}/../p2-profile/target/wso2carbon-core-${carbon.platform.version}/dbscripts/identity/">
+                                    </fileset>
+                                </copy>
+                                <path id="h2.classpath">
+                                    <path refid="maven.compile.classpath"/>
+                                </path>
+                                <echo
+                                        message="########### Create Application Management Database Tables ##############"/>
+                                <sql
+                                        driver="org.h2.Driver"
+                                        url="jdbc:h2:${basedir}/target/wso2carbon-core-${carbon.platform.version}/repository/database/WSO2CARBON_DB"
+                                        userid="wso2carbon" password="wso2carbon" autocommit="true"
+                                        onerror="continue">
+                                    <classpath>
+                                        <path refid="h2.classpath"/>
+                                    </classpath>
+                                    <fileset
+                                            file="target/wso2carbon-core-${carbon.platform.version}/dbscripts/identity/application-mgt/h2.sql"/>
+                                </sql>
                                 <delete dir="${tempdir}"/>
                             </tasks>
                         </configuration>
@@ -294,22 +317,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <!--reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.1.2</version>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>index</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
-            </plugin>
-        </plugins>
-    </reporting-->
-
 </project>
