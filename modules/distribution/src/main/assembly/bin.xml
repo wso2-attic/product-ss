@@ -434,14 +434,6 @@
             <fileMode>644</fileMode>
         </file>
 
-        <!-- Copying persistence.xml -->
-        <file>
-            <source>
-                ../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/repository/conf/etc/persistence.xml
-            </source>
-            <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/etc</outputDirectory>
-            <fileMode>644</fileMode>
-        </file>
         <file>
             <source>
                 src/main/conf/master-datasources.xml
