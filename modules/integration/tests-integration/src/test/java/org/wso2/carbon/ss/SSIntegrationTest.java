@@ -85,23 +85,6 @@ public abstract class SSIntegrationTest {
         return (userMode == TestUserMode.TENANT_ADMIN || userMode == TestUserMode.TENANT_USER);
     }
 
-    protected File selectSqlFile(String fileName) throws XPathExpressionException {
-
-        String driver = ssContext.getConfigurationValue(XPathConstants.DATA_SOURCE_DRIVER_CLASS_NAME);
-        String type = "";
-        if (driver.contains("h2")) {
-            type = "h2";
-        } else if (driver.contains("mysql")) {
-            type = "MySql";
-        } else if (driver.contains("oracle")) {
-            type = "oracle";
-        }
-
-        return new File(TestConfigurationProvider.getResourceLocation() + "artifacts"
-                + File.separator + "DSS" + File.separator + "sql" + File.separator
-                + type + File.separator + fileName);
-    }
-
     private void validateServiceUrl(String serviceUrl, Tenant tenant) {
         //if user mode is null can not validate the service url
         if (userMode != null) {
