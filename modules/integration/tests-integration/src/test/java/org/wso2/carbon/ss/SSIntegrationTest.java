@@ -25,6 +25,7 @@ import org.wso2.carbon.automation.engine.context.beans.Tenant;
 import org.wso2.carbon.automation.engine.context.beans.User;
 import org.wso2.carbon.automation.extensions.XPathConstants;
 import org.wso2.carbon.automation.test.utils.common.TestConfigurationProvider;
+import org.wso2.carbon.integration.common.admin.client.UserManagementClient;
 import org.wso2.carbon.integration.common.utils.LoginLogoutClient;
 
 import javax.xml.xpath.XPathExpressionException;
@@ -42,7 +43,6 @@ public abstract class SSIntegrationTest {
     protected void init() throws Exception {
         userMode = TestUserMode.SUPER_TENANT_ADMIN;
         init(userMode);
-
     }
 
     protected void init(TestUserMode userType) throws Exception {
