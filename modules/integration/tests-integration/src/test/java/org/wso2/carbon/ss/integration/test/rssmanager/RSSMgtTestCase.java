@@ -189,8 +189,7 @@ public class RSSMgtTestCase extends SSIntegrationTest {
 	}
 
 	@Test(groups = "wso2.ss", expectedExceptions = AxisFault.class, description = "drop attached user ", dependsOnMethods
-            = {
-			"createDB", "createPrivilegeTemplate", "createDbUser", "attachUserToDB" }, priority = 2)
+            = {"createDB", "createPrivilegeTemplate", "createDbUser", "attachUserToDB" }, priority = 2)
 	public void dropAttachedUser() throws AxisFault {
 		client.dropDatabaseUser(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "user1", SYSTEM_TYPE);
 	}
