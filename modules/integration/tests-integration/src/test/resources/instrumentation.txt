@@ -11,9 +11,6 @@ org.wso2.carbon.hdfs.dataaccess_
 org.wso2.carbon.hdfs.datanode_
 org.wso2.carbon.hdfs.mgt_
 org.wso2.carbon.hdfs.namenode_
-org.wso2.carbon.ndatasource.common_
-org.wso2.carbon.ndatasource.core_
-org.wso2.carbon.ndatasource.rdbms_
 org.wso2.carbon.rssmanager.common_
 org.wso2.carbon.rssmanager.core_
 org.wso2.carbon.rssmanager.data.mgt_
