@@ -277,12 +277,6 @@
             </dependency>
             <dependency>
                 <groupId>org.wso2.ss</groupId>
-                <artifactId>org.wso2.ss.integration.common.clients</artifactId>
-                <version>${project.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.ss</groupId>
                 <artifactId>org.wso2.ss.integration.ui.pages</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
@@ -290,14 +284,18 @@
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.authenticator.stub</artifactId>
-                <version>${carbon.platform.version}</version>
+                <version>${carbon.kernel.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <properties>
-        <carbon.kernel.version>4.3.0-SNAPSHOT</carbon.kernel.version>
+        <!-- Carbon kernel version -->
+        <carbon.kernel.version>4.3.0</carbon.kernel.version>
+        <carbon.kernel.imp.pkg.version>[4.3.0, 4.4.0)
+        </carbon.kernel.imp.pkg.version>
+
         <carbon.platform.version>4.3.0-SNAPSHOT</carbon.platform.version>
         <carbon.version>4.3.0-SNAPSHOT</carbon.version>
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
