@@ -166,10 +166,10 @@
                                     </fileset>
                                 </copy>
                                 <copy
-                                        todir="target/wso2carbon-core-${carbon.platform.version}/dbscripts/identity"
+                                        todir="target/wso2carbon-core-${carbon.kernel.version}/dbscripts/identity"
                                         overwrite="false">
                                     <fileset
-                                            dir="${basedir}/../p2-profile/target/wso2carbon-core-${carbon.platform.version}/dbscripts/identity/">
+                                            dir="${basedir}/../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/dbscripts/identity/">
                                     </fileset>
                                 </copy>
                                 <path id="h2.classpath">
@@ -179,14 +179,14 @@
                                         message="########### Create Application Management Database Tables ##############"/>
                                 <sql
                                         driver="org.h2.Driver"
-                                        url="jdbc:h2:${basedir}/target/wso2carbon-core-${carbon.platform.version}/repository/database/WSO2CARBON_DB"
+                                        url="jdbc:h2:${basedir}/target/wso2carbon-core-${carbon.kernel.version}/repository/database/WSO2CARBON_DB"
                                         userid="wso2carbon" password="wso2carbon" autocommit="true"
                                         onerror="continue">
                                     <classpath>
                                         <path refid="h2.classpath"/>
                                     </classpath>
                                     <fileset
-                                            file="target/wso2carbon-core-${carbon.platform.version}/dbscripts/identity/application-mgt/h2.sql"/>
+                                            file="target/wso2carbon-core-${carbon.kernel.version}/dbscripts/identity/application-mgt/h2.sql"/>
                                 </sql>
                                 <delete dir="${tempdir}"/>
                             </tasks>
@@ -205,7 +205,7 @@
                                         message="########### Create RSS H2 Database ###########"/>
 
                                 <property name="db.dir"
-                                          value="target/wso2carbon-core-${carbon.platform.version}/repository/database"/>
+                                          value="target/wso2carbon-core-${carbon.kernel.version}/repository/database"/>
                                 <property name="userid" value="wso2carbon"/>
                                 <property name="password" value="wso2carbon"/>
                                 <property name="dbURL"
@@ -219,7 +219,7 @@
                                     <classpath refid="maven.compile.classpath"/>
                                     <classpath refid="maven.runtime.classpath"/>
 
-                                    <fileset file="${basedir}/../p2-profile/target/wso2carbon-core-${carbon.platform.version}/dbscripts/rss-manager/h2/wso2_rss_h2.sql"/>
+                                    <fileset file="${basedir}/../p2-profile/target/wso2carbon-core-${carbon.kernel.version}/dbscripts/rss-manager/h2/wso2_rss_h2.sql"/>
                                 </sql>
                                 <echo
                                         message="##################### END ####################"/>
