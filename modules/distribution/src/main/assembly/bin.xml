@@ -237,18 +237,6 @@
         </fileSet>
         <!-- BAM toolboxes - end -->
 
-        <!--fileSet>
-            <directory>../../modules/samples/css</directory>
-            <outputDirectory>wso2ss-${pom.version}/samples/css</outputDirectory>
-        </fileSet>
-        <fileSet>
-            <directory>../../modules/samples/rss</directory>
-            <outputDirectory>wso2ss-${pom.version}/samples/rss</outputDirectory>
-        </fileSet>
-        <fileSet>
-            <directory>../../modules/samples/hdfs</directory>
-            <outputDirectory>wso2ss-${pom.version}/samples/hdfs</outputDirectory>
-        </fileSet-->
         <fileSet>
             <directory>src/main/resources/pylib</directory>
             <outputDirectory>wso2ss-${pom.version}/repository/lib/pylib</outputDirectory>
@@ -267,16 +255,17 @@
     </dependencySets>
 
     <files>
-        <!--file>
-            <source>../../modules/samples/README</source>
-            <outputDirectory>wso2ss-${pom.version}/samples</outputDirectory>
-            <filtered>true</filtered>
-            <fileMode>644</fileMode>
-        </file-->
         <file>
             <source>src/main/conf/log4j.properties</source>
             <outputDirectory>wso2ss-${pom.version}/repository/conf</outputDirectory>
             <destName>log4j.properties</destName>
+            <filtered>true</filtered>
+            <fileMode>644</fileMode>
+        </file>
+        <file>
+            <source>src/main/conf/application-authentication.xml</source>
+            <outputDirectory>wso2ss-${pom.version}/repository/conf/security</outputDirectory>
+            <destName>application-authentication.xml</destName>
             <filtered>true</filtered>
             <fileMode>644</fileMode>
         </file>
@@ -298,12 +287,6 @@
             <filtered>true</filtered>
             <fileMode>644</fileMode>
         </file>
-        <!--file>
-            <source>src/main/conf/tenant-mgt.xml</source>
-            <outputDirectory>wso2ss-${pom.version}/repository/conf</outputDirectory>
-            <filtered>true</filtered>
-            <fileMode>644</fileMode>
-        </file-->
         <file>
             <source>src/main/conf/cache.xml</source>
             <outputDirectory>wso2ss-${pom.version}/repository/conf/etc</outputDirectory>
@@ -334,19 +317,6 @@
             <filtered>true</filtered>
             <fileMode>644</fileMode>
         </file>
-        <!--file>
-            <source>../../release-notes.html</source>
-            <outputDirectory>wso2ss-${pom.version}</outputDirectory>
-            <filtered>true</filtered>
-            <fileMode>644</fileMode>
-        </file-->
-
-        <!--file>
-            <source>../../docs/xdoc/release-notes.xml</source>
-            <outputDirectory>wso2ss-${pom.version}</outputDirectory>
-            <destName>release-notes.html</destName>
-            <fileMode>644</fileMode>
-        </file-->
         <file>
             <source>target/wso2carbon-core-${carbon.kernel.version}/bin/README.txt</source>
             <outputDirectory>wso2ss-${pom.version}/bin/</outputDirectory>
@@ -531,12 +501,12 @@
             <fileMode>644</fileMode>
             <filtered>true</filtered>
         </file>
-        <file>
+        <!--file>
             <source>src/main/resources/WSO2_RSS_DB.h2.db</source>
             <outputDirectory>wso2ss-${pom.version}/repository/database</outputDirectory>
             <destName>WSO2_RSS_DB.h2.db</destName>
             <fileMode>644</fileMode>
-        </file>
+        </file-->
         <file>
             <source>src/main/resources/thrift-python-internal-only-0.7.0.zip</source>
             <outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>

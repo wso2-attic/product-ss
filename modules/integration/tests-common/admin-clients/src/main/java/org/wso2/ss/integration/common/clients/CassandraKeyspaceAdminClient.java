@@ -25,11 +25,14 @@ import org.apache.axis2.context.ConfigurationContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.cassandra.mgt.stub.ks.CassandraKeyspaceAdminStub;
+import org.wso2.carbon.cassandra.mgt.stub.ks.CassandraServerManagementExceptionException;
 import org.wso2.carbon.cassandra.mgt.stub.ks.xsd.AuthorizedRolesInformation;
 import org.wso2.carbon.cassandra.mgt.stub.ks.xsd.ColumnFamilyInformation;
 import org.wso2.carbon.cassandra.mgt.stub.ks.xsd.KeyspaceInformation;
 import org.wso2.carbon.cassandra.mgt.stub.ks.xsd.TokenRangeInformation;
 import org.wso2.carbon.integration.common.admin.client.utils.AuthenticateStubUtil;
+
+import java.rmi.RemoteException;
 
 /**
  * The WS dataaccess to access the Cassandra Admin Service
@@ -386,5 +389,10 @@ public class CassandraKeyspaceAdminClient {
         if (columnFamilyName == null || "".equals(columnFamilyName.trim())) {
             throw new AxisFault("The column family name name is empty or null");
         }
+    }
+
+    public void authorizeRoles(AuthorizedRolesInformation[] authorizedRolesInformations)
+            throws RemoteException, CassandraServerManagementExceptionException {
+        cassandraAdminStub.authorizeRolesForResource(authorizedRolesInformations);
     }
 }

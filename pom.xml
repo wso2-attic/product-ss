@@ -277,12 +277,6 @@
             </dependency>
             <dependency>
                 <groupId>org.wso2.ss</groupId>
-                <artifactId>org.wso2.ss.integration.common.clients</artifactId>
-                <version>${project.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.ss</groupId>
                 <artifactId>org.wso2.ss.integration.ui.pages</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
@@ -290,14 +284,18 @@
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.authenticator.stub</artifactId>
-                <version>${carbon.platform.version}</version>
+                <version>${carbon.kernel.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
     <properties>
-        <carbon.kernel.version>4.3.0-SNAPSHOT</carbon.kernel.version>
+        <!-- Carbon kernel version -->
+        <carbon.kernel.version>4.3.0</carbon.kernel.version>
+        <carbon.kernel.imp.pkg.version>[4.3.0, 4.4.0)
+        </carbon.kernel.imp.pkg.version>
+
         <carbon.platform.version>4.3.0-SNAPSHOT</carbon.platform.version>
         <carbon.version>4.3.0-SNAPSHOT</carbon.version>
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
@@ -323,7 +321,7 @@
         <orbit.version.jettison>1.3.4.wso2v1</orbit.version.jettison>
         <wso2.h2.orbit.version>1.2.140.wso2v3</wso2.h2.orbit.version>
         <!-- Integration Test Dependency versions-->
-        <test.framework.version>4.3.1-SNAPSHOT</test.framework.version>
+        <test.framework.version>4.3.1</test.framework.version>
         <test.framework.util.version>4.3.0-SNAPSHOT</test.framework.util.version>
         <json.version>2.0.0.wso2v1</json.version>
     </properties>
