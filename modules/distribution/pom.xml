@@ -194,7 +194,7 @@
                     </execution>
                     <execution>
                         <!-- Creating RSS database -->
-                        <!--id>create-rss-database</id>
+                        <id>create-rss-database</id>
                         <phase>package</phase>
                         <goals>
                             <goal>run</goal>
@@ -209,7 +209,7 @@
                                 <property name="userid" value="wso2carbon"/>
                                 <property name="password" value="wso2carbon"/>
                                 <property name="dbURL"
-                                          value="jdbc:h2:file:${basedir}/${db.dir}/RSS_DATABASE;DB_CLOSE_ON_EXIT=FALSE"/>
+                                          value="jdbc:h2:file:${basedir}/${db.dir}/WSO2_RSS_DB;DB_CLOSE_ON_EXIT=FALSE"/>
 
                                 <sql driver="org.h2.Driver"
                                      url="${dbURL}"
@@ -224,7 +224,7 @@
                                 <echo
                                         message="##################### END ####################"/>
                             </tasks>
-                        </configuration-->
+                        </configuration>
                     </execution>
                     <execution>
                         <id>clean_target</id>
