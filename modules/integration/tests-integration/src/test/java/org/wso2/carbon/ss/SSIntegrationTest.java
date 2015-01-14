@@ -25,6 +25,7 @@ import org.wso2.carbon.automation.engine.context.beans.Tenant;
 import org.wso2.carbon.automation.engine.context.beans.User;
 import org.wso2.carbon.automation.extensions.XPathConstants;
 import org.wso2.carbon.automation.test.utils.common.TestConfigurationProvider;
+import org.wso2.carbon.integration.common.admin.client.UserManagementClient;
 import org.wso2.carbon.integration.common.utils.LoginLogoutClient;
 
 import javax.xml.xpath.XPathExpressionException;
@@ -42,7 +43,6 @@ public abstract class SSIntegrationTest {
     protected void init() throws Exception {
         userMode = TestUserMode.SUPER_TENANT_ADMIN;
         init(userMode);
-
     }
 
     protected void init(TestUserMode userType) throws Exception {
@@ -83,23 +83,6 @@ public abstract class SSIntegrationTest {
             throw new Exception("UserMode Not Initialized. Can not identify user type");
         }
         return (userMode == TestUserMode.TENANT_ADMIN || userMode == TestUserMode.TENANT_USER);
-    }
-
-    protected File selectSqlFile(String fileName) throws XPathExpressionException {
-
-        String driver = ssContext.getConfigurationValue(XPathConstants.DATA_SOURCE_DRIVER_CLASS_NAME);
-        String type = "";
-        if (driver.contains("h2")) {
-            type = "h2";
-        } else if (driver.contains("mysql")) {
-            type = "MySql";
-        } else if (driver.contains("oracle")) {
-            type = "oracle";
-        }
-
-        return new File(TestConfigurationProvider.getResourceLocation() + "artifacts"
-                + File.separator + "DSS" + File.separator + "sql" + File.separator
-                + type + File.separator + fileName);
     }
 
     private void validateServiceUrl(String serviceUrl, Tenant tenant) {
