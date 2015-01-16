@@ -367,4 +367,13 @@ public class RSSManagerClient {
         return environments;
     }
 
+    public void createSnapshot(String environmentName, String databaseName, String type) throws AxisFault {
+        try {
+            stub.createSnapshot(environmentName,databaseName,type);
+        } catch (Exception e) {
+            String msg = "Failed to create snapshot" + " : " + e.getMessage();
+            handleException(msg, e);
+        }
+    }
+
 }

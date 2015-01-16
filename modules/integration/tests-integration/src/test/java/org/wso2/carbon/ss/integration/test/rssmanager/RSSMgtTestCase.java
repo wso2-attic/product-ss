@@ -25,13 +25,20 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.wso2.carbon.rssmanager.common.RSSManagerHelper;
 import org.wso2.carbon.rssmanager.core.dto.xsd.DatabaseInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.DatabasePrivilegeTemplateInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.DatabaseUserInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.MySQLPrivilegeSetInfo;
+import org.wso2.carbon.rssmanager.core.dto.xsd.RSSInstanceInfo;
+import org.wso2.carbon.rssmanager.core.dto.xsd.SnapshotConfigInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.UserDatabaseEntryInfo;
 import org.wso2.carbon.ss.SSIntegrationTest;
 import org.wso2.ss.integration.common.clients.RSSManagerClient;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
@@ -100,6 +107,17 @@ public class RSSMgtTestCase extends SSIntegrationTest {
 		assertNotNull(database);
 		assertEquals(dbName, database.getName());
 	}
+
+	@Test(groups = "wso2.ss", description = "create snapshot", dependsOnMethods = {"createDB"})
+	public void createSnapshot() throws AxisFault {
+        RSSInstanceInfo rssInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", SYSTEM_TYPE);
+        SnapshotConfigInfo snapshotInfo = rssInfo.getSnapshotConfig();
+        String target = System.getProperty("user.dir");
+        snapshotInfo.setTargetDirectory(target);
+        rssInfo.setSnapshotConfig(snapshotInfo);
+        client.editRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInfo);
+        client.createSnapshot(DEFAULT_ENVIRONMENT_NAME, "db3", SYSTEM_TYPE);
+    }
 
 	@Test(groups = "wso2.ss", description = " get database list ", dependsOnMethods = { "createDB" }, priority = 1)
 	public void getDatabasesList() throws AxisFault {
@@ -228,15 +246,26 @@ public class RSSMgtTestCase extends SSIntegrationTest {
 		}
 	}
 
+	@Test(groups = "wso2.ss", description = "drop database", dependsOnMethods = {"createDB", "getDatabasesList",
+	                                                                             "detachUserFromDB"})
+	public void dropDatabase() throws AxisFault {
+		client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "db1", SYSTEM_TYPE);
+		boolean isExist = false;
+		for (DatabaseInfo databaseInfo : client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME)) {
+			if ("db1".equalsIgnoreCase(databaseInfo.getName())) {
+				isExist = true;
+			}
+		}
+		assertFalse(isExist);
+	}
+
 	@AfterClass(alwaysRun = true)
 	public void cleanUp() throws Exception {
 		DatabaseInfo[] databaseMetaDatas = client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME);
 		if (databaseMetaDatas.length > 0) {
 			for (DatabaseInfo databaseMetaData : databaseMetaDatas) {
-				if (databaseMetaData.getName().equals("db1")) {
-					client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, databaseMetaData.getRssInstanceName(), "db1",
-                            SYSTEM_TYPE);
-				}
+				client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, databaseMetaData.getRssInstanceName(), databaseMetaData
+						.getName(), SYSTEM_TYPE);
 			}
 		} else {
 			Assert.fail(" No DB created ");

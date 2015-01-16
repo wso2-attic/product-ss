@@ -32,6 +32,9 @@ import org.wso2.carbon.rssmanager.core.dto.xsd.DatabaseInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.DatabasePrivilegeTemplateInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.DatabaseUserInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.MySQLPrivilegeSetInfo;
+import org.wso2.carbon.rssmanager.core.dto.xsd.RSSInstanceInfo;
+import org.wso2.carbon.rssmanager.core.dto.xsd.SSHInformationConfigInfo;
+import org.wso2.carbon.rssmanager.core.dto.xsd.SnapshotConfigInfo;
 import org.wso2.carbon.rssmanager.core.dto.xsd.UserDatabaseEntryInfo;
 import org.wso2.carbon.ss.SSIntegrationTest;
 import org.wso2.ss.integration.common.clients.RSSManagerClient;
@@ -47,6 +50,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
     private RSSManagerClient client;
     private final String DEFAULT_ENVIRONMENT_NAME = "DEFAULT";
     private final String SYSTEM_TYPE = "SYSTEM";
+    private final String USER_DEFINED_TYPE = "USER_DEFINED";
 
     @BeforeClass(alwaysRun = true)
     public void initializeTest() throws Exception {
@@ -63,7 +67,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         };
 
     }
-    
+
     @DataProvider(name = "users")
     public Object[][] users(){
         return new Object[][] {
@@ -72,7 +76,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
                 {"user3"}
         };
     }
-    
+
     @DataProvider(name = "templates")
     public Object[][] templates(){return new Object[][] {
             { "testtemplate1"},
@@ -80,7 +84,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
             {"testtemplate3"}
     };
     }
-    
+
     @DataProvider(name = "attachUsers")
     public Object[][] attachUsers(){
         return new Object[][] {
@@ -100,11 +104,53 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         assertNotNull(database);
         assertEquals(qualifiedDBName, database.getName());
     }
-    
-    
-    @Test(groups = "wso2.ss", description = " get database list ",dependsOnMethods={"createDB"}, priority=1)
+
+    @Test(groups = "wso2.ss", description = "create rss instance")
+    public void createRssInstance() throws AxisFault {
+        RSSInstanceInfo rssInstanceInfo = new RSSInstanceInfo();
+        rssInstanceInfo.setDbmsType("H2");
+        rssInstanceInfo.setName("RSS1");
+        rssInstanceInfo.setEnvironmentName(DEFAULT_ENVIRONMENT_NAME);
+        rssInstanceInfo.setServerCategory("LOCAL");
+        rssInstanceInfo.setInstanceType(USER_DEFINED_TYPE);
+        rssInstanceInfo.setServerURL("jdbc:h2:repository/database");
+        rssInstanceInfo.setUsername("root");
+        rssInstanceInfo.setPassword("root");
+        rssInstanceInfo.setDriverClass("org.h2.Driver");
+        SnapshotConfigInfo snapshotConfigInfo = new SnapshotConfigInfo();
+        snapshotConfigInfo.setTargetDirectory(System.getProperty("user.dir"));
+        rssInstanceInfo.setSnapshotConfig(snapshotConfigInfo);
+        rssInstanceInfo.setSshInformationConfig(new SSHInformationConfigInfo());
+        client.createRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo);
+        rssInstanceInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getName(), USER_DEFINED_TYPE);
+        assertNotNull(rssInstanceInfo);
+        assertEquals(rssInstanceInfo.getName(), "RSS1");
+        assertEquals(rssInstanceInfo.getDbmsType(), "H2");
+    }
+
+    @Test(groups = "wso2.ss", description = "create user defined database", dependsOnMethods = {"createRssInstance"})
+    public void createUserDefinedDB() throws AxisFault {
+        String dbName = "newdb1";
+        DatabaseInfo database = new DatabaseInfo();
+        database.setName(dbName);
+        database.setType(USER_DEFINED_TYPE);
+        RSSInstanceInfo rssInstanceInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, "RSS1", USER_DEFINED_TYPE);
+        database.setRssInstanceName(rssInstanceInfo.getName());
+        client.createDatabase(DEFAULT_ENVIRONMENT_NAME, database);
+        database = client.getDatabase(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getName(), dbName,
+                                      USER_DEFINED_TYPE);
+        assertNotNull(database);
+        assertEquals(dbName, database.getName());
+    }
+
+    @Test(groups = "wso2.ss", description = "create snapshot", dependsOnMethods = {"createUserDefinedDB"})
+    public void createSnapshot() throws AxisFault {
+        client.createSnapshot(DEFAULT_ENVIRONMENT_NAME, "newdb1", USER_DEFINED_TYPE);
+    }
+
+    @Test(groups = "wso2.ss", description = " get database list ", dependsOnMethods = {"createDB", "createUserDefinedDB"}, priority = 1)
     public void getDatabasesList() throws AxisFault {
-        assertTrue(client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME).length == 3);
+        assertTrue(client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME).length == 4);
     }
 
     @Test(groups = "wso2.ss", description = "create database user", dataProvider = "users", priority=1)
@@ -120,7 +166,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         assertEquals(qualifiedDBUsername, databaseUser.getName());
     }
 
-    
+
     @Test(groups = "wso2.ss", description = "create databae priviledge template", dataProvider = "templates", priority=1)
     public void createPrivilegeTemplate(String tempName) throws AxisFault{
         DatabasePrivilegeTemplateInfo template = new DatabasePrivilegeTemplateInfo();
@@ -133,7 +179,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         assertNotNull(template);
         assertEquals(tempName, template.getName());
     }
-    
+
     @Test(groups = "wso2.ss", description = "assign user to database", dependsOnMethods={"createDB","createDbUser","createPrivilegeTemplate"}, dataProvider = "attachUsers",priority=2)
     public void attachUserToDB(String user,String db, String temp) throws AxisFault{
         String qualifiedDBName = db + "_" + RSSManagerHelper.processDomainName(tenantInfo.getDomain());
@@ -149,7 +195,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         }
         assertTrue(userExist);
     }
-    
+
     @Test(groups = "wso2.ss", description = "detach user from database", dependsOnMethods={"attachUserToDB"}, priority=2)
     public void detachUserFromDB() throws AxisFault{
         String qualifiedDBName = "testdb1_" + RSSManagerHelper.processDomainName(tenantInfo.getDomain());
@@ -165,7 +211,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         }
         assertFalse(userExist);
     }
-    
+
     @Test(groups = "wso2.ss", description = "delete database privilege template",dependsOnMethods={"createPrivilegeTemplate"}, priority=2)
     public void deletePrivilegeTemplate() throws AxisFault{
         client.dropDatabasePrivilegesTemplate(DEFAULT_ENVIRONMENT_NAME, "testtemplate1");
@@ -177,7 +223,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         }
         assertFalse(isExist);
     }
-    
+
     @Test(groups = "wso2.ss", description = "edit database privilege template", dependsOnMethods={"createPrivilegeTemplate"}, priority=2)
     public void editPrivilegeTemplate() throws AxisFault{
         DatabasePrivilegeTemplateInfo template;
@@ -190,7 +236,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
                 "testtemplate3");
         Assert.assertEquals(tempInfo.getPrivileges().getAlterPriv(), "N");
     }
-    
+
     @Test(groups = "wso2.ss", expectedExceptions = AxisFault.class, description = "drop attached user ",dependsOnMethods={"createDB","createPrivilegeTemplate","createDbUser","attachUserToDB"}, priority=2)
     public void dropAttachedUser() throws AxisFault{
         String qualifiedDBUsername = "user1_" + getDatabaseUserPostfix(tenantInfo.getDomain());
@@ -228,17 +274,28 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
             }
         }
     }
-    
-    
+
+    @Test(groups = "wso2.ss", description = "drop database", dependsOnMethods = {"createDB", "getDatabasesList",
+                                                                                 "detachUserFromDB"})
+    public void dropDatabase() throws AxisFault {
+        String qualifiedDBName = "testdb1_" + RSSManagerHelper.processDomainName(tenantInfo.getDomain());
+        client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", qualifiedDBName, SYSTEM_TYPE);
+        boolean isExist = false;
+        for (DatabaseInfo databaseInfo : client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME)) {
+            if (qualifiedDBName.equalsIgnoreCase(databaseInfo.getName())) {
+                isExist = true;
+            }
+        }
+        assertFalse(isExist);
+    }
 
     @AfterClass(alwaysRun = true)
     public void cleanUp() throws Exception {
         DatabaseInfo[] databaseMetaDatas = client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME);
         if (databaseMetaDatas.length > 0) {
             for (DatabaseInfo databaseMetaData : databaseMetaDatas) {
-                if (databaseMetaData.getName().equals("testdb1")) {
-                    client.dropDatabase(DEFAULT_ENVIRONMENT_NAME,databaseMetaData.getRssInstanceName(), "db1", SYSTEM_TYPE);
-                }
+                client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, databaseMetaData.getRssInstanceName(),
+                                    databaseMetaData.getName(), databaseMetaData.getType());
             }
         }else{
             Assert.fail(" No DB created ");
