@@ -161,7 +161,7 @@ public class RSSManagerClient {
         try {
             stub.addRSSInstance(environmentName, rssInstance);
         } catch (Exception e) {
-            handleException("Fail to add RSS server instance" + " :" + rssInstance.getName() + " : " + e.getMessage(),
+            handleException("Fail to add RSS server instance" + " :" + rssInstance.getRssInstanceName() + " : " + e.getMessage(),
                     e);
         }
     }
@@ -180,7 +180,7 @@ public class RSSManagerClient {
         try {
             stub.updateRSSInstance(environmentName, rssInstance);
         } catch (Exception e) {
-            handleException("Fail to edit RSS Instance" + " :" + rssInstance.getName() + " : " + e.getMessage(),
+            handleException("Fail to edit RSS Instance" + " :" + rssInstance.getRssInstanceName() + " : " + e.getMessage(),
                     e);
         }
     }
