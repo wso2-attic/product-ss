@@ -122,7 +122,10 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         rssInstanceInfo.setSnapshotConfig(snapshotConfigInfo);
         rssInstanceInfo.setSshInformationConfig(new SSHInformationConfigInfo());
         client.createRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo);
-        assertNotNull(client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getName(), USER_DEFINED_TYPE));
+        rssInstanceInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getName(), USER_DEFINED_TYPE);
+        assertNotNull(rssInstanceInfo);
+        assertEquals(rssInstanceInfo.getName(), "RSS1");
+        assertEquals(rssInstanceInfo.getDbmsType(), "H2");
     }
 
     @Test(groups = "wso2.ss", description = "create user defined database", dependsOnMethods = {"createRssInstance"})

@@ -108,7 +108,7 @@ public class RSSMgtTestCase extends SSIntegrationTest {
 		assertEquals(dbName, database.getName());
 	}
 
-	@Test(groups = "wso2.ss", description = "create snapshot",dependsOnMethods={"createDB"})
+	@Test(groups = "wso2.ss", description = "create snapshot", dependsOnMethods = {"createDB"})
 	public void createSnapshot() throws AxisFault {
         RSSInstanceInfo rssInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", SYSTEM_TYPE);
         SnapshotConfigInfo snapshotInfo = rssInfo.getSnapshotConfig();
@@ -117,7 +117,6 @@ public class RSSMgtTestCase extends SSIntegrationTest {
         rssInfo.setSnapshotConfig(snapshotInfo);
         client.editRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInfo);
         client.createSnapshot(DEFAULT_ENVIRONMENT_NAME, "db3", SYSTEM_TYPE);
-
     }
 
 	@Test(groups = "wso2.ss", description = " get database list ", dependsOnMethods = { "createDB" }, priority = 1)
