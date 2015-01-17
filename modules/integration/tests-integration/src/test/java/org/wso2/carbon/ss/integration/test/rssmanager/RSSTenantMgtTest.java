@@ -109,7 +109,7 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
     public void createRssInstance() throws AxisFault {
         RSSInstanceInfo rssInstanceInfo = new RSSInstanceInfo();
         rssInstanceInfo.setDbmsType("H2");
-        rssInstanceInfo.setName("RSS1");
+        rssInstanceInfo.setRssInstanceName("RSS1");
         rssInstanceInfo.setEnvironmentName(DEFAULT_ENVIRONMENT_NAME);
         rssInstanceInfo.setServerCategory("LOCAL");
         rssInstanceInfo.setInstanceType(USER_DEFINED_TYPE);
@@ -122,9 +122,9 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         rssInstanceInfo.setSnapshotConfig(snapshotConfigInfo);
         rssInstanceInfo.setSshInformationConfig(new SSHInformationConfigInfo());
         client.createRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo);
-        rssInstanceInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getName(), USER_DEFINED_TYPE);
+        rssInstanceInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getRssInstanceName(), USER_DEFINED_TYPE);
         assertNotNull(rssInstanceInfo);
-        assertEquals(rssInstanceInfo.getName(), "RSS1");
+        assertEquals(rssInstanceInfo.getRssInstanceName(), "RSS1");
         assertEquals(rssInstanceInfo.getDbmsType(), "H2");
     }
 
@@ -135,9 +135,9 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         database.setName(dbName);
         database.setType(USER_DEFINED_TYPE);
         RSSInstanceInfo rssInstanceInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, "RSS1", USER_DEFINED_TYPE);
-        database.setRssInstanceName(rssInstanceInfo.getName());
+        database.setRssInstanceName(rssInstanceInfo.getRssInstanceName());
         client.createDatabase(DEFAULT_ENVIRONMENT_NAME, database);
-        database = client.getDatabase(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getName(), dbName,
+        database = client.getDatabase(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getRssInstanceName(), dbName,
                                       USER_DEFINED_TYPE);
         assertNotNull(database);
         assertEquals(dbName, database.getName());
