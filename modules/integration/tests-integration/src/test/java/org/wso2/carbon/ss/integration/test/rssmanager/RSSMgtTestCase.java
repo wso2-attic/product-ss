@@ -103,6 +103,17 @@ public class RSSMgtTestCase extends SSIntegrationTest {
 		assertEquals(dbName, database.getName());
 	}
 
+	@Test(groups = "wso2.ss", description = "Should failed to edit rss instance define in config", expectedExceptions =
+			Exception.class)
+	public void editRSSInstanceDefineInConfig() throws AxisFault {
+		RSSInstanceInfo rssInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", SYSTEM_TYPE);
+		SnapshotConfigInfo snapshotInfo = rssInfo.getSnapshotConfig();
+		String target = System.getProperty("user.dir");
+		snapshotInfo.setTargetDirectory(target);
+		rssInfo.setSnapshotConfig(snapshotInfo);
+		client.editRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInfo);
+	}
+
 	@Test(groups = "wso2.ss", description = " get database list ", dependsOnMethods = { "createDB" }, priority = 1)
 	public void getDatabasesList() throws AxisFault {
 		assertTrue(client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME).length == 3);
