@@ -92,7 +92,8 @@ public class RSSMgtTestCase extends SSIntegrationTest {
 		};
 	}
 
-	@Test(groups = "wso2.ss", description = "create database", dataProvider = "databases", priority = 1)
+	@Test(groups = "wso2.ss", description = "create database", dataProvider = "databases", priority = 1,
+			dependsOnMethods = {"editRSSInstanceDefineInConfig"})
 	public void createDB(String dbName) throws AxisFault {
 		DatabaseInfo database = new DatabaseInfo();
 		database.setName(dbName);
@@ -256,27 +257,12 @@ public class RSSMgtTestCase extends SSIntegrationTest {
 
 	@AfterClass(alwaysRun = true)
 	public void cleanUp() throws Exception {
-		DatabaseInfo[] databaseMetaDatas = client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME);
-		if (databaseMetaDatas.length > 0) {
-			for (DatabaseInfo databaseMetaData : databaseMetaDatas) {
-				client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, databaseMetaData.getRssInstanceName(), databaseMetaData
-						.getName(), SYSTEM_TYPE);
-			}
-		} else {
-			Assert.fail(" No DB created ");
-		}
-		DatabaseUserInfo[] databaseUsers = client.getDatabaseUsers(DEFAULT_ENVIRONMENT_NAME);
-		if (databaseUsers.length > 0) {
-			for (DatabaseUserInfo databaseUserMetaData : databaseUsers) {
-				if (databaseUserMetaData.getUsername().equals("user1")) {
-					client.dropDatabaseUser(DEFAULT_ENVIRONMENT_NAME, databaseUserMetaData.getRssInstanceName(), "user1",
-							SYSTEM_TYPE);
-				}
-			}
-		} else {
-			Assert.fail(" No User created ");
-		}
-
+		client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "db2", SYSTEM_TYPE);
+		client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "db3", SYSTEM_TYPE);
+		client.dropDatabaseUser(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "user1", SYSTEM_TYPE);
+		client.dropDatabaseUser(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "user3", SYSTEM_TYPE);
+		client.dropDatabasePrivilegesTemplate(DEFAULT_ENVIRONMENT_NAME,"temp1");
+		client.dropDatabasePrivilegesTemplate(DEFAULT_ENVIRONMENT_NAME, "temp3");
 	}
 
 }

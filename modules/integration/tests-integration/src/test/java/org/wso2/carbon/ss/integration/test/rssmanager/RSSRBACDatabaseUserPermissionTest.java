@@ -147,10 +147,13 @@ public class RSSRBACDatabaseUserPermissionTest extends SSIntegrationTest {
 		newUsrSessionCookie = authenticatorClient.login(RSS_USER_WITH_ALL_DATABASE_USER_PERMISSIONS, RSS_USER_PASSWORD, "localhost");
 		rssManagerClient = new RSSManagerClient(ssContext.getContextUrls().getBackEndUrl(), newUsrSessionCookie);
 		rssManagerClient.dropDatabaseUser(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", databaseUserName, SYSTEM_TYPE);
+		DatabaseUserInfo[] databaseUserInfos=rssManagerClient.getDatabaseUsers(DEFAULT_ENVIRONMENT_NAME);
 		boolean isExist = false;
-		for (DatabaseUserInfo databaseUserInfo : rssManagerClient.getDatabaseUsers(DEFAULT_ENVIRONMENT_NAME)) {
-			if ("user2".equalsIgnoreCase(databaseUserInfo.getName())) {
-				isExist = true;
+		if (databaseUserInfos != null) {
+			for (DatabaseUserInfo databaseUserInfo : databaseUserInfos) {
+				if (databaseUserName.equalsIgnoreCase(databaseUserInfo.getName())) {
+					isExist = true;
+				}
 			}
 		}
 		assertFalse(isExist);
