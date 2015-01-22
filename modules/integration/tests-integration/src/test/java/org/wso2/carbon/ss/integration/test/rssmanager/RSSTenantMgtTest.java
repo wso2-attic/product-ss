@@ -105,52 +105,9 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
         assertEquals(qualifiedDBName, database.getName());
     }
 
-    @Test(groups = "wso2.ss", description = "create rss instance")
-    public void createRssInstance() throws AxisFault {
-        RSSInstanceInfo rssInstanceInfo = new RSSInstanceInfo();
-        rssInstanceInfo.setDbmsType("H2");
-        rssInstanceInfo.setRssInstanceName("RSS1");
-        rssInstanceInfo.setEnvironmentName(DEFAULT_ENVIRONMENT_NAME);
-        rssInstanceInfo.setServerCategory("LOCAL");
-        rssInstanceInfo.setInstanceType(USER_DEFINED_TYPE);
-        rssInstanceInfo.setServerURL("jdbc:h2:repository/database");
-        rssInstanceInfo.setUsername("root");
-        rssInstanceInfo.setPassword("root");
-        rssInstanceInfo.setDriverClass("org.h2.Driver");
-        SnapshotConfigInfo snapshotConfigInfo = new SnapshotConfigInfo();
-        snapshotConfigInfo.setTargetDirectory(System.getProperty("user.dir"));
-        rssInstanceInfo.setSnapshotConfig(snapshotConfigInfo);
-        rssInstanceInfo.setSshInformationConfig(new SSHInformationConfigInfo());
-        client.createRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo);
-        rssInstanceInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getRssInstanceName(), USER_DEFINED_TYPE);
-        assertNotNull(rssInstanceInfo);
-        assertEquals(rssInstanceInfo.getRssInstanceName(), "RSS1");
-        assertEquals(rssInstanceInfo.getDbmsType(), "H2");
-    }
-
-    @Test(groups = "wso2.ss", description = "create user defined database", dependsOnMethods = {"createRssInstance"})
-    public void createUserDefinedDB() throws AxisFault {
-        String dbName = "newdb1";
-        DatabaseInfo database = new DatabaseInfo();
-        database.setName(dbName);
-        database.setType(USER_DEFINED_TYPE);
-        RSSInstanceInfo rssInstanceInfo = client.getRSSInstance(DEFAULT_ENVIRONMENT_NAME, "RSS1", USER_DEFINED_TYPE);
-        database.setRssInstanceName(rssInstanceInfo.getRssInstanceName());
-        client.createDatabase(DEFAULT_ENVIRONMENT_NAME, database);
-        database = client.getDatabase(DEFAULT_ENVIRONMENT_NAME, rssInstanceInfo.getRssInstanceName(), dbName,
-                                      USER_DEFINED_TYPE);
-        assertNotNull(database);
-        assertEquals(dbName, database.getName());
-    }
-
-    @Test(groups = "wso2.ss", description = "create snapshot", dependsOnMethods = {"createUserDefinedDB"})
-    public void createSnapshot() throws AxisFault {
-        client.createSnapshot(DEFAULT_ENVIRONMENT_NAME, "newdb1", USER_DEFINED_TYPE);
-    }
-
-    @Test(groups = "wso2.ss", description = " get database list ", dependsOnMethods = {"createDB", "createUserDefinedDB"}, priority = 1)
+    @Test(groups = "wso2.ss", description = " get database list ", dependsOnMethods = {"createDB"}, priority = 1)
     public void getDatabasesList() throws AxisFault {
-        assertTrue(client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME).length == 4);
+        assertTrue(client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME).length == 3);
     }
 
     @Test(groups = "wso2.ss", description = "create database user", dataProvider = "users", priority=1)
@@ -291,26 +248,18 @@ public class RSSTenantMgtTest extends SSIntegrationTest{
 
     @AfterClass(alwaysRun = true)
     public void cleanUp() throws Exception {
-        DatabaseInfo[] databaseMetaDatas = client.getDatabaseList(DEFAULT_ENVIRONMENT_NAME);
-        if (databaseMetaDatas.length > 0) {
-            for (DatabaseInfo databaseMetaData : databaseMetaDatas) {
-                client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, databaseMetaData.getRssInstanceName(),
-                                    databaseMetaData.getName(), databaseMetaData.getType());
-            }
-        }else{
-            Assert.fail(" No DB created ");
-        }
-        DatabaseUserInfo[] databaseUsers = client.getDatabaseUsers(DEFAULT_ENVIRONMENT_NAME);
-        if (databaseUsers.length > 0) {
-            for (DatabaseUserInfo databaseUserMetaData : databaseUsers) {
-                if (databaseUserMetaData.getUsername().equals("user1")) {
-                    client.dropDatabaseUser(DEFAULT_ENVIRONMENT_NAME,databaseUserMetaData.getRssInstanceName(), "user1", SYSTEM_TYPE);
-                }
-            }
-        }else{
-            Assert.fail(" No User created ");
-        }
-
+        client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "testdb2_" + RSSManagerHelper.processDomainName
+                (tenantInfo.getDomain()), SYSTEM_TYPE);
+        client.dropDatabase(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "testdb3_" + RSSManagerHelper.processDomainName
+                (tenantInfo.getDomain()), SYSTEM_TYPE);
+        client.dropDatabaseUser(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "user1_" +
+                                                                      getDatabaseUserPostfix(tenantInfo.getDomain()),
+                                SYSTEM_TYPE);
+        client.dropDatabaseUser(DEFAULT_ENVIRONMENT_NAME, "WSO2RSS1", "user3_" +
+                                                                      getDatabaseUserPostfix(tenantInfo.getDomain()),
+                                SYSTEM_TYPE);
+        client.dropDatabasePrivilegesTemplate(DEFAULT_ENVIRONMENT_NAME, "temp1");
+        client.dropDatabasePrivilegesTemplate(DEFAULT_ENVIRONMENT_NAME, "temp3");
     }
 
     private static String getDatabaseUserPostfix(String tenantDomain) {
