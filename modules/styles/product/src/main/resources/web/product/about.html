@@ -22,32 +22,60 @@
     <link href="../admin/css/documentation.css" rel="stylesheet" type="text/css" media="all"/>
 </head>
 <body>
-<h1>WSO2 Storage Server Version 1.0.1</h1>
+<h1>WSO2 Storage Server Version 1.5.0</h1>
 
 <h2>About WSO2 Storage Server </h2>
 
-<p>WSO2 Storage Server
-    (WSO2 SS) is available under the Apache Software License v2.0. WSO2 Storage Server allows
-    administrators to manage multiple data storages.</p>
-
-<p>
-    WSO2 Storage Server Key features
+<p>WSO2 Storage Server conveniently delivers multi-tenant structured and unstructured data storage to development projects. Development teams can rapidly provision and access secure and scalable relational, NoSQL Columnar, and Hadoop Distributed File System (HDFS) repositories using a consistent management process. The WSO2 Storage Server management console allows teams to create Databases, add users, and provision access based on the web application’s database policies.
+<br/><br/>
+Our cloud-aware WSO2 Storage Server supports elastic scalability, on-demand self-service provisioning, and consumption based pricing models. The server publishes usage data to WSO2 Business Activity Monitor and enables advanced analytics, monitoring, and billing.
 </p>
 
-<ul>
-    <li>
-        Relational Storage Service (RSS)
-    </li>
-    <li>
-        Column Storage Service (CSS)
-    </li>
-    <li>
-        Distributed File System Service
-    </li>
-</ul>
+<h3>
+    WSO2 Storage Server Key features
+</h3>
+<div>
+    <div>
+        <h4>Storage technology agnostic provisioning</h4>
+        <ul>
+            <li>Wide range of storage systems supported:
+                <ul>
+                    <li>NoSQL stores: Cassandra</li>
+                    <li>Unstructured stores (file systems): HDFS</li>
+                    <li>Relational stores: MySQL, SQL Server, PostgreSQL and Oracle (Coming Soon)</li>
+                </ul>
+            </li>
+            <li>Operations Supported:
+                <ul>
+                    <li>Manage databases</li>
+                    <li>Manage users/permissions</li>	
+                </ul>
+            </li>
+            <li>Choose from default set of layouts or create your own personalized layout</li>
+            <li>Policy driven provisioning (Coming Soon)
+                <ul>
+                    <li>Based on QoS / SLA params</li>	
+                </ul>
+            </li>
+        </ul>
+        <h4>Complete Storage as a Service</h4>
+        <ul>
+            <li>Monitor storage capacity and bandwidth (Coming soon)</li>
+            <li>Predefined usage policies for billing (Coming soon)</li> 
+            <li>Horizontal scaling with elasticity (using S2 DB cartridges)(Coming soon)</li>
+            <li>Database migration to larger clusters</li>
+            <li>Setting up of database clusters for vertical scaling</li>	   
+        </ul>
+        <h4>Complete application lifecycle support (Coming soon)</h4>
+        <ul>
+            <li>Database initialization</li>
+            <li>Data migration</li>
+            <li>Data backup and recovery</li>
+        </ul>
+    </div>
+</div>
 
-
-<p>WSO2 Storage Server 1.0.0 is developed on top of the revolutionary
+<p>WSO2 Storage Server 1.5.0 is developed on top of the revolutionary
     <a href="http://wso2.org/projects/carbon">Carbon platform</a>
     (Middleware a' la carte), and is based on the OSGi framework to achieve the
     better modularity for your SOA architecture. This also contains a lots of new
@@ -59,7 +87,7 @@
 
 <h3>Need more help?</h3>
 <ul>
-    <li><a href="http://docs.wso2.org/wiki/display/SS100/WSO2+Storage+Server+Documentation">Online Documentation</a>
+    <li><a href="http://docs.wso2.org/wiki/display/SS150/WSO2+Storage+Server+Documentation">Online Documentation</a>
     </li>
     <li><a href="http://wso2.org/library">Read articles</a></li>
     <li><a href="http://stackoverflow.com/search?q=wso2">Post to the Storage Server forum</a></li>
@@ -94,26 +122,8 @@
     platform. </p>
 
 <p> For a quick start on using the WSO2 Carbon
-    platform, the Carbon components are pre-assembled into the following
-    products: </p>
-<ul id="CarbonProducts">
-    <li><a href="http://wso2.com/products/governance-registry/">WSO2
-        Governance Registry</a></li>
-    <li><a href="http://wso2.com/products/application-server/">WSO2
-        Application Server</a></li>
-    <li><a href="http://wso2.com/products/business-rules-server/">WSO2
-        Business Rules Server</a></li>
-    <li><a href="http://wso2.com/products/business-process-server/">WSO2
-        Business Process Server</a></li>
-    <li><a href="http://wso2.com/products/identity-server/">WSO2
-        Identity Server</a></li>
-    <li><a href="http://wso2.com/products/data-services-server">WSO2
-        Data Services Server</a></li>
-    <li><a href="http://wso2.com/products/business-activity-monitor/">WSO2
-        Business Activity Monitor</a></li>
-    <li><a href="http://wso2.com/products/gadget-server/">WSO2
-        Gadget Server</a></li>
-</ul>
+    platform, the Carbon components are pre-assembled into <a href="http://wso2.com/products/">a set of products</a>. </p>
+
 <p>You can assemble your own products by combining
     components and
     deploying them in a preferred architecture. </p>
