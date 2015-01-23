@@ -17,6 +17,31 @@
  */
 package org.wso2.carbon.ss.integration.test.cassandra.cluster.stats;
 
-public class ClusterKeyspaceStatsTestCase {
+import org.apache.axis2.AxisFault;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.wso2.carbon.cassandra.cluster.proxy.stub.data.xsd.ProxyDescribeRingProperties;
+import org.wso2.carbon.ss.SSIntegrationTest;
+import org.wso2.ss.integration.common.clients.cassandra.cluster.stats.ClusterKeyspaceStatsAdminClient;
 
+import static org.testng.Assert.assertNotNull;
+
+public class ClusterKeyspaceStatsTestCase extends SSIntegrationTest {
+
+	private ClusterKeyspaceStatsAdminClient client;
+	private static final String SYSTEM_KEYSPACE = "system";
+	private static final String HOST = "localhost";
+	private static final String HOST_ADDRESS = "127.0.0.1";
+
+	@BeforeClass(alwaysRun = true)
+	public void initializeTest() throws Exception {
+		super.init();
+		client = new ClusterKeyspaceStatsAdminClient(ssContext.getContextUrls().getBackEndUrl(), sessionCookie);
+	}
+
+	@Test(groups = "wso2.ss", description = "Get column families for keyspace")
+	public void testGetColumnFamiliesForKeyspace() throws AxisFault {
+			String[] columnFamilies = client.getColumnFamiliesForKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
+			assertNotNull(columnFamilies);
+	}
 }

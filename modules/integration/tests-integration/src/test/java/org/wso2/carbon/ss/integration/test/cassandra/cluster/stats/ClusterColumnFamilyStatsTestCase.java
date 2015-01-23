@@ -17,6 +17,40 @@
  */
 package org.wso2.carbon.ss.integration.test.cassandra.cluster.stats;
 
-public class ClusterColumnFamilyStatsTestCase {
+import org.apache.axis2.AxisFault;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.wso2.carbon.cassandra.cluster.proxy.stub.data.xsd.ProxyColumnFamilyHistograms;
+import org.wso2.carbon.ss.SSIntegrationTest;
+import org.wso2.ss.integration.common.clients.cassandra.cluster.stats.ClusterColumnFamilyStatsAdminClient;
 
+import static org.testng.Assert.assertNotNull;
+
+public class ClusterColumnFamilyStatsTestCase extends SSIntegrationTest {
+
+	private ClusterColumnFamilyStatsAdminClient client;
+
+	private static final String SYSTEM_KEYSPACE = "system";
+	private static final String SYSTEM_COLUMN_FAMILY = "schema_keyspaces";
+	private static final String HOST = "localhost";
+	private static final String HOST_ADDRESS = "127.0.0.1";
+
+	@BeforeClass(alwaysRun = true)
+	public void initializeTest() throws Exception {
+		super.init();
+		client = new ClusterColumnFamilyStatsAdminClient(ssContext.getContextUrls().getBackEndUrl(), sessionCookie);
+	}
+
+	@Test(groups = "wso2.ss", description = "Get compaction thresholds")
+	public void testGetCompactionThresholds() throws AxisFault {
+		int[] compaction = client.getCompactionThresholds(HOST_ADDRESS, SYSTEM_KEYSPACE, SYSTEM_COLUMN_FAMILY);
+		assertNotNull(compaction);
+	}
+
+	@Test(groups = "wso2.ss", description = "Get column family histograms thresholds")
+	public void testGetColumnFamilyHistograms() throws AxisFault {
+		 ProxyColumnFamilyHistograms[] proxyColumnFamilyHistograms = client.getColumnFamilyHistograms(HOST_ADDRESS, SYSTEM_KEYSPACE,
+				SYSTEM_COLUMN_FAMILY);
+		assertNotNull(proxyColumnFamilyHistograms);
+	}
 }

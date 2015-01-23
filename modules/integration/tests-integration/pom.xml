@@ -289,5 +289,10 @@
             <artifactId>org.wso2.carbon.cassandra.cluster.proxy.stub</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.cassandra.explorer.stub</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

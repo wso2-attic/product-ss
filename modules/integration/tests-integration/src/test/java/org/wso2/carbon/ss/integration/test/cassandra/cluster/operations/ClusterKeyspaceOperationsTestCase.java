@@ -17,6 +17,65 @@
  */
 package org.wso2.carbon.ss.integration.test.cassandra.cluster.operations;
 
-public class ClusterKeyspaceOperationsTestCase {
+import org.apache.axis2.AxisFault;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import org.wso2.carbon.ss.SSIntegrationTest;
+import org.wso2.ss.integration.common.clients.cassandra.cluster.operation.ClusterKeyspaceOperationsAdminClient;
+
+public class ClusterKeyspaceOperationsTestCase extends SSIntegrationTest {
+
+	private ClusterKeyspaceOperationsAdminClient client;
+
+	private static final String SYSTEM_KEYSPACE = "system";
+	private static final String HOST = "localhost";
+	private static final String HOST_ADDRESS = "127.0.0.1";
+	private static final String SNAPSHOT_TAG = "keyspaceSnapshot";
+
+	@BeforeClass(alwaysRun = true)
+	public void initializeTest() throws Exception {
+		super.init();
+		client = new ClusterKeyspaceOperationsAdminClient(ssContext.getContextUrls().getBackEndUrl(), sessionCookie);
+	}
+
+	@Test(groups = "wso2.ss", description = "Flush keyspace")
+	public void testFlushKeyspace() throws AxisFault {
+		client.flushKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
+	}
+
+	@Test(groups = "wso2.ss", description = "Compact keyspace")
+	public void testCompactKeyspace() throws AxisFault {
+		client.compactKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
+	}
+
+	@Test(groups = "wso2.ss", description = "Cleanup keyspace")
+	public void testCleanUpKeyspace() throws AxisFault {
+		client.cleanUpKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
+	}
+
+	@Test(groups = "wso2.ss", description = "Repair keyspace")
+	public void testRepairKeyspace() throws AxisFault {
+		client.repairKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
+	}
+
+	@Test(groups = "wso2.ss", description = "Scrub keyspace")
+	public void testScrubKeyspace() throws AxisFault {
+		client.scrubKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
+	}
+
+	@Test(groups = "wso2.ss", description = "Upgrade sst tables keyspace")
+	public void testUpgradeSSTTablesKeyspace() throws AxisFault {
+		client.upgradeSSTablesKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
+	}
+
+	@Test(groups = "wso2.ss", description = "Take snapshot of keyspace")
+	public void testTakeSnapshotKeyspace() throws AxisFault {
+		client.takeSnapshotKeyspace(HOST_ADDRESS, SNAPSHOT_TAG, SYSTEM_KEYSPACE);
+	}
+
+	@Test(groups = "wso2.ss", description = "Take snapshot of keyspace", dependsOnGroups = {"testTakeSnapshotKeyspace"})
+	public void testClearSnapshotKeyspace() throws AxisFault {
+		client.clearSnapshotKeyspace(HOST_ADDRESS, SNAPSHOT_TAG, SYSTEM_KEYSPACE);
+	}
 
 }
