@@ -98,6 +98,9 @@
                                 <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.cassandra.explorer.feature:${carbon.platform.version}
                                 </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon:org.wso2.carbon.cassandra.datareader.feature:${carbon.platform.version}
+                                </featureArtifactDef>
                                 <!--End Cassandra features-->
                                 <!--Start RSS features-->
                                 <featureArtifactDef>
@@ -258,12 +261,12 @@
                                     <id>org.wso2.carbon.cassandra.common.feature.group</id>
                                     <version>${carbon.platform.version}</version>
                                 </feature>
-                                <!--feature>
-                                                                <id>org.wso2.carbon.styles.feature.group</id>
-                                                                <version>${carbon.platform.version}</version>
-                                                                </feature-->
                                 <feature>
                                     <id>org.wso2.carbon.cassandra.explorer.feature.group</id>
+                                    <version>${carbon.platform.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.cassandra.datareader.feature.group</id>
                                     <version>${carbon.platform.version}</version>
                                 </feature>
                                 <!--End Cassandra featrues-->
