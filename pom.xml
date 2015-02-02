@@ -297,6 +297,7 @@
 
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
         <carbon.commons.version>4.3.2</carbon.commons.version>
+	<carbon.data.version>4.3.0</carbon.data.version>
         <commons.logging.version>1.1</commons.logging.version>
         <opencsv.version>1.8</opencsv.version>
         <axis2.wso2.version>1.6.1.wso2v11</axis2.wso2.version>
