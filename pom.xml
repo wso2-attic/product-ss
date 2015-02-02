@@ -213,34 +213,38 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon.commons</groupId>
+                <groupId>org.wso2.carbon.deployment</groupId>
                 <artifactId>org.wso2.carbon.service.mgt.stub</artifactId>
-                <version>${carbon.commons.version}</version>
-                <scope>test</scope>
+                <version>${carbon.deployment.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon.commons</groupId>
+                <groupId>org.wso2.carbon.registry</groupId>
                 <artifactId>org.wso2.carbon.registry.resource.stub</artifactId>
-                <version>${carbon.commons.version}</version>
+                <version>${carbon.registry.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2.carbon.automationutils</groupId>
                 <artifactId>org.wso2.carbon.integration.common.utils</artifactId>
                 <version>${test.framework.util.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2..automationutils</groupId>
                 <artifactId>org.wso2.carbon.integration.common.tests</artifactId>
                 <version>${test.framework.util.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2.carbon.automationutils</groupId>
                 <artifactId>org.wso2.carbon.integration.common.extensions</artifactId>
                 <version>${test.framework.util.version}</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.automationutils</groupId>
+                <artifactId>org.wso2.carbon.integration.common.tests</artifactId>
+                <version>${test.framework.util.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.ss</groupId>
@@ -268,12 +272,6 @@
             </dependency>
             <dependency>
                 <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.service.mgt.stub</artifactId>
-                <version>${carbon.commons.version}</version>
-                <scope>compile</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon</groupId>
                 <artifactId>org.wso2.carbon.registry.resource.stub</artifactId>
                 <version>${carbon.storage.management.version}</version>
                 <scope>compile</scope>
@@ -283,9 +281,9 @@
                 <artifactId>org.wso2.carbon.rssmanager.common</artifactId>
                 <version>${carbon.storage.management.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.data</groupId>
-    		<artifactId>carbon-data</artifactId>
+                <artifactId>carbon-data</artifactId>
                 <version>${carbon.data.version}</version>
             </dependency>
         </dependencies>
@@ -298,6 +296,8 @@
 
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
         <carbon.commons.version>4.3.2</carbon.commons.version>
+        <carbon.deployment.version>4.3.0</carbon.deployment.version>
+        <carbon.registry.version>4.3.0</carbon.registry.version>
         <carbon.data.version>4.3.0</carbon.data.version>
         <commons.logging.version>1.1</commons.logging.version>
         <opencsv.version>1.8</opencsv.version>
