@@ -248,10 +248,10 @@
                                     <id>org.wso2.carbon.cassandra.common.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
                                 </feature>
-                                <feature>
+                                <!--feature>
                                     <id>org.wso2.carbon.cassandra.explorer.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
-                                </feature>
+                                </feature-->
                                 <feature>
                                     <id>org.wso2.carbon.cassandra.datareader.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
@@ -264,7 +264,7 @@
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.dbconsole.ui.feature.group</id>
-                                    <version>${carbon.storage.management.version}</version>
+                                    <version>${carbon.data.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.ndatasource.feature.group</id>
@@ -340,7 +340,7 @@
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.security.mgt.feature.group</id>
-                                    <version>${carbon.kernel.version}</version>
+                                    <version>${carbon.identity.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.registry.core.feature.group</id>
@@ -384,7 +384,7 @@
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.ntask.feature.group</id>
-                                    <version>${carbon.kernel.version}</version>
+                                    <version>${carbon.commons.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.identity.authenticator.saml2.sso.server.feature.group</id>
