@@ -164,36 +164,36 @@
                                     org.wso2.carbon.commons:org.wso2.carbon.databridge.datapublisher.feature:${carbon.commons.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.registry:org.wso2.carbon.registry.core.feature:${carbon.platform.version}
+                                    org.wso2.carbon.registry:org.wso2.carbon.registry.core.feature:${carbon.registry.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.registry:org.wso2.carbon.registry.ui.menu.feature:${carbon.platform.version}
+                                    org.wso2.carbon.registry:org.wso2.carbon.registry.ui.menu.feature:${carbon.registry.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.registry:org.wso2.carbon.registry.resource.properties.feature:${carbon.platform.version}
+                                    org.wso2.carbon.registry:org.wso2.carbon.registry.resource.properties.feature:${carbon.registry.version}
                                 </featureArtifactDef>
                                 <!--featureArtifactDef>
-                                    org.wso2.carbon.registry:org.wso2.carbon.registry.extensions.feature:${carbon.platform.version}
+                                    org.wso2.carbon.registry:org.wso2.carbon.registry.extensions.feature:${carbon.registry.version}
                                 </featureArtifactDef-->
 
                                 <featureArtifactDef>
-                                    org.wso2.ss:org.wso2.ss.styles.feature:${project.version}
+                                    org.wso2.carbon.storagemgt:org.wso2.ss.styles.feature:${carbon.storage.management.version}
                                 </featureArtifactDef>
                                 <!--<featureArtifactDef>org.wso2.ss:org.wso2.ss.utils.feature:${project.version}-->
                                 <!--</featureArtifactDef>-->
                                 <!-- Cloud related features -->
                                 <!--featureArtifactDef>org.wso2.ss:org.wso2.stratos.ss.login.ui.feature:${stratos.version}</featureArtifactDef-->
                                 <featureArtifactDef>
-                                    org.wso2.carbon:org.wso2.carbon.tenant.common.feature:${carbon.platform.version}
+                                    org.wso2.carbon.multitenancy:org.wso2.carbon.tenant.common.feature:${carbon.multitenancy.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon:org.wso2.carbon.tenant.usage.agent.feature:${carbon.platform.version}
+                                    org.wso2.carbon.multitenancy:org.wso2.carbon.tenant.usage.agent.feature:${carbon.multitenancy.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon:org.wso2.carbon.tenant.throttling.agent.feature:${carbon.platform.version}
+                                    org.wso2.carbon.multitenancy:org.wso2.carbon.tenant.throttling.agent.feature:${carbon.multitenancy.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon:org.wso2.carbon.tenant.deployment.feature:${carbon.platform.version}
+                                    org.wso2.carbon.multitenancy:org.wso2.carbon.tenant.deployment.feature:${carbon.multitenancy.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.security.mgt.feature:${carbon.platform.version}
