@@ -182,19 +182,19 @@
                 <version>${axiom.wso2.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2.carbon.storagemgt</groupId>
                 <artifactId>org.wso2.carbon.cassandra.mgt.stub</artifactId>
-                <version>${carbon.platform.version}</version>
+                <version>${carbon.storage.management.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2.carbon.storagemgt</groupId>
                 <artifactId>org.wso2.carbon.rssmanager.stub</artifactId>
-                <version>${carbon.platform.version}</version>
+                <version>${carbon.storage.management.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2.carbon.storagemgt</groupId>
                 <artifactId>org.wso2.carbon.rssmanager.core</artifactId>
-                <version>${carbon.platform.version}</version>
+                <version>${carbon.storage.management.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.h2database.wso2</groupId>
@@ -234,15 +234,15 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2.carbon.commons</groupId>
                 <artifactId>org.wso2.carbon.service.mgt.stub</artifactId>
-                <version>${carbon.platform.version}</version>
+                <version>${carbon.commons.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2.carbon.commons</groupId>
                 <artifactId>org.wso2.carbon.registry.resource.stub</artifactId>
-                <version>${carbon.platform.version}</version>
+                <version>${carbon.commons.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -296,6 +296,7 @@
         <carbon.kernel.imp.pkg.version>[4.3.0, 4.4.0)</carbon.kernel.imp.pkg.version>
 
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
+        <carbon.commons.version>4.3.2</carbon.commons.version>
         <commons.logging.version>1.1</commons.logging.version>
         <opencsv.version>1.8</opencsv.version>
         <axis2.wso2.version>1.6.1.wso2v11</axis2.wso2.version>
