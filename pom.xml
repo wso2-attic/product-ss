@@ -305,11 +305,42 @@
                 <artifactId>org.wso2.carbon.security.mgt.feature</artifactId>
                 <version>${carbon.identity.version}</version>
             </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.identity</groupId>
+                <artifactId>org.wso2.carbon.identity.authenticator.saml2.sso.server.feature</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.identity</groupId>
+                <artifactId>org.wso2.carbon.identity.authenticator.saml2.sso.ui.feature</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.identity</groupId>
+                <artifactId>org.wso2.carbon.claim.mgt.feature</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.identity</groupId>
+                <artifactId>org.wso2.carbon.identity.application.mgt.server.feature</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.identity</groupId>
+                <artifactId>org.wso2.carbon.identity.core.server.feature</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.commons</groupId>
                 <artifactId>org.wso2.carbon.logging.mgt.feature</artifactId>
                 <version>${carbon.commons.version}</version>
             </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.commons</groupId>
+                <artifactId>org.wso2.carbon.user.mgt.feature</artifactId>
+                <version>${carbon.commons.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.wso2.carbon.commons</groupId>
                 <artifactId>org.wso2.carbon.databridge.datapublisher.feature</artifactId>
