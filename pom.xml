@@ -283,6 +283,11 @@
                 <artifactId>org.wso2.carbon.rssmanager.common</artifactId>
                 <version>${carbon.storage.management.version}</version>
             </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.data</groupId>
+    		<artifactId>carbon-data</artifactId>
+                <version>${carbon.data.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
