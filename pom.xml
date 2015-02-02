@@ -300,6 +300,11 @@
                 <artifactId>org.wso2.carbon.um.ws.service.feature</artifactId>
                 <version>${carbon.identity.version}</version>
             </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.identity</groupId>
+                <artifactId>org.wso2.carbon.security.mgt.feature</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.commons</groupId>
                 <artifactId>org.wso2.carbon.logging.mgt.feature</artifactId>
@@ -324,6 +329,43 @@
                 <groupId>org.wso2.carbon.registry</groupId>
                 <artifactId>org.wso2.carbon.registry.resource.properties.feature</artifactId>
                 <version>${carbon.registry.version}</version>
+            </dependency>
+
+	    <dependency>
+                <groupId>org.wso2.carbon.multitenancy</groupId>
+                <artifactId>org.wso2.carbon.tenant.common.feature</artifactId>
+                <version>${carbon.multitenancy.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.multitenancy</groupId>
+                <artifactId>org.wso2.carbon.tenant.usage.agent.feature</artifactId>
+                <version>${carbon.multitenancy.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.multitenancy</groupId>
+                <artifactId>org.wso2.carbon.tenant.throttling.agent.feature</artifactId>
+                <version>${carbon.multitenancy.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.multitenancy</groupId>
+                <artifactId>org.wso2.carbon.tenant.deployment.feature</artifactId>
+                <version>${carbon.multitenancy.version}</version>
+            </dependency>
+
+	    <dependency>
+                <groupId>org.wso2.carbon.commons</groupId>
+                <artifactId>org.wso2.carbon.transaction.manager.feature</artifactId>
+                <version>${carbon.commons.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.commons</groupId>
+                <artifactId>org.wso2.carbon.event.common.feature</artifactId>
+                <version>${carbon.commons.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.commons</groupId>
+                <artifactId>org.wso2.carbon.ntask.feature</artifactId>
+                <version>${carbon.commons.version}</version>
             </dependency>
 
         </dependencies>
