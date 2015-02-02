@@ -281,7 +281,7 @@
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.ndatasource.feature.group</id>
-                                    <version>${carbon.storage.management.version}</version>
+                                    <version>${carbon.commons.version}</version>
                                 </feature>
                                 <!--End RSS featrues-->
                                 <!--Start HDFS featrues-->
@@ -339,7 +339,7 @@
                                 <!--Start Remote User Management Client features-->
                                 <feature>
                                     <id>org.wso2.carbon.um.ws.service.feature.group</id>
-                                    <version>${carbon.commons.version}</version>
+                                    <version>${carbon.identity.version}</version>
                                 </feature>
 
                                 <!--End Remote User Management Client features-->
