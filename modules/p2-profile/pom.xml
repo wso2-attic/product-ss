@@ -110,7 +110,7 @@
                                     org.wso2.carbon.data:org.wso2.carbon.dbconsole.ui.feature:${carbon.data.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.storagemgt:org.wso2.carbon.ndatasource.feature:${carbon.storage.management.version}
+                                    org.wso2.carbon.commons:org.wso2.carbon.ndatasource.feature:${carbon.commons.version}
                                 </featureArtifactDef>
                                 <!--End RSS features-->
                                 <!--Start HDFS features-->
