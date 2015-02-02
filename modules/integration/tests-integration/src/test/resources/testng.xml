@@ -13,6 +13,7 @@
 
     <test name="Test - SS">
         <packages>
+            <package name="org.wso2.carbon.ss.integration.test.cassandra.cluster.explorer"/>
             <package name="org.wso2.carbon.ss.integration.test.cassandra"/>
             <package name="org.wso2.carbon.ss.integration.test.rssmanager"/>
             <package name="org.wso2.carbon.ss.integration.test.cassandra.cluster.operations"/>

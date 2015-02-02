@@ -27,8 +27,8 @@ public class ClusterColumnFamilyOperationsTestCase extends SSIntegrationTest {
 
 	private ClusterColumnFamilyOperationsAdminClient client;
 
-	private static final String SYSTEM_KEYSPACE = "system";
-	private static final String SYSTEM_COLUMN_FAMILY = "schema_keyspaces";
+	private static final String SYSTEM_KEYSPACE = "system_auth";
+	private static final String SYSTEM_COLUMN_FAMILY = "users";
 	private static final String HOST = "localhost";
 	private static final String HOST_ADDRESS = "127.0.0.1";
 	private static final String SNAPSHOT_TAG = "testSnapshot";
@@ -74,7 +74,6 @@ public class ClusterColumnFamilyOperationsTestCase extends SSIntegrationTest {
 	public void testRebuildCF() throws AxisFault {
 			client.rebuildCF(HOST_ADDRESS, SYSTEM_KEYSPACE, SYSTEM_COLUMN_FAMILY);
 	}
-
 
 	@Test(groups = "wso2.ss", description = "Refresh column families")
 	public void testRefreshCF() throws AxisFault {
