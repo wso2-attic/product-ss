@@ -281,26 +281,61 @@
                 <scope>compile</scope>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.registry.resource.stub</artifactId>
-                <version>${carbon.storage.management.version}</version>
-                <scope>compile</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.wso2.carbon.storagemgt</groupId>
                 <artifactId>org.wso2.carbon.rssmanager.common</artifactId>
                 <version>${carbon.storage.management.version}</version>
             </dependency>
 	    <dependency>
                 <groupId>org.wso2.carbon.data</groupId>
-    		<artifactId>carbon-data</artifactId>
+    		<artifactId>org.wso2.carbon.dbconsole.ui.feature</artifactId>
                 <version>${carbon.data.version}</version>
             </dependency>
 	    <dependency>
                 <groupId>org.wso2.carbon.identity</groupId>
-        	<artifactId>carbon-identity</artifactId>
+        	<artifactId>org.wso2.carbon.ldap.server.feature</artifactId>
                 <version>${carbon.identity.version}</version>
             </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.identity</groupId>
+        	<artifactId>org.wso2.carbon.ldap.server.server.feature</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.identity</groupId>
+        	<artifactId>org.wso2.carbon.directory.service.mgr.feature</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.identity</groupId>
+        	<artifactId>org.wso2.carbon.um.ws.service.feature</artifactId>
+                <version>${carbon.identity.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.commons</groupId>
+        	<artifactId>org.wso2.carbon.logging.mgt.feature</artifactId>
+                <version>${carbon.commons.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.commons</groupId>
+        	<artifactId>org.wso2.carbon.databridge.datapublisher.feature</artifactId>
+                <version>${carbon.commons.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.registry</groupId>
+        	<artifactId>org.wso2.carbon.registry.core.feature</artifactId>
+                <version>${carbon.registry.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.registry</groupId>
+        	<artifactId>org.wso2.carbon.registry.ui.menu.feature</artifactId>
+                <version>${carbon.registry.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.wso2.carbon.registry</groupId>
+        	<artifactId>org.wso2.carbon.registry.resource.properties.feature</artifactId>
+                <version>${carbon.registry.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -313,6 +348,7 @@
         <carbon.commons.version>4.3.2</carbon.commons.version>
         <carbon.data.version>4.3.0</carbon.data.version>
 	<carbon.identity.version>4.3.0</carbon.identity.version>
+	<carbon.registry.version>4.3.0</carbon.registry.version>
         <commons.logging.version>1.1</commons.logging.version>
         <opencsv.version>1.8</opencsv.version>
         <axis2.wso2.version>1.6.1.wso2v11</axis2.wso2.version>
