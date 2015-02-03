@@ -8,7 +8,7 @@
         <groupId>org.wso2.ss</groupId>
         <artifactId>ss-parent</artifactId>
         <version>${ss.version}</version>
-	<relativePath>../../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <groupId>org.wso2.ss</groupId>
