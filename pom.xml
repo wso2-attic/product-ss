@@ -300,32 +300,32 @@
                 <artifactId>org.wso2.carbon.um.ws.service.feature</artifactId>
                 <version>${carbon.identity.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.identity</groupId>
                 <artifactId>org.wso2.carbon.security.mgt.feature</artifactId>
                 <version>${carbon.identity.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.identity</groupId>
                 <artifactId>org.wso2.carbon.identity.authenticator.saml2.sso.server.feature</artifactId>
                 <version>${carbon.identity.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.identity</groupId>
                 <artifactId>org.wso2.carbon.identity.authenticator.saml2.sso.ui.feature</artifactId>
                 <version>${carbon.identity.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.identity</groupId>
                 <artifactId>org.wso2.carbon.claim.mgt.feature</artifactId>
                 <version>${carbon.identity.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.identity</groupId>
                 <artifactId>org.wso2.carbon.identity.application.mgt.server.feature</artifactId>
                 <version>${carbon.identity.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.identity</groupId>
                 <artifactId>org.wso2.carbon.identity.core.server.feature</artifactId>
                 <version>${carbon.identity.version}</version>
@@ -335,7 +335,7 @@
                 <artifactId>org.wso2.carbon.logging.mgt.feature</artifactId>
                 <version>${carbon.commons.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.commons</groupId>
                 <artifactId>org.wso2.carbon.user.mgt.feature</artifactId>
                 <version>${carbon.commons.version}</version>
@@ -362,59 +362,58 @@
                 <version>${carbon.registry.version}</version>
             </dependency>
 
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.multitenancy</groupId>
                 <artifactId>org.wso2.carbon.tenant.common.feature</artifactId>
                 <version>${carbon.multitenancy.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.multitenancy</groupId>
                 <artifactId>org.wso2.carbon.tenant.usage.agent.feature</artifactId>
                 <version>${carbon.multitenancy.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.multitenancy</groupId>
                 <artifactId>org.wso2.carbon.tenant.throttling.agent.feature</artifactId>
                 <version>${carbon.multitenancy.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.multitenancy</groupId>
                 <artifactId>org.wso2.carbon.tenant.deployment.feature</artifactId>
                 <version>${carbon.multitenancy.version}</version>
             </dependency>
-
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.commons</groupId>
                 <artifactId>org.wso2.carbon.transaction.manager.feature</artifactId>
                 <version>${carbon.commons.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.commons</groupId>
                 <artifactId>org.wso2.carbon.event.common.feature</artifactId>
                 <version>${carbon.commons.version}</version>
             </dependency>
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.commons</groupId>
                 <artifactId>org.wso2.carbon.ntask.feature</artifactId>
                 <version>${carbon.commons.version}</version>
             </dependency>
 
-	    <dependency>
+            <dependency>
                 <groupId>org.wso2.carbon.storagemgt</groupId>
                 <artifactId>org.wso2.carbon.cassandra.explorer.feature</artifactId>
                 <version>${carbon.storage.management.version}</version>
             </dependency>
-	    <dependency>
-		<groupId>org.xerial.snappy</groupId>
-		<artifactId>snappy-java</artifactId>
-	 	<version>1.1.1.6</version>
-	    </dependency>
+            <dependency>
+                <groupId>org.xerial.snappy</groupId>
+                <artifactId>snappy-java</artifactId>
+                <version>1.1.1.6</version>
+            </dependency>
 
-	    <dependency>
-		    <groupId>com.codahale.metrics</groupId>
-		    <artifactId>metrics-core</artifactId>
-		    <version>${codahale.metrics.version}</version>
-	    </dependency>
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-core</artifactId>
+                <version>${codahale.metrics.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
@@ -425,13 +424,12 @@
         <carbon.kernel.imp.pkg.version>[4.3.0, 4.4.0)</carbon.kernel.imp.pkg.version>
 
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
-        <carbon.commons.version>4.3.3</carbon.commons.version>
-        <carbon.deployment.version>4.3.0</carbon.deployment.version>
+        <carbon.commons.version>4.3.4</carbon.commons.version>
+        <carbon.deployment.version>4.3.1</carbon.deployment.version>
         <carbon.registry.version>4.3.0</carbon.registry.version>
         <carbon.data.version>4.3.0</carbon.data.version>
-        <carbon.identity.version>4.3.2-SNAPSHOT</carbon.identity.version>
-        <carbon.registry.version>4.3.0</carbon.registry.version>
-        <carbon.multitenancy.version>4.3.1-SNAPSHOT</carbon.multitenancy.version>
+        <carbon.identity.version>4.3.2</carbon.identity.version>
+        <carbon.multitenancy.version>4.3.3</carbon.multitenancy.version>
         <commons.logging.version>1.1</commons.logging.version>
         <opencsv.version>1.8</opencsv.version>
         <axis2.wso2.version>1.6.1.wso2v11</axis2.wso2.version>
@@ -455,8 +453,8 @@
         <test.framework.version>4.3.1</test.framework.version>
         <test.framework.util.version>4.3.0</test.framework.util.version>
         <json.version>2.0.0.wso2v1</json.version>
-	<snappy-java.version>1.1.1.6</snappy-java.version>
-	<codahale.metrics.version>3.0.2</codahale.metrics.version>
+        <snappy-java.version>1.1.1.6</snappy-java.version>
+        <codahale.metrics.version>3.0.2</codahale.metrics.version>
     </properties>
 
     <organization>
