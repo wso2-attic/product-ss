@@ -9,7 +9,8 @@
 	License for the ~ specific language governing permissions and limitations 
 	~ under the License. -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<parent>
 		<groupId>org.wso2</groupId>
@@ -21,7 +22,7 @@
 	<groupId>org.wso2.ss</groupId>
 	<artifactId>ss-parent</artifactId>
 	<packaging>pom</packaging>
-	<version>1.5.1-SNAPSHOT</version>
+	<version>1.5.0-SNAPSHOT</version>
 	<name>WSO2 Storage Server - Aggregator Module</name>
 	<url>http://wso2.com/products/storage-server</url>
 	<description>WSO2 Storage Server (WSO2 SS)</description>
@@ -639,7 +640,7 @@
 		<commons-cli.version>1.2.0.wso2v1</commons-cli.version>
 		<commons-daemon.version>1.0.7</commons-daemon.version>
 		<version.h2.engine>1.2.140.wso2v3</version.h2.engine>
-		<ss.version>1.5.1-SNAPSHOT</ss.version>
+		<ss.version>1.5.0-SNAPSHOT</ss.version>
 		<carbon.storage.management.version>4.3.1</carbon.storage.management.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<emma.version>2.1.5320</emma.version>
