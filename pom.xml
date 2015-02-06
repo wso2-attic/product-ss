@@ -21,7 +21,7 @@
     <groupId>org.wso2.ss</groupId>
     <artifactId>ss-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.5.0</version>
+    <version>1.5.1-SNAPSHOT</version>
     <name>WSO2 Storage Server - Aggregator Module</name>
     <url>http://wso2.com/products/storage-server</url>
     <description>WSO2 Storage Server (WSO2 SS)</description>
@@ -47,7 +47,7 @@
         <connection>scm:git:https://github.com/wso2/product-ss.git</connection>
         <developerConnection>scm:git:https://github.com/wso2/product-ss.git</developerConnection>
         <url>https://github.com/wso2/product-ss.git</url>
-        <tag>wso2ss-1.5.0-M4</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <repositories>
@@ -639,7 +639,7 @@
         <commons-cli.version>1.2.0.wso2v1</commons-cli.version>
         <commons-daemon.version>1.0.7</commons-daemon.version>
         <version.h2.engine>1.2.140.wso2v3</version.h2.engine>
-        <ss.version>1.5.0</ss.version>
+        <ss.version>1.5.1-SNAPSHOT</ss.version>
         <carbon.storage.management.version>4.3.1</carbon.storage.management.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <emma.version>2.1.5320</emma.version>
