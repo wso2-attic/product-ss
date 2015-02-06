@@ -190,6 +190,16 @@
 				<artifactId>h2-database-engine</artifactId>
 				<version>${wso2.h2.orbit.version}</version>
 			</dependency>
+			   <dependency>
+                <groupId>org.wso2.ss</groupId>
+                <artifactId>org.wso2.ss.styles</artifactId>
+                <version>${ss.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.ss</groupId>
+                <artifactId>org.wso2.ss.samples</artifactId>
+                <version>${ss.version}</version>
+            </dependency>
 			<!-- Dependencies for DataNode -->
 			<dependency>
 				<groupId>commons-daemon</groupId>
@@ -419,7 +429,7 @@
 			<dependency>
 				<groupId>org.xerial.snappy</groupId>
 				<artifactId>snappy-java</artifactId>
-				<version>1.1.1.6</version>
+				<version>${snappy-java.version}</version>
 			</dependency>
 
 			<dependency>
@@ -427,7 +437,179 @@
 				<artifactId>metrics-core</artifactId>
 				<version>${codahale.metrics.version}</version>
 			</dependency>
+                     <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.authenticator.proxy</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.core.common</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.ui</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.core</artifactId>
+                <version>${carbon.kernel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.axis2.wso2</groupId>
+                <artifactId>axis2</artifactId>
+                <version>${axis2.wso2.version}</version>
+            </dependency>
 
+            <!--Cassandra -->
+            <dependency>
+                <groupId>org.apache.cassandra.wso2</groupId>
+                <artifactId>apache-cassandra</artifactId>
+                <version>${cassandra.version}</version>
+            </dependency>
+
+            <!--Hector-->
+            <dependency>
+                <groupId>org.hectorclient.wso2</groupId>
+                <artifactId>hector-core</artifactId>
+                <version>${hector-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>libthrift.wso2</groupId>
+                <artifactId>libthrift</artifactId>
+                <version>${libthrift.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.perf4j.wso2</groupId>
+                <artifactId>perf4j</artifactId>
+                <version>${perf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.cliffc.high_scale_lib.wso2</groupId>
+                <artifactId>high-scale-lib</artifactId>
+                <version>${highscale.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <!--Cassandra Component-->
+
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.cassandra.dataaccess</artifactId>
+                <version>${carbon.kernel.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon</groupId>
+                <artifactId>org.wso2.carbon.cassandra.server</artifactId>
+                <version>${carbon.kernel.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml.wso2</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${yaml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava.wso2</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.googlecode.concurrentlinkedhashmap.wso2</groupId>
+                <artifactId>concurrentlinkedhashmap-lru</artifactId>
+                <version>${concurrentlinkedhashmap.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop.wso2</groupId>
+                <artifactId>avro</artifactId>
+                <version>${avro.version}</version>
+            </dependency>
+
+            <!--Carbon-->
+            <dependency>
+                <groupId>org.safehaus.jug.wso2</groupId>
+                <artifactId>jug</artifactId>
+                <version>${jug.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.googlecode.json-simple.wso2</groupId>
+                <artifactId>json-simple</artifactId>
+                <version>${simple-json.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-util</artifactId>
+                <version>${jetty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging-api</artifactId>
+                <version>${commons-logging.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io.wso2</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <!-- standard.jar -->
+            <dependency>
+                <groupId>taglibs</groupId>
+                <artifactId>standard</artifactId>
+                <version>${taglibs.version}</version>
+            </dependency>
+
+            <!-- JSTL -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>${javax.servlet.jstl.version}</version>
+                <!--<scope>provided</scope>-->
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.ui.menu.stratos</artifactId>
+            <version>${carbon.ui.menu.stratos.version}</version>
+        </dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -443,10 +625,12 @@
 		<carbon.data.version>4.3.0</carbon.data.version>
 		<carbon.identity.version>4.3.2</carbon.identity.version>
 		<carbon.multitenancy.version>4.3.3</carbon.multitenancy.version>
+		<carbon.ui.menu.stratos.version>2.0.0</carbon.ui.menu.stratos.version>
 		<commons.logging.version>1.1</commons.logging.version>
 		<opencsv.version>1.8</opencsv.version>
 		<axis2.wso2.version>1.6.1.wso2v11</axis2.wso2.version>
 		<axiom.wso2.version>1.2.11.wso2v5</axiom.wso2.version>
+		<javax.servlet.jstl.version>1.1.2</javax.servlet.jstl.version>
 		<javax.servlet.version>3.0.0.v201112011016</javax.servlet.version>
 		<javax.servlet.jsp.version>2.2.0.v201112011158</javax.servlet.jsp.version>
 		<servlet-api.version>2.4</servlet-api.version>
@@ -469,6 +653,23 @@
 		<snappy-java.version>1.1.1.6</snappy-java.version>
 		<codahale.metrics.version>3.0.2</codahale.metrics.version>
 		<project.scm.id>my-scm-server</project.scm.id>
+		<cassandra.version>1.1.3.wso2v5</cassandra.version>
+        <hector-core.version>1.1.0.wso2v1</hector-core.version>
+        <libthrift.version>0.7.wso2v1</libthrift.version>
+        <perf4j.version>0.9.12.wso2v1</perf4j.version>
+        <highscale.version>1.1.2.wso2v1</highscale.version>
+        <slf4j.version>1.6.1</slf4j.version>
+        <yaml.version>1.6.wso2v1</yaml.version>
+        <guava.version>12.0.0.wso2v1</guava.version>
+        <concurrentlinkedhashmap.version>1.2.0.wso2v1</concurrentlinkedhashmap.version>
+        <avro.version>1.4.0-fixes.wso2v1</avro.version>
+        <taglibs.version>1.1.2</taglibs.version>
+        <jug.version>2.0.0.wso2v1</jug.version>
+        <simple-json.version>1.1.wso2v1</simple-json.version>
+        <jetty.version>6.1.21</jetty.version>
+        <jackson.version>1.4.0</jackson.version>
+        <fileupload.version>1.2.2</fileupload.version>
+        <commons-io.version>2.0.0.wso2v1</commons-io.version>
 	</properties>
 
 	<organization>
