@@ -37,12 +37,12 @@
 
     <modules>
         <module>modules/styles</module>
-        <module>modules/samples</module>
+        <!--module>modules/samples</module-->
         <module>modules/features</module>
         <module>modules/p2-profile</module>
         <module>modules/distribution</module>
         <!--<module>modules/org.wso2.stratos.ss.login.ui</module> -->
-        <!--module>modules/integration</module -->
+        <module>modules/integration</module>
     </modules>
 
     <scm>
@@ -210,7 +210,7 @@
 
             <!-- Dependencies for Automation Test Framework -->
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2.carbon.automationutils</groupId>
                 <artifactId>org.wso2.carbon.integration.common.admin.client</artifactId>
                 <version>${test.framework.util.version}</version>
                 <scope>test</scope>
@@ -294,6 +294,21 @@
             <dependency>
                 <groupId>org.wso2.carbon.storagemgt</groupId>
                 <artifactId>org.wso2.carbon.rssmanager.common</artifactId>
+                <version>${carbon.storage.management.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.storagemgt</groupId>
+                <artifactId>org.wso2.carbon.cassandra.cluster.mgt.stub</artifactId>
+                <version>${carbon.storage.management.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.storagemgt</groupId>
+                <artifactId>org.wso2.carbon.cassandra.cluster.proxy.stub</artifactId>
+                <version>${carbon.storage.management.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.storagemgt</groupId>
+                <artifactId>org.wso2.carbon.cassandra.explorer.stub</artifactId>
                 <version>${carbon.storage.management.version}</version>
             </dependency>
             <dependency>
@@ -625,7 +640,7 @@
         <carbon.registry.version>4.3.0</carbon.registry.version>
         <carbon.data.version>4.3.0</carbon.data.version>
         <carbon.identity.version>4.3.2</carbon.identity.version>
-        <carbon.multitenancy.version>4.3.3</carbon.multitenancy.version>
+        <carbon.multitenancy.version>4.3.4</carbon.multitenancy.version>
         <carbon.ui.menu.stratos.version>2.0.0</carbon.ui.menu.stratos.version>
         <commons.logging.version>1.1</commons.logging.version>
         <opencsv.version>1.8</opencsv.version>

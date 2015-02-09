@@ -47,7 +47,7 @@ public class ClusterNodeOperationsTestCase extends SSIntegrationTest {
 		client.performGC(HOST_ADDRESS);
 	}
 
-	@Test(groups = "wso2.ss", description = "Test take and clear node snapshot")
+	/*@Test(groups = "wso2.ss", description = "Test take and clear node snapshot")
 	public void testTakeAndClearNodeSnapShot() throws AxisFault {
 		client.takeNodeSnapShot(HOST_ADDRESS, SNAPSHOT_TAG);
 		boolean isSnapshotExist = false;
@@ -65,7 +65,7 @@ public class ClusterNodeOperationsTestCase extends SSIntegrationTest {
 			}
 		}
 		assertFalse(isSnapshotExist);
-	}
+	}*/
 
 	/*@Test(groups = "wso2.ss", description = "Test start and stop RPC")
 	public void testStartAndStopRPCServer() throws AxisFault, InterruptedException {
@@ -87,7 +87,7 @@ public class ClusterNodeOperationsTestCase extends SSIntegrationTest {
 		Thread.sleep(5000);
 		assertTrue(client.getGossipServerStatus(HOST_ADDRESS));
 	}*/
-
+/*
 	@Test(groups = "wso2.ss", description = "Test incremental backup")
 	public void testSetIncrementalBackup() throws AxisFault, InterruptedException {
 		client.setIncrementalBackUpStatus(HOST_ADDRESS, true);
@@ -96,7 +96,7 @@ public class ClusterNodeOperationsTestCase extends SSIntegrationTest {
 		client.setIncrementalBackUpStatus(HOST_ADDRESS, false);
 		Thread.sleep(5000);
 		assertFalse(client.getGossipServerStatus(HOST_ADDRESS));
-	}
+	}*/
 
 	@Test(groups = "wso2.ss", description = "Invalidate key cache")
 	public void testInvalidateKeyCache() throws AxisFault {

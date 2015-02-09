@@ -60,16 +60,6 @@ public class ClusterColumnFamilyOperationsTestCase extends SSIntegrationTest {
 			client.compactColumnFamilies(HOST_ADDRESS, SYSTEM_KEYSPACE, new String[] { SYSTEM_COLUMN_FAMILY });
 	}
 
-	@Test(groups = "wso2.ss", description = "Scrub column family")
-	public void testScrubColumnFamilies() throws AxisFault {
-			client.scrubColumnFamilies(HOST_ADDRESS, SYSTEM_KEYSPACE, new String[] {SYSTEM_COLUMN_FAMILY});
-	}
-
-	@Test(groups = "wso2.ss", description = "UpgradeSSTables column family")
-	public void testUpgradeSSTablesColumnFamilies() throws AxisFault {
-			client.upgradeSSTablesColumnFamilies(HOST_ADDRESS, SYSTEM_KEYSPACE, new String[] {SYSTEM_COLUMN_FAMILY});
-	}
-
 	@Test(groups = "wso2.ss", description = "Rebuild column families")
 	public void testRebuildCF() throws AxisFault {
 			client.rebuildCF(HOST_ADDRESS, SYSTEM_KEYSPACE, SYSTEM_COLUMN_FAMILY);

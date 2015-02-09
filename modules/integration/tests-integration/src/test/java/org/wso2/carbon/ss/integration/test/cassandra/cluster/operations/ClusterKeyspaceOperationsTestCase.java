@@ -58,16 +58,6 @@ public class ClusterKeyspaceOperationsTestCase extends SSIntegrationTest {
 		client.repairKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
 	}
 
-	@Test(groups = "wso2.ss", description = "Scrub keyspace")
-	public void testScrubKeyspace() throws AxisFault {
-		client.scrubKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
-	}
-
-	@Test(groups = "wso2.ss", description = "Upgrade sst tables keyspace")
-	public void testUpgradeSSTTablesKeyspace() throws AxisFault {
-		client.upgradeSSTablesKeyspace(HOST_ADDRESS, SYSTEM_KEYSPACE);
-	}
-
 	@Test(groups = "wso2.ss", description = "Take snapshot of keyspace")
 	public void testTakeSnapshotKeyspace() throws AxisFault {
 		client.takeSnapshotKeyspace(HOST_ADDRESS, SNAPSHOT_TAG, SYSTEM_KEYSPACE);

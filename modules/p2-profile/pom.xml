@@ -249,10 +249,10 @@
                                     <id>org.wso2.carbon.cassandra.common.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
                                 </feature>
-                                <!--feature>
+                                <feature>
                                     <id>org.wso2.carbon.cassandra.explorer.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
-                                </feature-->
+                                </feature>
                                 <feature>
                                     <id>org.wso2.carbon.cassandra.datareader.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
