@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- ~ Copyright (c) 2005-2012, WSO2 Inc. (http://wso2.com) All Rights Reserved. 
-	~ ~ WSO2 Inc. licenses this file to you under the Apache License, ~ Version 
-	2.0 (the "License"); you may not use this file except ~ in compliance with 
-	the License. ~ You may obtain a copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0 
-	~ ~ Unless required by applicable law or agreed to in writing, ~ software 
-	distributed under the License is distributed on an ~ "AS IS" BASIS, WITHOUT 
-	WARRANTIES OR CONDITIONS OF ANY ~ KIND, either express or implied. See the 
-	License for the ~ specific language governing permissions and limitations 
+<!-- ~ Copyright (c) 2005-2012, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+  ~
+	~ ~ WSO2 Inc. licenses this file to you under the Apache License, ~ Version
+	2.0 (the "License"); you may not use this file except ~ in compliance with
+	the License. ~ You may obtain a copy of the License at ~ ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+	~ ~ Unless required by applicable law or agreed to in writing, ~ software
+	distributed under the License is distributed on an ~ "AS IS" BASIS, WITHOUT
+	WARRANTIES OR CONDITIONS OF ANY ~ KIND, either express or implied. See the
+	License for the ~ specific language governing permissions and limitations
 	~ under the License. -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
         <groupId>org.wso2</groupId>
@@ -22,7 +23,7 @@
     <groupId>org.wso2.ss</groupId>
     <artifactId>ss-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.5.0-SNAPSHOT</version>
+    <version>1.5.1-SNAPSHOT</version>
     <name>WSO2 Storage Server - Aggregator Module</name>
     <url>http://wso2.com/products/storage-server</url>
     <description>WSO2 Storage Server (WSO2 SS)</description>
@@ -36,12 +37,12 @@
 
     <modules>
         <module>modules/styles</module>
-        <!--<module>modules/samples</module> -->
+        <!--module>modules/samples</module-->
         <module>modules/features</module>
         <module>modules/p2-profile</module>
         <module>modules/distribution</module>
         <!--<module>modules/org.wso2.stratos.ss.login.ui</module> -->
-        <!--module>modules/integration</module -->
+        <module>modules/integration</module>
     </modules>
 
     <scm>
@@ -209,7 +210,7 @@
 
             <!-- Dependencies for Automation Test Framework -->
             <dependency>
-                <groupId>org.wso2.carbon</groupId>
+                <groupId>org.wso2.carbon.automationutils</groupId>
                 <artifactId>org.wso2.carbon.integration.common.admin.client</artifactId>
                 <version>${test.framework.util.version}</version>
                 <scope>test</scope>
@@ -293,6 +294,21 @@
             <dependency>
                 <groupId>org.wso2.carbon.storagemgt</groupId>
                 <artifactId>org.wso2.carbon.rssmanager.common</artifactId>
+                <version>${carbon.storage.management.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.storagemgt</groupId>
+                <artifactId>org.wso2.carbon.cassandra.cluster.mgt.stub</artifactId>
+                <version>${carbon.storage.management.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.storagemgt</groupId>
+                <artifactId>org.wso2.carbon.cassandra.cluster.proxy.stub</artifactId>
+                <version>${carbon.storage.management.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.storagemgt</groupId>
+                <artifactId>org.wso2.carbon.cassandra.explorer.stub</artifactId>
                 <version>${carbon.storage.management.version}</version>
             </dependency>
             <dependency>
@@ -619,7 +635,7 @@
         <carbon.registry.version>4.3.0</carbon.registry.version>
         <carbon.data.version>4.3.0</carbon.data.version>
         <carbon.identity.version>4.3.2</carbon.identity.version>
-        <carbon.multitenancy.version>4.3.3</carbon.multitenancy.version>
+        <carbon.multitenancy.version>4.3.4</carbon.multitenancy.version>
         <commons.logging.version>1.1</commons.logging.version>
         <opencsv.version>1.8</opencsv.version>
         <axis2.wso2.version>1.6.1.wso2v11</axis2.wso2.version>
@@ -634,7 +650,7 @@
         <commons-cli.version>1.2.0.wso2v1</commons-cli.version>
         <commons-daemon.version>1.0.7</commons-daemon.version>
         <version.h2.engine>1.2.140.wso2v3</version.h2.engine>
-        <ss.version>1.5.0-SNAPSHOT</ss.version>
+        <ss.version>1.5.1-SNAPSHOT</ss.version>
         <carbon.storage.management.version>4.3.1</carbon.storage.management.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <emma.version>2.1.5320</emma.version>
