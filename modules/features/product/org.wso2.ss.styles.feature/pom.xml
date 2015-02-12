@@ -37,11 +37,6 @@
             <groupId>org.wso2.ss</groupId>
             <artifactId>org.wso2.ss.styles</artifactId>
         </dependency>
-	   <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.carbon.ui.menu.stratos</artifactId>
-       </dependency>
-
     </dependencies>
 
     <build>
@@ -67,7 +62,6 @@
                             </adviceFile>
                             <bundles>
                                 <bundleDef>org.wso2.ss:org.wso2.ss.styles</bundleDef>
-                                <bundleDef>org.wso2.carbon:org.wso2.carbon.ui.menu.stratos</bundleDef>
                             </bundles>
                             <importFeatures>
                                 <importFeatureDef>org.wso2.carbon.core.ui:${carbon.kernel.version}</importFeatureDef>
