@@ -1,0 +1,5 @@
+Data Migration 1.1.0 to 1.5.0
+=============================
+Please execute rss_manager_migration.sql script against to WSO2_RSS_DB database and
+Please execute cassandra_permissions_migration.sql script against to WSO2_CARBON_DB database to migrate from Storage
+Server 1.1.0 to 1.5.0
