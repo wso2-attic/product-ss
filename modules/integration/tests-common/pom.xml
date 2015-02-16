@@ -20,7 +20,7 @@
     <groupId>org.wso2.sss</groupId>
     <artifactId>ss-integration-tests-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.5.0</version>
+    <version>1.5.1-SNAPSHOT</version>
     <name>WSO2 Storage Service Integration Test Common</name>
 
     <modules>
