@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.wso2.ss</groupId>
 		<artifactId>ss-parent</artifactId>
-		<version>1.5.1-SNAPSHOT</version>
+		<version>1.5.0</version>
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
