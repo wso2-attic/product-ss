@@ -631,7 +631,7 @@
 
         <ss.version>1.5.1-SNAPSHOT</ss.version>
 
-        <carbon.storage.management.version>4.3.2-SNAPSHOT</carbon.storage.management.version>
+        <carbon.storage.management.version>4.3.2</carbon.storage.management.version>
         <carbon.p2.plugin.version>1.5.3</carbon.p2.plugin.version>
         <carbon.commons.version>4.3.5</carbon.commons.version>
         <carbon.deployment.version>4.3.1</carbon.deployment.version>
