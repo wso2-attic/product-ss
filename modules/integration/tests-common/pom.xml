@@ -27,7 +27,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.wso2.sss</groupId>
+    <groupId>org.wso2.ss</groupId>
     <artifactId>ss-integration-tests-common</artifactId>
     <packaging>pom</packaging>
     <version>1.5.1-SNAPSHOT</version>
