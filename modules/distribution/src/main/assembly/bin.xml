@@ -247,7 +247,7 @@
         <fileSet>
             <directory>src/main/resources/migration-1.1.0_to_1.5.0/
             </directory>
-            <outputDirectory>wso2ss-${pom.version}/dbscripts/migration-1.0.0_to_1.2.0</outputDirectory>
+            <outputDirectory>wso2ss-${pom.version}/dbscripts/migration-1.1.0_to_1.5.0</outputDirectory>
         </fileSet>
     </fileSets>
     <!--DataNode-->
