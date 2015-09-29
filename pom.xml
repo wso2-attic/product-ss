@@ -680,6 +680,7 @@
         <jackson.version>1.4.0</jackson.version>
         <fileupload.version>1.2.2</fileupload.version>
         <commons-io.version>2.0.0.wso2v1</commons-io.version>
+        <maven-bundle-plugin.version>2.3.7</maven-bundle-plugin.version>
 	<project.scm.id>my-scm-server</project.scm.id>
     </properties>
 
