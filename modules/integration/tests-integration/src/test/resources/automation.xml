@@ -34,7 +34,7 @@
         <!--
          Change this to true if you want to generate coverage statistics
         -->
-        <coverage>true</coverage>
+        <coverage>false</coverage>
         <!--
          Change this to true if you want to enable framework dashboard
         -->
@@ -188,8 +188,8 @@
 
             <instance name="lbw001" type="lb_worker_manager" nonBlockingTransportEnabled="true">
                 <hosts>
-                    <host type="worker">dss.wso2con.com</host>
-                    <host type="manager">mgt.dss.wso2con.com</host>
+                    <host type="worker">ss.wso2con.com</host>
+                    <host type="manager">mgt.ss.wso2con.com</host>
                 </hosts>
                 <ports>
                     <port type="nhttps">8243</port>
@@ -199,7 +199,7 @@
 
                 </properties>
             </instance>
-            <instance name="dss001" type="manager" nonBlockingTransportEnabled="false">
+            <instance name="ss001" type="manager" nonBlockingTransportEnabled="false">
                 <hosts>
                     <host type="default">localhost</host>
                 </hosts>
@@ -211,19 +211,19 @@
                 </properties>
             </instance>
 
-            <instance name="dss002" type="standalone" nonBlockingTransportEnabled="false">
+            <instance name="ss002" type="standalone" nonBlockingTransportEnabled="false">
                 <hosts>
                     <host type="default">localhost</host>
                 </hosts>
                 <ports>
                     <port type="http">9763</port>
-                    <port type="https">9443</port>
+                    <port type="https">10943</port>
                 </ports>
                 <properties>
 
                 </properties>
             </instance>
-            <instance name="dss003" type="worker" nonBlockingTransportEnabled="false">
+            <instance name="ss003" type="worker" nonBlockingTransportEnabled="false">
                 <hosts>
                     <host type="default">localhost</host>
                 </hosts>
@@ -244,7 +244,7 @@
             <extentionClasses>
             <class>
                 <name>org.wso2.carbon.automation.extensions.servers.carbonserver.CarbonServerExtension</name>
-                <!--<parameter name="-DportOffset" value="0" />-->
+                <parameter name="-DportOffset" value="1500" />
                 <!--<parameter name="cmdArg" value="debug 5005" />-->
             </class>
             <class>
