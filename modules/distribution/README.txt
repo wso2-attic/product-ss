@@ -43,7 +43,7 @@ Installation & Running
     password : admin
 
 
-WSO2 Storage Server 1.5.0 distribution directory structure
+WSO2 Storage Server 1.6.0 distribution directory structure
 =============================================
 
 	CARBON_HOME
@@ -110,7 +110,7 @@ WSO2 Storage Server 1.5.0 distribution directory structure
       This document will contain information on installing WSO2 Storage Server
 
 	- release-notes.html
-	  Release information for WSO2 Storage Server 1.5.0
+	  Release information for WSO2 Storage Server 1.6.0
 
 Support
 ==================================
