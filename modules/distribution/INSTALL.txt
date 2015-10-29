@@ -1,4 +1,4 @@
-Installing  WSO2 Storage Server (WSO2 SS) 1.5.0
+Installing  WSO2 Storage Server (WSO2 SS) 1.6.0
 ===================================================
 
 1. The directory containing this INSTALL.txt file will be the root and it will be

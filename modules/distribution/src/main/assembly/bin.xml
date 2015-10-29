@@ -237,16 +237,16 @@
         <!--</fileSet>-->
         <!--&lt;!&ndash; BAM toolboxes - end &ndash;&gt;-->
 
-        <fileSet>
-            <directory>src/main/resources/pylib</directory>
-            <outputDirectory>wso2ss-${pom.version}/repository/lib/pylib</outputDirectory>
-        </fileSet>
+        <!--<fileSet>-->
+            <!--<directory>src/main/resources/pylib</directory>-->
+            <!--<outputDirectory>wso2ss-${pom.version}/repository/lib/pylib</outputDirectory>-->
+        <!--</fileSet>-->
 
         <!-- Copying data base migration scripts -->
         <fileSet>
-            <directory>src/main/resources/migration-1.1.0_to_1.5.0/
+            <directory>src/main/resources/migration-1.1.0_to_1.6.0/
             </directory>
-            <outputDirectory>wso2ss-${pom.version}/dbscripts/migration-1.1.0_to_1.5.0</outputDirectory>
+            <outputDirectory>wso2ss-${pom.version}/dbscripts/migration-1.1.0_to_1.6.0</outputDirectory>
         </fileSet>
 
         <fileSet>
@@ -474,20 +474,20 @@
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf</outputDirectory>
             <fileMode>644</fileMode>
         </file>
-        <file>
-            <source>src/main/bin/cassandra-cli</source>
-            <outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>
-            <destName>cassandra-cli</destName>
-            <fileMode>755</fileMode>
-            <filtered>true</filtered>
-        </file>
-        <file>
-            <source>src/main/bin/nodetool</source>
-            <outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>
-            <destName>nodetool</destName>
-            <fileMode>755</fileMode>
-            <filtered>true</filtered>
-        </file>
+        <!--<file>-->
+            <!--<source>src/main/bin/cassandra-cli</source>-->
+            <!--<outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>-->
+            <!--<destName>cassandra-cli</destName>-->
+            <!--<fileMode>755</fileMode>-->
+            <!--<filtered>true</filtered>-->
+        <!--</file>-->
+        <!--<file>-->
+            <!--<source>src/main/bin/nodetool</source>-->
+            <!--<outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>-->
+            <!--<destName>nodetool</destName>-->
+            <!--<fileMode>755</fileMode>-->
+            <!--<filtered>true</filtered>-->
+        <!--</file>-->
         <!--<file>-->
             <!--<source>src/main/bin/wso2server.sh</source>-->
             <!--<outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>-->
@@ -522,32 +522,32 @@
             <source>src/main/resources/security/cipher-tool.properties</source>
             <outputDirectory>${pom.artifactId}-${pom.version}/repository/conf/security/</outputDirectory>
         </file>
-        <file>
-            <source>src/main/bin/cqlsh</source>
-            <outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>
-            <destName>cqlsh</destName>
-            <fileMode>755</fileMode>
-            <filtered>true</filtered>
-        </file>
-        <file>
-            <source>src/main/resources/cql-internal-only-1.4.1.zip</source>
-            <outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>
-            <destName>cql-internal-only-1.4.1.zip</destName>
-            <fileMode>644</fileMode>
-            <filtered>true</filtered>
-        </file>
+        <!--<file>-->
+            <!--<source>src/main/bin/cqlsh</source>-->
+            <!--<outputDirectory>wso2ss-${pom.version}/bin</outputDirectory>-->
+            <!--<destName>cqlsh</destName>-->
+            <!--<fileMode>755</fileMode>-->
+            <!--<filtered>true</filtered>-->
+        <!--</file>-->
+        <!--<file>-->
+            <!--<source>src/main/resources/cql-internal-only-1.4.1.zip</source>-->
+            <!--<outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>-->
+            <!--<destName>cql-internal-only-1.4.1.zip</destName>-->
+            <!--<fileMode>644</fileMode>-->
+            <!--<filtered>true</filtered>-->
+        <!--</file>-->
         <!--file>
             <source>src/main/resources/WSO2_RSS_DB.h2.db</source>
             <outputDirectory>wso2ss-${pom.version}/repository/database</outputDirectory>
             <destName>WSO2_RSS_DB.h2.db</destName>
             <fileMode>644</fileMode>
         </file-->
-        <file>
-            <source>src/main/resources/thrift-python-internal-only-0.7.0.zip</source>
-            <outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>
-            <destName>thrift-python-internal-only-0.7.0.zip</destName>
-            <fileMode>644</fileMode>
-            <filtered>true</filtered>
-        </file>
+        <!--<file>-->
+            <!--<source>src/main/resources/thrift-python-internal-only-0.7.0.zip</source>-->
+            <!--<outputDirectory>wso2ss-${pom.version}/repository/lib</outputDirectory>-->
+            <!--<destName>thrift-python-internal-only-0.7.0.zip</destName>-->
+            <!--<fileMode>644</fileMode>-->
+            <!--<filtered>true</filtered>-->
+        <!--</file>-->
     </files>
 </assembly>
