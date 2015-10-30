@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.wso2.ss</groupId>
 		<artifactId>ss-parent</artifactId>
-		<version>1.5.1-SNAPSHOT</version>
+		<version>1.6.0-SNAPSHOT</version>
 		<relativePath>../../pom.xml</relativePath>
 	</parent>
 
@@ -98,9 +98,6 @@
 									</fileset>
 								</unzip>
 
-								<!--replace file="../p2-profile/target/WSO2-CARBON-PATCH-4.2.0-0004/repository/conf/carbon.xml" 
-									token="${product.name}" value="WSO2 Storage Server"/ -->
-
 								<copy todir="target/wso2carbon-core-${carbon.kernel.version}/repository/components/" overwrite="false">
 									<fileset dir="${tempdir}/${project.artifactId}-${project.version}/repository/components/">
 									</fileset>
@@ -163,7 +160,7 @@
 									<classpath>
 										<path refid="h2.classpath" />
 									</classpath>
-									<fileset file="target/wso2carbon-core-${carbon.kernel.version}/dbscripts/identity/application-mgt/h2.sql" />
+									<fileset file="target/wso2carbon-core-${carbon.kernel.version}/dbscripts/identity/h2.sql" />
 								</sql>
 								<delete dir="${tempdir}" />
 							</tasks>

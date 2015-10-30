@@ -1,2 +1,0 @@
-alter table RM_DATABASE_USER add constraint uniqueUser UNIQUE (USERNAME, TENANT_ID, ENVIRONMENT_ID, RSS_INSTANCE_ID);
-alter table RM_DATABASE_USER add column RSS_INSTANCE_ID INTEGER NOT NULL default -1;

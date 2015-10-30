@@ -1,8 +1,8 @@
 ================================================================================
-                        WSO2 Storage Server 1.5.0
+                        WSO2 Storage Server 1.6.0
 ================================================================================
 
-Welcome to the WSO2 Storage Server 1.5.0 release
+Welcome to the WSO2 Storage Server 1.6.0 release
 
 WSO2 SS allows system administrators and developers to easily create and
 mange Relational databases, Column stores and data on a HDFS file system.
@@ -15,11 +15,6 @@ Key Features of WSO2 Storage Server
 ==================================
 
 1. Relational Storage Service.
-2. Multi-tenant Column Store Service based on Apache Cassandra.
-3. Cassandra Explorer.
-4. Cassandra Cluster monitor.
-5. Multi-tenant Hadoop Distribution File System Service.
-6. Hadoop CLI.
 
 System Requirements
 ===================
@@ -36,7 +31,7 @@ System Requirements
 Installation & Running
 ==================================
 
-1. Extract the wso2ss-1.5.0.zip and go to the extracted directory
+1. Extract the wso2ss-1.6.0.zip and go to the extracted directory
 2. Run the wso2server.sh or wso2server.bat as appropriate
 3. Point your favourite browser to
 
@@ -48,7 +43,7 @@ Installation & Running
     password : admin
 
 
-WSO2 Storage Server 1.5.0 distribution directory structure
+WSO2 Storage Server 1.6.0 distribution directory structure
 =============================================
 
 	CARBON_HOME
@@ -115,7 +110,7 @@ WSO2 Storage Server 1.5.0 distribution directory structure
       This document will contain information on installing WSO2 Storage Server
 
 	- release-notes.html
-	  Release information for WSO2 Storage Server 1.5.0
+	  Release information for WSO2 Storage Server 1.6.0
 
 Support
 ==================================
@@ -166,5 +161,5 @@ Crypto Notice
    Bouncycastle     : http://www.bouncycastle.org/
 
 --------------------------------------------------------------------------------
-(c) Copyright 2012 WSO2 Inc.
+(c) Copyright 2015 WSO2, Inc.
 

@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.wso2.ss</groupId>
         <artifactId>ss-parent</artifactId>
-        <version>1.5.1-SNAPSHOT</version>
+        <version>1.6.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
@@ -84,7 +84,7 @@
                                     org.wso2.carbon:org.wso2.carbon.core.runtime.feature:${carbon.kernel.version}
                                 </featureArtifactDef>
                                 <!--Start Cassandra features-->
-                                <featureArtifactDef>
+                                <!--featureArtifactDef>
                                     org.wso2.carbon.storagemgt:org.wso2.carbon.cassandra.feature:${carbon.storage.management.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
@@ -98,7 +98,7 @@
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon.storagemgt:org.wso2.carbon.cassandra.datareader.feature:${carbon.storage.management.version}
-                                </featureArtifactDef>
+                                </featureArtifactDef-->
                                 <!--End Cassandra features-->
                                 <!--Start RSS features-->
                                 <featureArtifactDef>
@@ -112,7 +112,7 @@
                                 </featureArtifactDef>
                                 <!--End RSS features-->
                                 <!--Start HDFS features-->
-                                <featureArtifactDef>
+                                <!--featureArtifactDef>
                                     org.wso2.carbon.storagemgt:org.wso2.carbon.hdfs.dataaccess.feature:${carbon.storage.management.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
@@ -126,15 +126,15 @@
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon.storagemgt:org.wso2.carbon.hdfs.datanode.feature:${carbon.storage.management.version}
-                                </featureArtifactDef>
+                                </featureArtifactDef-->
                                 <!--End HDFS features-->
                                 <!--Start Secure Hadoop features-->
-                                <featureArtifactDef>
+                                <!--featureArtifactDef>
                                     org.wso2.carbon.storagemgt:org.wso2.carbon.hadoop.security.feature:${carbon.storage.management.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon.storagemgt:org.wso2.carbon.identity.authenticator.krb5.feature:${carbon.storage.management.version}
-                                </featureArtifactDef>
+                                </featureArtifactDef-->
                                 <!--End Secure Hadoop features-->
                                 <!--Start LDAP features-->
                                 <featureArtifactDef>
@@ -156,7 +156,10 @@
                                     org.wso2.carbon.commons:org.wso2.carbon.logging.mgt.feature:${carbon.commons.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.commons:org.wso2.carbon.databridge.datapublisher.feature:${carbon.commons.version}
+                                    org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.datapublisher.feature:${carbon.analytics-common.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.registry:org.wso2.carbon.registry.contentsearch.feature:${carbon.registry.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon.registry:org.wso2.carbon.registry.core.feature:${carbon.registry.version}
@@ -173,6 +176,9 @@
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon.multitenancy:org.wso2.carbon.tenant.common.feature:${carbon.multitenancy.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.commons:org.wso2.carbon.tenant.mgt.common.feature:${carbon.commons.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon.multitenancy:org.wso2.carbon.tenant.usage.agent.feature:${carbon.multitenancy.version}
@@ -208,13 +214,22 @@
                                     org.wso2.carbon.identity:org.wso2.carbon.claim.mgt.feature:${carbon.identity.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.commons:org.wso2.carbon.user.mgt.feature:${carbon.commons.version}
+                                    org.wso2.carbon.identity:org.wso2.carbon.claim.mgt.ui.feature:${carbon.identity.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.identity:org.wso2.carbon.user.mgt.feature:${carbon.identity.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.identity:org.wso2.carbon.idp.mgt.server.feature:${carbon.identity.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon.identity:org.wso2.carbon.identity.application.mgt.server.feature:${carbon.identity.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
                                     org.wso2.carbon.identity:org.wso2.carbon.identity.core.server.feature:${carbon.identity.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
+                                    org.wso2.carbon.identity:org.wso2.carbon.identity.core.ui.feature:${carbon.identity.version}
                                 </featureArtifactDef>
                             </featureArtifacts>
                         </configuration>
@@ -237,7 +252,7 @@
                             <deleteOldProfileFiles>true</deleteOldProfileFiles>
                             <features>
                                 <!--Start Cassandra features-->
-                                <feature>
+                                <!--feature>
                                     <id>org.wso2.carbon.cassandra.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
                                 </feature>
@@ -256,7 +271,7 @@
                                 <feature>
                                     <id>org.wso2.carbon.cassandra.datareader.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
-                                </feature>
+                                </feature-->
                                 <!--End Cassandra featrues-->
                                 <!--Start RSS featrues-->
                                 <feature>
@@ -273,7 +288,7 @@
                                 </feature>
                                 <!--End RSS featrues-->
                                 <!--Start HDFS featrues-->
-                                <feature>
+                                <!--feature>
                                     <id>org.wso2.carbon.hdfs.dataaccess.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
                                 </feature>
@@ -292,17 +307,18 @@
                                 <feature>
                                     <id>org.wso2.carbon.hdfs.datanode.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
-                                </feature>
+                                </feature-->
                                 <!--End HDFS featrues-->
                                 <!--Start Secure Hadoop featrues-->
-                                <feature>
+                                <!--feature>
                                     <id>org.wso2.carbon.hadoop.security.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.identity.authenticator.krb5.feature.group</id>
                                     <version>${carbon.storage.management.version}</version>
-                                </feature>
+                                </feature-->
+                                <!--Start LDAP features-->
                                 <feature>
                                     <id>org.wso2.carbon.ldap.server.feature.group</id>
                                     <version>${carbon.identity.version}</version>
@@ -337,11 +353,15 @@
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.databridge.datapublisher.feature.group</id>
-                                    <version>${carbon.commons.version}</version>
+                                    <version>${carbon.analytics-common.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.security.mgt.feature.group</id>
                                     <version>${carbon.identity.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.registry.contentsearch.feature.group</id>
+                                    <version>${carbon.registry.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.registry.core.feature.group</id>
@@ -370,6 +390,10 @@
                                 <feature>
                                     <id>org.wso2.carbon.tenant.common.feature.group</id>
                                     <version>${carbon.multitenancy.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.tenant.mgt.common.feature.group</id>
+                                    <version>${carbon.commons.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.tenant.deployment.feature.group</id>
@@ -404,8 +428,20 @@
                                     <version>${carbon.identity.version}</version>
                                 </feature>
                                 <feature>
+                                    <id>org.wso2.carbon.claim.mgt.ui.feature.group</id>
+                                    <version>${carbon.identity.version}</version>
+                                </feature>
+                                <feature>
                                     <id>org.wso2.carbon.user.mgt.feature.group</id>
-                                    <version>${carbon.commons.version}</version>
+                                    <version>${carbon.identity.version}</version>
+                                </feature>
+                                <!--<feature>-->
+                                    <!--<id>org.wso2.carbon.idp.mgt.server.feature.group</id>-->
+                                    <!--<version>${carbon.identity.version}</version>-->
+                                <!--</feature>-->
+                                <feature>
+                                    <id>org.wso2.carbon.idp.mgt.server.feature.group</id>
+                                    <version>${carbon.identity.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.identity.application.mgt.server.feature.group</id>
@@ -413,6 +449,10 @@
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.identity.core.server.feature.group</id>
+                                    <version>${carbon.identity.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.identity.core.ui.feature.group</id>
                                     <version>${carbon.identity.version}</version>
                                 </feature>
                             </features>

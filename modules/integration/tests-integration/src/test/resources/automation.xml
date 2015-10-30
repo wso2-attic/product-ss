@@ -186,53 +186,14 @@
         -->
         <productGroup name="SS" clusteringEnabled="false" default="true">
 
-            <instance name="lbw001" type="lb_worker_manager" nonBlockingTransportEnabled="true">
-                <hosts>
-                    <host type="worker">dss.wso2con.com</host>
-                    <host type="manager">mgt.dss.wso2con.com</host>
-                </hosts>
-                <ports>
-                    <port type="nhttps">8243</port>
-                    <port type="nhttp">8280</port>
-                </ports>
-                <properties>
-
-                </properties>
-            </instance>
-            <instance name="dss001" type="manager" nonBlockingTransportEnabled="false">
+            <instance name="ss002" type="standalone" nonBlockingTransportEnabled="false">
                 <hosts>
                     <host type="default">localhost</host>
                 </hosts>
                 <ports>
-                    <port type="http">9764</port>
-                    <port type="https">9444</port>
+                    <port type="http">11263</port>
+                    <port type="https">10943</port>
                 </ports>
-                <properties>
-                </properties>
-            </instance>
-
-            <instance name="dss002" type="standalone" nonBlockingTransportEnabled="false">
-                <hosts>
-                    <host type="default">localhost</host>
-                </hosts>
-                <ports>
-                    <port type="http">9763</port>
-                    <port type="https">9443</port>
-                </ports>
-                <properties>
-
-                </properties>
-            </instance>
-            <instance name="dss003" type="worker" nonBlockingTransportEnabled="false">
-                <hosts>
-                    <host type="default">localhost</host>
-                </hosts>
-                <ports>
-                    <port type="http">9765</port>
-                    <port type="https">9445</port>
-                </ports>
-                <properties>
-                </properties>
             </instance>
         </productGroup>
     </platform>
@@ -244,7 +205,7 @@
             <extentionClasses>
             <class>
                 <name>org.wso2.carbon.automation.extensions.servers.carbonserver.CarbonServerExtension</name>
-                <!--<parameter name="-DportOffset" value="0" />-->
+                <parameter name="-DportOffset" value="1500" />
                 <!--<parameter name="cmdArg" value="debug 5005" />-->
             </class>
             <class>
