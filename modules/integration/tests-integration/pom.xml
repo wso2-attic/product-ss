@@ -278,26 +278,26 @@
             <groupId>org.wso2.carbon.storagemgt</groupId>
             <artifactId>org.wso2.carbon.rssmanager.common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.storagemgt</groupId>
-            <artifactId>org.wso2.carbon.cassandra.mgt.stub</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>org.wso2.carbon.storagemgt</groupId>
-          <artifactId>org.wso2.carbon.rssmanager.stub</artifactId>
-      </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.storagemgt</groupId>
-            <artifactId>org.wso2.carbon.cassandra.cluster.mgt.stub</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.storagemgt</groupId>
-            <artifactId>org.wso2.carbon.cassandra.cluster.proxy.stub</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.storagemgt</groupId>
-            <artifactId>org.wso2.carbon.cassandra.explorer.stub</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon.storagemgt</groupId>-->
+            <!--<artifactId>org.wso2.carbon.cassandra.mgt.stub</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+          <!--<groupId>org.wso2.carbon.storagemgt</groupId>-->
+          <!--<artifactId>org.wso2.carbon.rssmanager.stub</artifactId>-->
+      <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon.storagemgt</groupId>-->
+            <!--<artifactId>org.wso2.carbon.cassandra.cluster.mgt.stub</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon.storagemgt</groupId>-->
+            <!--<artifactId>org.wso2.carbon.cassandra.cluster.proxy.stub</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon.storagemgt</groupId>-->
+            <!--<artifactId>org.wso2.carbon.cassandra.explorer.stub</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>org.jacoco.agent</artifactId>

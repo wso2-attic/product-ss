@@ -277,10 +277,10 @@
             <groupId>com.h2database.wso2</groupId>
             <artifactId>h2-database-engine</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.storagemgt</groupId>
-            <artifactId>org.wso2.carbon.cassandra.mgt.stub</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.wso2.carbon.storagemgt</groupId>-->
+            <!--<artifactId>org.wso2.carbon.cassandra.mgt.stub</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.wso2.ss</groupId>
             <artifactId>org.wso2.ss.integration.ui.pages</artifactId>
