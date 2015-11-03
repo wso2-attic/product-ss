@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.wso2.ss</groupId>
     	<artifactId>ss-styles-parent</artifactId>
-        <version>1.6.0-alpha</version>
+        <version>1.6.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     
