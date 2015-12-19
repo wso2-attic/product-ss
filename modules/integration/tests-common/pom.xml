@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.wso2.ss</groupId>
         <artifactId>integration</artifactId>
-        <version>1.6.0-SNAPSHOT</version>
+        <version>1.6.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -28,12 +28,12 @@
     <groupId>org.wso2.ss</groupId>
     <artifactId>ss-integration-tests-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.6.0-SNAPSHOT</version>
+    <version>1.6.1-SNAPSHOT</version>
     <name>WSO2 Storage Service Integration Test Common</name>
 
     <modules>
         <module>admin-clients</module>
-        <module>integration-test-utils</module>
+        <!--<module>integration-test-utils</module>-->
         <module>ui-pages</module>
     </modules>
 
