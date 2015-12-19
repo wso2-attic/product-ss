@@ -267,12 +267,12 @@
                 <version>${project.version}</version>
                 <scope>test</scope>
             </dependency>
-            <dependency>
-                <groupId>org.wso2.ss</groupId>
-                <artifactId>org.wso2.ss.integration.common.utils</artifactId>
-                <version>${project.version}</version>
-                <scope>test</scope>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.wso2.ss</groupId>-->
+                <!--<artifactId>org.wso2.ss.integration.common.utils</artifactId>-->
+                <!--<version>${project.version}</version>-->
+                <!--<scope>test</scope>-->
+            <!--</dependency>-->
             <dependency>
                 <groupId>org.wso2.ss</groupId>
                 <artifactId>org.wso2.ss.integration.ui.pages</artifactId>
