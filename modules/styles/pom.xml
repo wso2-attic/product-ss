@@ -22,13 +22,13 @@
     <parent>
         <groupId>org.wso2.ss</groupId>
         <artifactId>ss-parent</artifactId>
-        <version>1.6.0-alpha1</version>
+        <version>1.6.2-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>ss-styles-parent</artifactId>
-    <version>1.6.0-alpha1</version>
+    <version>1.6.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WSO2 Storage Server - Styles Parent</name>
     <url>http://wso2.com/products/storage-server</url>
